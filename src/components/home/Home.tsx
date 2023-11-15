@@ -2,18 +2,8 @@ import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import News from "./News";
 import Header from "../header/Header";
+import { Item } from "../../type";
 
-// Tipagem dos dados da API
-interface Item {
-  id: number;
-  tipo: string;
-  editorias: string;
-  titulo: string;
-  data_publicacao: string;
-  introducao: string;
-  link: string;
-  imagens: string;
-}
 
 function Home() {
 // Data é o estado que vai armazenar os dados da API
