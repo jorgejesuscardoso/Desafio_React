@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import News from "./News";
+import Header from "../header/Header";
 
 // Tipagem dos dados da API
 interface Item {
@@ -56,7 +57,9 @@ function Home() {
 
   console.log(data);
   return (
-      <div className=" container-home ">
+    <div className=" container-home ">
+      <Header/>
+      <div>
         {error ? (
           <p>Erro ao buscar notícias!</p> // Caso ocorra algum erro na requisição, exibe essa mensagem
         ) : items.length > 0 ? (
@@ -82,6 +85,7 @@ function Home() {
           Next
         </button>
       </div>
+    </div>
   );
 }
 
