@@ -23,9 +23,6 @@ button {
   .news-container {
     margin-bottom: 70px ;
   }
-  .intro {
-    padding: 30px;
-  }
 }
 /* Desktop styles telas médias */
 @media screen and (min-width: 1025px) and (max-width: 1600px) {
@@ -34,9 +31,6 @@ button {
   }
   .news-container {
     margin-bottom: 50px ;
-  }
-  .intro {
-    padding: 25px;
   }
 }
 /* Desktop styles padrão*/
@@ -47,9 +41,6 @@ button {
   .news-container {
     margin-bottom: 45px ;
   }
-  .intro {
-    padding: 22px;
-  }
 }
 /* Desktop styles telas pequenas */
 @media screen and (min-width: 769px) and (max-width: 960px) {
@@ -58,9 +49,6 @@ button {
   }
   .news-container {
     margin-bottom: 40px ;
-  }
-  .intro {
-    padding: 18px;
   }
 }
 
@@ -72,24 +60,23 @@ button {
   .news-container {
     margin-bottom: 40px ;
   }
-  .intro {
-    padding: 10px;
-  }
   
 }
 /* Smartphone styles */
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
-    width: 97%;
   }
   .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    border-bottom: 1px solid #000c005b;
     width: 100%;
-    margin: auto;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    max-height: 100px;
+    z-index: 99;
+    overflow: hidden;
   }
   .ico-container {
     display: flex;
@@ -97,15 +84,57 @@ button {
     width: 50%;
   }
   .logo {
-    width: 100px;
+    width: 150px;
   }
   .ico {
     width: 40px;
   }
-  .news-container {
-    margin-bottom: 50px ;
+  .ico-menu {
+    border: 1px solid #000c005b;
   }
-  .intro {
-    padding: 15px;
+  .homer-container {
+    display: flex;
+    flex-direction: column;
+    width: 99%;
   }
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px ;
+    box-shadow: 1px 1px 5px 1px #0000004d;
+    width: 80%;
+    gap: 10px;
+  }
+  .card-container {
+    margin-top: 110px;
+    max-height: 85vh;
+    overflow-y: scroll;
+  }
+}
+.intro {
+  text-align: justify;
+  padding: 10px;
+}
+.date {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid #000c005b;
+}
+.favorite-mark-and-share-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 40px ;
+  max-height: 50px;
+  width: 60%;
+}
+.favorite-mark-and-share {
+  width: 25px;
 }

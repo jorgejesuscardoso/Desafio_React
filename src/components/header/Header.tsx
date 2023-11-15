@@ -26,7 +26,7 @@ function Header () {
             <img
               src="src/assets/cardapio.png"
               alt="menu"
-              className="ico"
+              className="ico ico-menu"
             />
           </button>
         </div>

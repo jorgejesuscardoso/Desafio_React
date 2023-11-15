@@ -12,6 +12,7 @@ interface Item {
   data_publicacao: string;
   introducao: string;
   link: string;
+  imagens: string;
 }
 
 function Home() {
@@ -29,7 +30,7 @@ function Home() {
     const fetchData = async () => {
       try {
         const apiData = await FetchApi(currentPage);
-        // Atualiza o estado com os dados da API, e também com o número da página atual e o total de páginas. prevData é o estado anterior.
+        // Atualiza o estado com os dados da API
         setData(prevData => ({
           ...prevData,
           items: apiData.items,
@@ -57,11 +58,11 @@ function Home() {
 
   console.log(data);
   return (
-    <div className=" container-home ">
+    <div className=" homer-container ">
       <Header/>
-      <div>
+      <div className="card-container">
         {error ? (
-          <p>Erro ao buscar notícias!</p> // Caso ocorra algum erro na requisição, exibe essa mensagem
+          <p>Erro ao buscar notícias!</p> 
         ) : items.length > 0 ? (
           items.map((item) => (
             // Passa os dados da API para o componente News
