@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { redHeartIcon, emptyHeartIcon, shareIcon, markIcon } from './icons';
+import { redHeartIcon, emptyHeartIcon, shareIcon, markIcon } from './Imports';
 
 function CardIcons () {
   const [isfavorite, setFavorite] = useState(false);

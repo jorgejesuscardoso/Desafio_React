@@ -8,3 +8,6 @@ export interface Item {
   link: string;
   imagens: string;
 }
+export type dataHour = {
+  dateTime: string;
+};
