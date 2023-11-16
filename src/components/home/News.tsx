@@ -19,16 +19,18 @@ function News (item: Item) {
  
   return (
     <div key={id} className="news-card">
+      
       <img
         src={ `https://${domain}/${imageIntro}` }
         alt=""
         className="card-image"
       />
-      <h3>{titulo}</h3>
+      <Link to={link}>
+        <h3>{titulo}</h3>
+      </Link>
       <div className="intro" >
-        <Link to={link}>
+        
           <span>{introducao}</span>
-        </Link>
       </div>
       <div className="date">
         <div>

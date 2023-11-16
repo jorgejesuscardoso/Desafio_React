@@ -74,7 +74,7 @@ button {
     position: fixed;
     border-bottom: 1px solid #000c005b;
     width: 100%;
-    max-height: 100px;
+    max-height: 60px;
     z-index: 99;
     overflow: hidden;
   }
@@ -87,7 +87,7 @@ button {
     width: 150px;
   }
   .ico {
-    width: 40px;
+    width: 30px;
   }
   .ico-menu {
     border: 1px solid #000c005b;
@@ -106,12 +106,12 @@ button {
     margin-top: 10px;
     margin-bottom: 20px ;
     box-shadow: 1px 1px 5px 1px #0000004d;
-    width: 80%;
+    width: 94%;
     gap: 10px;
   }
   .card-container {
-    margin-top: 110px;
-    max-height: 85vh;
+    margin-top: 80px;
+    max-height: 84vh;
     overflow-y: scroll;
   }
 }
@@ -151,4 +151,30 @@ button {
   align-items: center;
   gap: 10px;
   font-size: 18px;
+}
+h3 {
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px;
+}
+.pageBtn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  width: 30%;
+  height: 40px;
+  border: 1px solid #000c005b;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000c00;
+  font-size: 23px;
+  font-weight: 600;
+  cursor: pointer;
 }

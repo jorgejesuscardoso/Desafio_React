@@ -14,3 +14,13 @@ export type dataHour = {
 export type FavoriteType = {
   id: number;
 };
+
+export type PagesProps = {
+  page: number;
+  totalPages: number;
+};
+
+export type PagesState = {
+  page: number;
+  currentPage: number;
+};
