@@ -1,5 +1,6 @@
 import { FavoriteType } from "../../type";
-// Obtem local storage e verifica se o item já está salvo dinamicamente, necessário passar, key e id
+
+// Obtem local storage dinamicamente e verifica se o item já está salvo, necessário passar, key e id
 export function getLocalStorage (key: string, id: FavoriteType) {
   const Store = localStorage.getItem(`${key}`) || "[]";    
     const favoriteArray = JSON.parse(Store);
