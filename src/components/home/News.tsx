@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { Item } from "../../type";
-import CardIcons from "../icons/CardIcon";
 import DateTimeDisplay from "../dateTime/DateTImeDIsplay";
+import Favorite from "../favorite/Favorite";
+import Share from "../share/ShareIcon";
+import Mark from "../mark/Mark";
 
 function News (item: Item) {
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
+  
   // Obtem o JSON com as imagens da API, e converte para objeto
   const imageData = imagens;
   const imageObj = JSON.parse(imageData);
@@ -34,7 +37,13 @@ function News (item: Item) {
           />
         </div>
       </div>
-        <CardIcons />      
+      <div className="favorite-mark-and-share-container">
+        <Favorite 
+        favoriteId={ id }
+        />
+        <Share />
+        <Mark />
+      </div>
    </div>
   );
 }

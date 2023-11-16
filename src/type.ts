@@ -11,3 +11,6 @@ export interface Item {
 export type dataHour = {
   dateTime: string;
 };
+export type FavoriteType = {
+  favoriteId: number;
+};

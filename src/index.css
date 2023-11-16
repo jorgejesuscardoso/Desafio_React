@@ -146,3 +146,9 @@ button {
 .date-time {
   color: rgba(0, 0, 0, 0.7);
 }
+.favoriteCount {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
