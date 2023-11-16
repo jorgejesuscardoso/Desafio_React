@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { shareIcon } from "../icons/Imports";
+import { FavoriteType } from "../../type";
 
-function Share() {
+function Share(id: FavoriteType) {
+  
   const [shareCount, setShareCount] = useState(0);
 
   // Seta o estado do ícone de favorito

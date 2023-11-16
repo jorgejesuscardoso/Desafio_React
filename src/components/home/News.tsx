@@ -39,10 +39,14 @@ function News (item: Item) {
       </div>
       <div className="favorite-mark-and-share-container">
         <Favorite 
-        favoriteId={ id }
+          id={ id }
         />
-        <Share />
-        <Mark />
+        <Share
+          id={ id }
+        />
+        <Mark
+          id={ id }
+        />
       </div>
    </div>
   );

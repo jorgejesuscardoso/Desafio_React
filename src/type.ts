@@ -12,5 +12,5 @@ export type dataHour = {
   dateTime: string;
 };
 export type FavoriteType = {
-  favoriteId: number;
+  id: number;
 };
