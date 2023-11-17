@@ -14,7 +14,7 @@ export function PrevBtn ({ page }: PagesProps) {
       disabled={page === 1}
       className='page-btn'
     >
-      Prev
+      {'<<<'}
     </button>
   );
 }

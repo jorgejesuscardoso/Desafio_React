@@ -8,7 +8,7 @@ export interface Item {
   link: string;
   imagens: string;
 }
-export type dataHour = {
+export type DataHour = {
   dateTime: string;
 };
 export type FavoriteType = {

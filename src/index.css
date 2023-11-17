@@ -158,23 +158,20 @@ h3 {
   font-weight: 600;
   margin: 10px;
 }
-.pageBtn {
+.page-btn-container {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  margin: auto;
+  margin-top: 8px;
+  height: 50px;
+  width: 100%;  
 }
 .page-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
-  width: 30%;
-  height: 40px;
-  border: 1px solid #000c005b;
-  border-radius: 5px;
-  background-color: #fff;
+  width: 50%;
   color: #000c00;
+  border: 1px solid #000c005b;
   font-size: 23px;
-  font-weight: 600;
   cursor: pointer;
 }

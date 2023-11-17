@@ -14,7 +14,7 @@ export function NextBtn ({ page, totalPages }: PagesProps) {
       disabled={page === totalPages}
       className='page-btn'
     >
-      Next
+      {'>>>'}
     </button>
   );
 }

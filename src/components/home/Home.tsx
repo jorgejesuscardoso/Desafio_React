@@ -66,7 +66,7 @@ function Home() {
           <p>Carregando...</p>
         )}        
       </div>
-      <div className="pageBtn">
+      <div className="page-btn-container">
         <PrevBtn page={page} totalPages={totalPages} />
         <NextBtn page={page} totalPages={totalPages} />
       </div>
