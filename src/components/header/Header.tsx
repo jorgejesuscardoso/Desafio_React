@@ -2,7 +2,6 @@ import { logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Impor
 
 function Header () {
   return (
-    <div>
       <header className="header-container">
           <img
             src={ logoIcon }
@@ -33,7 +32,6 @@ function Header () {
           </button>
         </div>
       </header>
-    </div>
   );
 }
 

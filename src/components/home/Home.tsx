@@ -56,35 +56,37 @@ function Home() {
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
   return (
-    <div className=" homer-container ">
+    <>
       <Header />
-      <div className="top-filter">
-        <TopFilter />
-      </div>
-      <div className="card-container">
-        {error ? (
-          <p>Erro ao buscar notícias!</p> 
-        ) : items.length > 0 ? (
-          items.map((item) => (
-            
-            <div key={item.id}>
-              <NewsCard { ...item } /> 
-            </div>
-          ))
-        ) : (
-          <p>Carregando...</p>
-        )}        
-      </div>{ displayMenu 
-        ? (<div className="display-menu">
-          <MenuFooterFIlter />
-        </div>)
-        : (' ')}
-      <div className="page-btn-container">
+      <main className=" homer-container ">
+        <div className="top-filter">
+          <TopFilter />
+        </div>
+        <section className="card-container">
+          {error ? (
+            <p>Erro ao buscar notícias!</p> 
+          ) : items.length > 0 ? (
+            items.map((item) => (
+              
+              <div key={item.id}>
+                <NewsCard { ...item } /> 
+              </div>
+            ))
+          ) : (
+            <p>Carregando...</p>
+          )}        
+        </section>{ displayMenu 
+          ? (<div className="display-menu">
+            <MenuFooterFIlter />
+          </div>)
+          : (' ')}
+      </main>
+      <footer className="page-btn-container">
         <PrevBtn page={page} totalPages={totalPages} />
         <FooterFIlterBtn />
         <NextBtn page={page} totalPages={totalPages} />
-      </div>
-    </div>
+      </footer>
+    </>
   );
 }
 
