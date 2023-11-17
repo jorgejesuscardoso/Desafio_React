@@ -5,7 +5,7 @@ import Favorite from "../favorite/Favorite";
 import Share from "../share/ShareIcon";
 import Mark from "../mark/Mark";
 
-function News (item: Item) {
+function NewsCard (item: Item) {
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
   
   // Obtem o JSON com as imagens da API, e converte para objeto
@@ -18,19 +18,20 @@ function News (item: Item) {
   const domain = url.hostname;
  
   return (
-    <div key={id} className="news-card">
-      
+    <div key={id} className="news-card">      
       <img
         src={ `https://${domain}/${imageIntro}` }
         alt=""
         className="card-image"
       />
-      <Link to={link}>
-        <h3>{titulo}</h3>
-      </Link>
-      <div className="intro" >
-        
+      <h3>{titulo}</h3>
+      <div className="intro" >        
           <span>{introducao}</span>
+      </div>
+      <div className="link-full-news">
+        <Link to={link}>
+          <span>Leia mais</span>
+        </Link>
       </div>
       <div className="date">
         <div>
@@ -54,4 +55,4 @@ function News (item: Item) {
   );
 }
 
-export default News;
+export default NewsCard;

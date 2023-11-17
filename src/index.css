@@ -33,7 +33,7 @@ button {
     margin-bottom: 50px ;
   }
 }
-/* Desktop styles padrão*/
+/* Desktop styles telas padrão*/
 @media screen and (min-width: 962px) and (max-width: 1024px) {
   body {
     font-size: 20px;
@@ -42,7 +42,6 @@ button {
     margin-bottom: 45px ;
   }
 }
-/* Desktop styles telas pequenas */
 @media screen and (min-width: 769px) and (max-width: 960px) {
   body {
     font-size: 18px;
@@ -52,7 +51,6 @@ button {
   }
 }
 
-/* Tablet styles */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   body {
     font-size: 16px;
@@ -110,8 +108,8 @@ button {
     gap: 10px;
   }
   .card-container {
-    margin-top: 80px;
-    max-height: 84vh;
+    margin-top: 70px;
+    max-height: 85vh;
     overflow-y: scroll;
   }
 }
@@ -159,10 +157,11 @@ h3 {
   margin: 10px;
 }
 .page-btn-container {
+  position: fixed;
+  bottom: 1px;
   display: flex;
   margin: auto;
-  margin-top: 8px;
-  height: 50px;
+  height: 7vh;
   width: 100%;  
 }
 .page-btn {
@@ -173,5 +172,17 @@ h3 {
   color: #000c00;
   border: 1px solid #000c005b;
   font-size: 23px;
+  cursor: pointer;
+}
+.link-full-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(200, 209, 206);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  width: 200px;
   cursor: pointer;
 }

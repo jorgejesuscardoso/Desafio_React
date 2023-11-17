@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
-import News from "./News";
+import NewsCard from "../card/Card";
 import Header from "../header/Header";
 import { Item, PagesState } from "../../type";
 import { PrevBtn } from "../buttons/Prev";
@@ -9,35 +9,38 @@ import { useSelector } from "react-redux";
 
 
 function Home() {
-// Data é o estado que vai armazenar os dados da API
-  const redux = useSelector((state: PagesState) => state);
-  const nextOrPrevPage = redux.page // Define se a página é a próxima ou a anterior, retornoo dos botoes next e prev
+  const redux = useSelector((state: PagesState) => state); // Armazena o estado do redux. Botoes next e prev
+
+  const nextOrPrevPage = redux.page 
 
   const [data, setData] = useState<{ items: Item[], page: number, totalPages: number }>({ 
-    items: [],
-    page: 1,
-    totalPages: 1,
+    items: [], // Armazena os itens da API
+    page: 1, // Define a página inicial
+    totalPages: 1, // Define o total inicial de páginas para evitar erros
   });
-  const [error, setError] = useState(false);
-  const [changePage, setChangePage] = useState(1);
+
+  const [error, setError] = useState(false); // Armazena o erro da API
+  const [changePage, setChangePage] = useState(1); // Armazena a página atual
+
   useEffect(() => {
     if (nextOrPrevPage > 0) {
       setChangePage(nextOrPrevPage);
     }
-  }, [nextOrPrevPage]);
+  }, [nextOrPrevPage]); // Sem useEffect precisa clicar duas vezes para atualizar o estado
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiData = await FetchApi(changePage);
-        // Atualiza o estado com os dados da API
+        const apiData = await FetchApi(changePage); // Chama a API
         setData(prevData => ({
           ...prevData,
           items: apiData.items,
           page: apiData.page,
           totalPages: apiData.totalPages,
           link: apiData.link,
-        }));
-        window.scrollTo(0, 0);
+        })); // Atualiza o estado data com os dados da API
+
+        window.scrollTo(0, 0); // Faz o scroll para o topo da página ao mudar de página
       } catch (error) {
         setError(true);
       }
@@ -46,7 +49,7 @@ function Home() {
     fetchData();
   }, [changePage]);
   
-  const { items, page, totalPages } = data;
+  const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
 
   return (
     <div className=" homer-container ">
@@ -57,9 +60,8 @@ function Home() {
         ) : items.length > 0 ? (
           items.map((item) => (
             
-            // Passa os dados da API para o componente News
             <div key={item.id}>
-              <News { ...item } /> 
+              <NewsCard { ...item } /> 
             </div>
           ))
         ) : (
