@@ -1,32 +1,34 @@
+import { logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
+
 function Header () {
   return (
     <div>
       <header className="header-container">
           <img
-            src="src/assets/bnLogo.png"
+            src={ logoIcon }
             alt="Logo"
             className="logo"
             />
         <div className="ico-container">
           <button>
             <img
-              src="src/assets/perfil.png"
+              src={ profileIcon }
               alt="perfil"
               className="ico"
               />
           </button>
           <button>
             <img
-              src="src/assets/lupa.png"
+              src={ searchIcon }
               alt="lupa"
               className="ico"
             />
           </button>
           <button>
             <img
-              src="src/assets/cardapio.png"
+              src={ menuPontoIcon }
               alt="menu"
-              className="ico ico-menu"
+              className="ico"
             />
           </button>
         </div>

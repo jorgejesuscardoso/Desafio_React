@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { emptyHeartIcon, redHeartIcon } from "../icons/Imports";
 import { FavoriteType } from "../../type";
 import { getLocalStorage, removeFromLocalStorage, setLocalStorage } from "../utils/Utils";
+import { liked, unliked } from "../icons/Imports";
 
 function Favorite (favoriteId: FavoriteType) {
   const [isFavorited, setFavorited] = useState(false);
@@ -36,7 +36,7 @@ function Favorite (favoriteId: FavoriteType) {
         onClick={ handleFavorite }
       >
         <img
-          src={ isFavorited ? redHeartIcon : emptyHeartIcon }
+          src={ isFavorited ? liked : unliked }
           alt="favorite"
           className="favorite-mark-and-share"
         />

@@ -21,6 +21,13 @@ export type PagesProps = {
 };
 
 export type PagesState = {
-  page: number;
-  currentPage: number;
+  pageReducer: {
+    page: number;
+    currentPage: number;
+  };
+};
+export type MenuType = {
+  footerMenu: {
+    display: boolean;
+  };
 };

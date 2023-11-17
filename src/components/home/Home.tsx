@@ -2,26 +2,31 @@ import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import NewsCard from "../card/Card";
 import Header from "../header/Header";
-import { Item, PagesState } from "../../type";
+import { Item, MenuType, PagesState } from "../../type";
 import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
+import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
+import MenuFooterFIlter from "../filter/FooterFilter";
+import TopFilter from "../filter/TopFilter";
 
 
 function Home() {
-  const redux = useSelector((state: PagesState) => state); // Armazena o estado do redux. Botoes next e prev
-
+  const redux = useSelector((state: PagesState) => state.pageReducer); // Armazena o estado do redux. Botoes next e prev
   const nextOrPrevPage = redux.page 
+
+  const footerMenu = useSelector((state: MenuType) => state.footerMenu);
+  const displayMenu = footerMenu.display;
 
   const [data, setData] = useState<{ items: Item[], page: number, totalPages: number }>({ 
     items: [], // Armazena os itens da API
     page: 1, // Define a página inicial
-    totalPages: 1, // Define o total inicial de páginas para evitar erros
+    totalPages: 1, // Define o total de páginas inicial para evitar erros
   });
 
   const [error, setError] = useState(false); // Armazena o erro da API
   const [changePage, setChangePage] = useState(1); // Armazena a página atual
-
+  
   useEffect(() => {
     if (nextOrPrevPage > 0) {
       setChangePage(nextOrPrevPage);
@@ -50,10 +55,12 @@ function Home() {
   }, [changePage]);
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
-
   return (
     <div className=" homer-container ">
-      <Header/>
+      <Header />
+      <div className="top-filter">
+        <TopFilter />
+      </div>
       <div className="card-container">
         {error ? (
           <p>Erro ao buscar notícias!</p> 
@@ -67,9 +74,14 @@ function Home() {
         ) : (
           <p>Carregando...</p>
         )}        
-      </div>
+      </div>{ displayMenu 
+        ? (<div className="display-menu">
+          <MenuFooterFIlter />
+        </div>)
+        : (' ')}
       <div className="page-btn-container">
         <PrevBtn page={page} totalPages={totalPages} />
+        <FooterFIlterBtn />
         <NextBtn page={page} totalPages={totalPages} />
       </div>
     </div>

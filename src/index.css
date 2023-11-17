@@ -23,6 +23,11 @@ button {
   .news-container {
     margin-bottom: 70px ;
   }
+
+  img {
+    width: 50%;
+  }
+  
 }
 /* Desktop styles telas médias */
 @media screen and (min-width: 1025px) and (max-width: 1600px) {
@@ -32,6 +37,11 @@ button {
   .news-container {
     margin-bottom: 50px ;
   }
+
+  img {
+    width: 40%;
+  }
+  
 }
 /* Desktop styles telas padrão*/
 @media screen and (min-width: 962px) and (max-width: 1024px) {
@@ -41,6 +51,10 @@ button {
   .news-container {
     margin-bottom: 45px ;
   }
+  img {
+    width: 30%;
+  }
+  
 }
 @media screen and (min-width: 769px) and (max-width: 960px) {
   body {
@@ -49,6 +63,10 @@ button {
   .news-container {
     margin-bottom: 40px ;
   }
+  img {
+    width: 20%;
+  }
+  
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -57,6 +75,9 @@ button {
   }
   .news-container {
     margin-bottom: 40px ;
+  }
+  img {
+    width: 10%;
   }
   
 }
@@ -72,23 +93,20 @@ button {
     position: fixed;
     border-bottom: 1px solid #000c005b;
     width: 100%;
-    max-height: 60px;
+    max-height: 50px;
     z-index: 99;
     overflow: hidden;
   }
   .ico-container {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: space-around;
+    width: 60%;
   }
   .logo {
-    width: 150px;
+    width: 70px;
   }
   .ico {
-    width: 30px;
-  }
-  .ico-menu {
-    border: 1px solid #000c005b;
+    width: 20px;
   }
   .homer-container {
     display: flex;
@@ -161,14 +179,14 @@ h3 {
   bottom: 1px;
   display: flex;
   margin: auto;
-  height: 7vh;
+  height: 5vh;
   width: 100%;  
 }
 .page-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   color: #000c00;
   border: 1px solid #000c005b;
   font-size: 23px;
@@ -185,4 +203,50 @@ h3 {
   height: 40px;
   width: 200px;
   cursor: pointer;
+}
+
+.filter {
+  width: 20%;
+}
+.filter img {
+  width: 20px;
+}
+.display-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 5vh;
+  right: 0;
+  width: 60%;
+  height: 35vh;
+  background-color: #000c001f;
+  z-index: 99;
+  gap: 3px;
+}
+.display-menu button {
+  width: 90%;
+  height: 5vh;
+  font-size: 20px;
+  color: rgb(100, 100, 100);
+  cursor: pointer;
+}
+.display-menu h3 {
+  text-align: center;
+  background-color: white;
+  color: rgb(70, 109, 8);
+  width: 25vh;
+}
+.top-filter {
+  position: fixed;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.top-filter button {
+  border: 1px solid #000c005b;
+  width: 20%;
+  height: 20px;
+  height: 100%;
 }
