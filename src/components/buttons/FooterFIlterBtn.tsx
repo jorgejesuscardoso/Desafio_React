@@ -1,5 +1,5 @@
 import { menuFilterIcon } from "../icons/Imports";
-import { footerMenuDisplayAction } from "../redux/action/pagesAction";
+import { footerMenuDisplayAction } from "../redux/action/actions";
 import { useDispatch } from "react-redux";
 
 function FooterFIlterBtn () {

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { Item } from "../../type";
+import { ItemProps } from "../../type";
 import DateTimeDisplay from "../dateTime/DateTImeDIsplay";
 import Favorite from "../favorite/Favorite";
 import Share from "../share/ShareIcon";
 import Mark from "../mark/Mark";
 
-function NewsCard (item: Item) {
+function NewsCard (item: ItemProps) {
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
   
   // Obtem o JSON com as imagens da API, e converte para objeto

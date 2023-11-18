@@ -1,6 +1,6 @@
 import { PagesProps } from '../../type';
 import { useDispatch } from 'react-redux';
-import { prevPagesAction } from '../redux/action/pagesAction';
+import { prevPagesAction } from '../redux/action/actions';
 
 export function PrevBtn ({ page }: PagesProps) {
   const dispatch = useDispatch();

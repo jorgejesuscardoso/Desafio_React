@@ -1,4 +1,4 @@
-export interface Item {
+export interface ItemProps {
   id: number;
   tipo: string;
   editorias: string;
@@ -29,5 +29,17 @@ export type PagesState = {
 export type MenuType = {
   footerMenu: {
     display: boolean;
+  };
+};
+export type DateProp = {
+  filterDate: {
+    filterDate: string;
+    searchDate: boolean;
+  };
+};
+
+export type FilterTypeNewsRelease = {
+  filterNewsAndRelease: {
+    filterNewsAndRelease: string;
   };
 };
