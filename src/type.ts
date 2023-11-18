@@ -37,7 +37,10 @@ export type DateProp = {
     searchDate: boolean;
   };
 };
-
+export type SearchDateProp = {
+  initialDate: string;
+  finalDate: string;
+};
 export type FilterTypeNewsRelease = {
   filterNewsAndRelease: {
     filterNewsAndRelease: string;

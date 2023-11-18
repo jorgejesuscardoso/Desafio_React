@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { FILTER_DATE, FILTER_NEWS_AND_RELEASE } from '../action/actions';
+import { FILTER_DATE, FILTER_DATE_SEARCH, FILTER_NEWS_AND_RELEASE } from '../action/actions';
 const initialState = {
   page: 1,
 };
@@ -9,7 +9,7 @@ const INITIAL_DISPLAY_FOOTER_MENU = {
 const INITIAL_NEWS_AND_RELEASE_FILTER = {
   filterNewsAndRelease: '',
 };
-const initialDate = {
+const initialSearchDate = {
   filterDate: '',
   searchDate: false,
 };
@@ -55,14 +55,14 @@ export const filterAllReducer = (state = INITIAL_NEWS_AND_RELEASE_FILTER, action
   }
 }
 
-export const filterDateReducer = (state = initialDate, action: AnyAction) => {
+export const filterDateReducer = (state = initialSearchDate, action: AnyAction) => {
   switch (action.type) {
-    case FILTER_DATE:
+    case FILTER_DATE_SEARCH:
       return {
         ...state,
         filterDate: action.payload,
       };
-    case 'FILTER_DATE_SEARCH':
+    case FILTER_DATE:
       return {
         ...state,
         searchDate: !state.searchDate,

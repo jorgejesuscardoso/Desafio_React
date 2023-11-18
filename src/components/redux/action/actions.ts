@@ -1,3 +1,4 @@
+
 export const FILTER_NEWS_AND_RELEASE = 'FILTER_NEWS_AND_RELEASE';
 export const FILTER_DATE = 'FILTER_DATE';
 export const FILTER_DATE_SEARCH = 'FILTER_DATE_SEARCH';
@@ -26,6 +27,12 @@ export const filterAllAction = (filter: string) => {
 }
 export const filterDateAction = () => {
   return {
+      type: FILTER_DATE,
+  };
+}
+export const filterSearchDateAction = (date: string) => {
+  return {
       type: FILTER_DATE_SEARCH,
+      payload: date,
   };
 }

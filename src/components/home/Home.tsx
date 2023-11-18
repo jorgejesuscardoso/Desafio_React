@@ -35,10 +35,10 @@ function Home() {
   const [error, setError] = useState(false); // Armazena o erro da API
   const [numberPage, setNumberPage] = useState(1); // Armazena a página atual
   const [typeNews, setTypeApi] = useState(''); // Armazena o tipo de API
-  
+ 
   useEffect(() => {
     if (filterNewsAndRelease || filterNewsAndRelease === '') {
-      setTypeApi(filterNewsAndRelease); // Se o tipo de API for all, não passa nada para a API
+      setTypeApi(filterNewsAndRelease); 
     }
     const fetchData = async () => {
       try {
@@ -67,7 +67,7 @@ function Home() {
   }, [nextOrPrevPage]); // Sem useEffect precisa clicar duas vezes para atualizar o estado
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
-  console.log(data)
+  console.log(filterDate)
   return (
     <>
       <Header />

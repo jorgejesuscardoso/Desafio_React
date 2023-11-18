@@ -273,7 +273,7 @@ h3 {
   top: 35%;
   border: 1px solid #000c005b;
   width: 50%;
-  height: 20vh;
+  height: 30vh;
   z-index: 999;
 }
 .inputs-search-date {
@@ -306,4 +306,11 @@ h3 {
   height: 20px;
   top: 35%;
   right: 25%;
+}
+.erro-msg-date {
+  text-align: center;
+  display: flex;
+  width: 100%;
+  color: red;
+  font-size: 14px;
 }
