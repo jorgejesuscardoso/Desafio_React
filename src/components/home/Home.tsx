@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import NewsCard from "../card/Card";
 import Header from "../header/Header";
-import { DateProp, FilterTypeNewsRelease, ItemProps, MenuType, MiscellanousFilterType, PagesState } from "../../type";
+import { DateProp, FilterTypeNewsRelease, ItemProps, MenuType, MiscellanousFilterType, PagesState, SearchNewsType } from "../../type";
 import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
@@ -36,7 +36,9 @@ function Home() {
     filterMarked,
     filterSocial,
     } = handleMiscellaneousFilter;
-
+  
+  const { searchNews }  = useSelector((state: SearchNewsType) => state.search);
+ 
   const [data, setData] = useState<{ items: ItemProps[], page: number, totalPages: number }>({ 
     items: [], // Armazena os itens da API
     page: 1, // Define a página inicial
@@ -53,7 +55,12 @@ function Home() {
     }
     const fetchData = async () => {
       try {
-        const apiData = await FetchApi(typeNews, numberPage, filterDate); // Chama a API
+        const apiData = await FetchApi(
+          typeNews,
+          numberPage,
+          filterDate,
+          searchNews,
+          ); // Chama a API
         // Filtrar por editorias
         const filterByEditoria = apiData.items.filter((item: ItemProps) => {
           if (filterEconomy) {
@@ -68,17 +75,21 @@ function Home() {
           if (filterSocial) {
             return item.editorias === 'sociais';
           }
+          //Obtem os favoritos na chave favorite do localStorage
           if (filterFavorite) {
-            return true;
+            const favoriteList = JSON.parse(localStorage.getItem('favorite') || '[]');
+            return favoriteList.includes(item.id);
           }
+          //Obtem os marcados na chave marked do localStorage
           if (filterMarked) {
-            return true;
+            const markedList = JSON.parse(localStorage.getItem('marked') || '[]');
+            return markedList.includes(item.id);
           }
           return item;
         }
         );
         if (filterByEditoria.length === 0) {
-          setNumberPage(numberPage + 1);
+          setNumberPage(numberPage + 1); // Se não houver notícias na página atual, avança até uma página que tenha notícias
         }
         setData(prevData => ({
           ...prevData,
@@ -95,7 +106,7 @@ function Home() {
     };
   
     fetchData();
-  }, [numberPage, typeNews, filterNewsAndRelease, filterDate, filterEconomy, filterGeoscience, filterIbge, filterSocial, filterFavorite, filterMarked]);
+  }, [numberPage, typeNews, filterNewsAndRelease, filterDate, filterEconomy, filterGeoscience, filterIbge, filterSocial, filterFavorite, searchNews, filterMarked]);
 
   useEffect(() => {
     if (nextOrPrevPage > 0) {
@@ -105,6 +116,8 @@ function Home() {
   }, [nextOrPrevPage]); // Sem useEffect precisa clicar duas vezes para atualizar o estado
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
+
+  console.log(searchNews);
   return (
     <>
       <Header />
@@ -116,7 +129,7 @@ function Home() {
           {error || items.length === 0 ? (
             <div className="error-div">
             <p>
-              Erro ao buscar as notícias ou não há notícias nesta página. Tente avançar para a próxima página ou recarregue para limpar os filtros.
+              Erro ao buscar por notícias ou não há notícias nesta página. Você pode aguardar um momento, tentar avançar para a próxima página ou recarregar a página para limpar os filtros.
             </p>
             <button onClick={() => window.location.reload()}>Recarregar</button>
           </div>

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import reducer, { filterAllReducer, filterDateReducer, handleFooterMenu, miscellaneousFilterReducer } from "./reducer/reducers";
+import reducer, { filterAllReducer, filterDateReducer, handleFooterMenu, miscellaneousFilterReducer, searchNewsReducer } from "./reducer/reducers";
 
 const rootReducer = combineReducers({
   pageReducer: reducer,
@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   filterNewsAndRelease: filterAllReducer,
   filterDate: filterDateReducer,
   filterAll: miscellaneousFilterReducer,
+  search: searchNewsReducer,
 });
 
 export default rootReducer;

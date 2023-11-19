@@ -21,6 +21,10 @@ const MISCELLANEOUS_FILTER = {
   filterMarked: false,
   filterFavorite: false,
 };
+const INITIAL_SEARCH = {
+  searchNews: '',
+};
+
 const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case 'NEXT_PAGE':
@@ -131,6 +135,18 @@ export const miscellaneousFilterReducer = (state = MISCELLANEOUS_FILTER, action:
         filterEconomy: false,
         filterMarked: false,
         filterFavorite: false,
+      };
+    default:
+      return state;
+  }
+}
+
+export const searchNewsReducer = (state = INITIAL_SEARCH, action: AnyAction) => {
+  switch (action.type) {
+    case 'SHEARCH_NEWS':
+      return {
+        ...state,
+        searchNews: action.payload,
       };
     default:
       return state;

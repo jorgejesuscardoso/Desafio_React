@@ -8,6 +8,7 @@ export const FILTER_IBGE = 'FILTER_IBGE';
 export const FILTER_ECONOMY = 'FILTER_ECONOMY';
 export const FILTER_MARKED = 'FILTER_MARKED';
 export const FILTER_FAVORITE = 'FILTER_FAVORITE';
+export const SHEARCH_NEWS = 'SHEARCH_NEWS';
 
 export const nextPagesAction = () => {
     return {
@@ -70,5 +71,11 @@ export const filterMarkedAction = () => {
 export const filterFavoriteAction = () => {
   return {
       type: FILTER_FAVORITE,
+  };
+}
+export const searchNewsAction = (search: string) => {
+  return {
+      type: SHEARCH_NEWS,
+      payload: search,
   };
 }

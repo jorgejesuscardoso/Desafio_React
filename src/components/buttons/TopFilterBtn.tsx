@@ -10,6 +10,7 @@ function TopFilter () {
   
   const handeFilterAll = () => {
     dispatch(filterAllAction(''))
+    window.location.reload()
     scrolTop()
   }
   const handeFilterFavorites = () => {

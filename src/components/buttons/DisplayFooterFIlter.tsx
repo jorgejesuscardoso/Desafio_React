@@ -32,7 +32,7 @@ function DisplayFooterFIlter() {
   return (
     <div className="display-footer-menu">
       <div className="title-display-menu">
-        <h3>Escolha um filtro</h3>
+        <h3>Filtros</h3>
       </div>
         <button className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterGeosciences}>
           Geociências

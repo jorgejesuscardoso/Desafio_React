@@ -57,3 +57,8 @@ export type MiscellanousFilterType = {
     filterFavorite: boolean,
   };
 };
+export type SearchNewsType = {
+  search: {
+    searchNews: string;
+  };
+};
