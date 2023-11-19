@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterDateAction, filterEconomyAction, filterGeoscienceAction, filterIbgeAction, filterSocialAction } from "../redux/action/actions";
 import { DateProp, MiscellanousFilterType } from "../../type";
+import { scrolTop } from "../utils/Utils";
 
 function DisplayFooterFIlter() {
   const { filterEconomy, filterGeoscience, filterIbge, filterSocial } = useSelector((state: MiscellanousFilterType) => state.filterAll);
@@ -9,18 +10,23 @@ function DisplayFooterFIlter() {
 
   const handleFilterGeosciences = () => {
     dispatch(filterGeoscienceAction());
+    scrolTop();
   }
   const handleFilterEconomy = () => {
     dispatch(filterEconomyAction())
+    scrolTop();
   }
   const handleFilterSocial = () => {
     dispatch(filterSocialAction())
+    scrolTop();
   }
   const handleFilterIBGE = () => {
     dispatch(filterIbgeAction())
+    scrolTop();
   }
   const handleFilterDate = () => {
     dispatch(filterDateAction());
+    scrolTop();
   }
 
   return (
