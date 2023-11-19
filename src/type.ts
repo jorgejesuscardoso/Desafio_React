@@ -46,3 +46,14 @@ export type FilterTypeNewsRelease = {
     filterNewsAndRelease: string;
   };
 };
+
+export type MiscellanousFilterType = {
+  filterAll: {
+    filterGeoscience: boolean,
+    filterSocial: boolean,
+    filterIbge: boolean,
+    filterEconomy: boolean,
+    filterMarked: boolean,
+    filterFavorite: boolean,
+  };
+};

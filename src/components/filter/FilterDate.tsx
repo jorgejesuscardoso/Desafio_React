@@ -19,16 +19,23 @@ function FilterDate () {
     }
     if (!initialDate && !finalDate) {
       dispatch(filterAllAction('noticia'));
+      const date = '';
+      dispatch(filterSearchDateAction(date));
+      window.scrollTo(0, 0);
     } 
     if (initialDate && finalDate) {
       const fullDate = `de=${initialDate}&ate=${finalDate}`;
       dispatch(filterSearchDateAction(fullDate));
+      window.scrollTo(0, 0);
     } else if (initialDate) {
       dispatch(filterSearchDateAction(`de=${initialDate}`));
+      window.scrollTo(0, 0);
     } else if (finalDate) {
       dispatch(filterSearchDateAction(`ate=${finalDate}`));
+      window.scrollTo(0, 0);
     }
     dispatch(filterDateAction());
+    window.scrollTo(0, 0);
   }
   const handleClose = () => { 
     dispatch(filterDateAction());
@@ -49,7 +56,7 @@ function FilterDate () {
               <div className="inputs-search-date">
                 <label htmlFor="searchInitialDate">Data inicial:</label>
                 <input
-                  type="text"
+                  type="date"
                   id="searchInitialDate"
                   placeholder="MM-DD-AA"
                   value={ initialDate }
@@ -59,7 +66,7 @@ function FilterDate () {
               <div className="inputs-search-date">
                 <label htmlFor="searchFinalDate">Data final:</label>
                 <input
-                  type="text"
+                  type="date"
                   id="searchFinalDate"
                   placeholder="MM-DD-AA"
                   value={ finalDate }

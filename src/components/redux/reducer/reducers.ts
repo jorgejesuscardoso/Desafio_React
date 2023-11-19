@@ -13,7 +13,14 @@ const initialSearchDate = {
   filterDate: '',
   searchDate: false,
 };
-
+const MISCELLANEOUS_FILTER = {
+  filterGeoscience: false,
+  filterSocial: false,
+  filterIbge: false,
+  filterEconomy: false,
+  filterMarked: false,
+  filterFavorite: false,
+};
 const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case 'NEXT_PAGE':
@@ -66,6 +73,64 @@ export const filterDateReducer = (state = initialSearchDate, action: AnyAction) 
       return {
         ...state,
         searchDate: !state.searchDate,
+      };
+    default:
+      return state;
+  }
+}
+export const miscellaneousFilterReducer = (state = MISCELLANEOUS_FILTER, action: AnyAction) => {
+  switch (action.type) {
+    case 'FILTER_GEOSCIENCE':
+      return {
+        ...state,
+        filterGeoscience: !state.filterGeoscience,
+        filterEconomy: false,
+        filterSocial: false,
+        filterIbge: false,
+      };
+    case 'FILTER_SOCIAL':
+      return {
+        ...state,
+        filterSocial: !state.filterSocial,
+        filterGeoscience: false,
+        filterIbge: false,
+        filterEconomy: false,
+      };
+    case 'FILTER_IBGE':
+      return {
+        ...state,
+        filterIbge: !state.filterIbge,
+        filterGeoscience: false,
+        filterSocial: false,
+        filterEconomy: false,
+      };
+    case 'FILTER_ECONOMY':
+      return {
+        ...state,
+        filterEconomy: !state.filterEconomy,
+        filterSocial: false,
+        filterIbge: false,
+        filterGeoscience: false,
+      };
+    case 'FILTER_MARKED':
+      return {
+        ...state,
+        filterMarked: !state.filterMarked,
+      };
+    case 'FILTER_FAVORITE':
+      return {
+        ...state,
+        filterFavorite: !state.filterFavorite,
+      };
+    case FILTER_NEWS_AND_RELEASE:
+      return {
+        ...state,
+        filterGeoscience: false,
+        filterSocial: false,
+        filterIbge: false,
+        filterEconomy: false,
+        filterMarked: false,
+        filterFavorite: false,
       };
     default:
       return state;

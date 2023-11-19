@@ -1,39 +1,67 @@
-import { useDispatch } from "react-redux"
-import { filterAllAction } from "../redux/action/actions"
+import { useDispatch, useSelector } from "react-redux"
+import { filterAllAction, filterFavoriteAction, filterMarkedAction } from "../redux/action/actions"
+import { FilterTypeNewsRelease, MiscellanousFilterType } from "../../type"
+import { scrolTop } from "../utils/Utils"
 
 function TopFilter () {
-  const dipatch = useDispatch()
-
+  const dispatch = useDispatch()
+  const { filterFavorite, filterMarked } = useSelector((state: MiscellanousFilterType) => state.filterAll)
+  const { filterNewsAndRelease } = useSelector((state: FilterTypeNewsRelease) => state.filterNewsAndRelease)
+  
   const handeFilterAll = () => {
-    dipatch(filterAllAction(''))
+    dispatch(filterAllAction(''))
+    scrolTop()
   }
   const handeFilterFavorites = () => {
-    console.log('Favoritos')
+    dispatch(filterFavoriteAction())
+    scrolTop()
   }
   const handeFilterMarked = () => {
-    console.log('Marcados')
+    dispatch(filterMarkedAction())
+    scrolTop()
   }
   const handeFilterNews = () => {
-    dipatch(filterAllAction('noticia'))
+    dispatch(filterAllAction('noticia'))
+    scrolTop()
   }
   const handeFilterRelease = () => {
-    dipatch(filterAllAction('release'))
+    dispatch(filterAllAction('release'))
+    scrolTop()
   }
   return (
     <>
-      <button className="filter-btn" onClick={handeFilterAll}>
+      <button
+        className={ !filterNewsAndRelease ? "filter-btn filtred-btn-top" : "filter-btn" }
+        onClick={handeFilterAll}
+      >
         Todos
       </button>
-      <button className="filter-btn" onClick={handeFilterFavorites}>
+
+      <button
+        className={ !filterFavorite ? "filter-btn" : "filter-btn filtred-btn-top"}
+        onClick={handeFilterFavorites}
+      >
         Favoritos
       </button>
-      <button className="filter-btn" onClick={handeFilterMarked}>
+
+      <button
+        className={ !filterMarked ? "filter-btn" : "filter-btn filtred-btn-top"}
+        onClick={handeFilterMarked}
+      >
         Marcados
       </button>
-      <button className="filter-btn" onClick={handeFilterNews}>
+
+      <button 
+        className={ filterNewsAndRelease === 'noticia' ? "filter-btn filtred-btn-top" : "filter-btn" }
+        onClick={handeFilterNews}
+      >
         Notícias
       </button>
-      <button className="filter-btn" onClick={handeFilterRelease}>
+
+      <button
+        className={ filterNewsAndRelease === 'release' ? "filter-btn filtred-btn-top" : "filter-btn" }
+        onClick={handeFilterRelease}
+      >
         Releases
       </button>
     </>

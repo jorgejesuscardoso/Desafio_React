@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import NewsCard from "../card/Card";
 import Header from "../header/Header";
-import { DateProp, FilterTypeNewsRelease, ItemProps, MenuType, PagesState } from "../../type";
+import { DateProp, FilterTypeNewsRelease, ItemProps, MenuType, MiscellanousFilterType, PagesState } from "../../type";
 import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import TopFilter from "../buttons/TopFilterBtn";
 import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
 import DisplayFooterFIlter from "../buttons/DisplayFooterFIlter";
 import FilterDate from "../filter/FilterDate";
+import { scrolTop } from "../utils/Utils";
 
 
 function Home() {
@@ -25,6 +26,16 @@ function Home() {
   const handleDate = useSelector((state: DateProp) => state.filterDate);
   const { filterDate } = handleDate; // Armazena a data de filtro
   const { searchDate } = handleDate; // Armazena a data de filtro
+
+  const handleMiscellaneousFilter = useSelector((state: MiscellanousFilterType) => state.filterAll);
+  const {
+    filterEconomy,
+    filterFavorite,
+    filterGeoscience,
+    filterIbge,
+    filterMarked,
+    filterSocial,
+    } = handleMiscellaneousFilter;
 
   const [data, setData] = useState<{ items: ItemProps[], page: number, totalPages: number }>({ 
     items: [], // Armazena os itens da API
@@ -43,9 +54,35 @@ function Home() {
     const fetchData = async () => {
       try {
         const apiData = await FetchApi(typeNews, numberPage, filterDate); // Chama a API
+        // Filtrar por editorias
+        const filterByEditoria = apiData.items.filter((item: ItemProps) => {
+          if (filterEconomy) {
+            return item.editorias === 'economicas';
+          }
+          if (filterGeoscience) {
+            return item.editorias === 'geociencias';
+          }
+          if (filterIbge) {
+            return item.editorias === 'ibge';
+          }
+          if (filterSocial) {
+            return item.editorias === 'sociais';
+          }
+          if (filterFavorite) {
+            return true;
+          }
+          if (filterMarked) {
+            return true;
+          }
+          return item;
+        }
+        );
+        if (filterByEditoria.length === 0) {
+          setNumberPage(numberPage + 1);
+        }
         setData(prevData => ({
           ...prevData,
-          items: apiData.items,
+          items: filterByEditoria,
           page: apiData.page,
           totalPages: apiData.totalPages,
         })); // Atualiza o estado data com os dados da API
@@ -58,16 +95,16 @@ function Home() {
     };
   
     fetchData();
-  }, [numberPage, typeNews, filterNewsAndRelease, filterDate]);
+  }, [numberPage, typeNews, filterNewsAndRelease, filterDate, filterEconomy, filterGeoscience, filterIbge, filterSocial, filterFavorite, filterMarked]);
 
   useEffect(() => {
     if (nextOrPrevPage > 0) {
       setNumberPage(nextOrPrevPage);
+      scrolTop();
     }
   }, [nextOrPrevPage]); // Sem useEffect precisa clicar duas vezes para atualizar o estado
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
-  console.log(filterDate)
   return (
     <>
       <Header />
@@ -76,8 +113,13 @@ function Home() {
           <TopFilter />
         </div>
         <section className="card-container">
-          {error ? (
-            <p>Erro ao buscar as notícias!</p> 
+          {error || items.length === 0 ? (
+            <div className="error-div">
+            <p>
+              Erro ao buscar as notícias ou não há notícias nesta página. Tente avançar para a próxima página ou recarregue para limpar os filtros.
+            </p>
+            <button onClick={() => window.location.reload()}>Recarregar</button>
+          </div>
           ) : items.length > 0 ? (
             items.map((item) => (
               

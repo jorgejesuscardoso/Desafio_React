@@ -1,19 +1,23 @@
-import { useDispatch } from "react-redux";
-import { filterDateAction } from "../redux/action/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { filterDateAction, filterEconomyAction, filterGeoscienceAction, filterIbgeAction, filterSocialAction } from "../redux/action/actions";
+import { DateProp, MiscellanousFilterType } from "../../type";
 
 function DisplayFooterFIlter() {
+  const { filterEconomy, filterGeoscience, filterIbge, filterSocial } = useSelector((state: MiscellanousFilterType) => state.filterAll);
+  const { searchDate } = useSelector((state: DateProp) => state.filterDate);
   const dispatch = useDispatch();
+
   const handleFilterGeosciences = () => {
-    console.log('geociências');
+    dispatch(filterGeoscienceAction());
   }
   const handleFilterEconomy = () => {
-    console.log('economia');
+    dispatch(filterEconomyAction())
   }
   const handleFilterSocial = () => {
-    console.log('sociais');
+    dispatch(filterSocialAction())
   }
   const handleFilterIBGE = () => {
-    console.log('IBGE');
+    dispatch(filterIbgeAction())
   }
   const handleFilterDate = () => {
     dispatch(filterDateAction());
@@ -24,19 +28,19 @@ function DisplayFooterFIlter() {
       <div className="title-display-menu">
         <h3>Escolha um filtro</h3>
       </div>
-        <button className="display-menu-btn" onClick={handleFilterGeosciences}>
+        <button className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterGeosciences}>
           Geociências
         </button>
-        <button className="display-menu-btn" onClick={handleFilterSocial}>
+        <button className={ filterSocial ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterSocial}>
           Sociais
         </button>
-        <button className="display-menu-btn" onClick={handleFilterDate}>
+        <button className={ searchDate ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterDate}>
           Data
         </button>
-        <button className="display-menu-btn" onClick={handleFilterIBGE}>
+        <button className={ filterIbge ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterIBGE}>
           IBGE
         </button>
-        <button className="display-menu-btn" onClick={handleFilterEconomy}>
+        <button className={ filterEconomy ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterEconomy}>
           Economia
         </button>
     </div>

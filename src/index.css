@@ -314,3 +314,38 @@ h3 {
   color: red;
   font-size: 14px;
 }
+.error-div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+  height: 80vh;
+  gap: 10px;
+}
+.error-div button {
+  background-color: rgb(2, 209, 2);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 50%;
+  height: 4vh;
+}
+.filtred-btn {
+  background-color: rgb(2, 209, 2) !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-color: white !important;
+}
+.filtred-btn-top {
+  background-color: rgb(2, 209, 2) !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-left: 1px solid white !important;
+  border-right: 1px solid white !important;
+}

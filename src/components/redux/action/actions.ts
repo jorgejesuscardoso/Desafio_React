@@ -2,6 +2,12 @@
 export const FILTER_NEWS_AND_RELEASE = 'FILTER_NEWS_AND_RELEASE';
 export const FILTER_DATE = 'FILTER_DATE';
 export const FILTER_DATE_SEARCH = 'FILTER_DATE_SEARCH';
+export const FILTER_GEOSCIENCE = 'FILTER_GEOSCIENCE';
+export const FILTER_SOCIAL = 'FILTER_SOCIAL';
+export const FILTER_IBGE = 'FILTER_IBGE';
+export const FILTER_ECONOMY = 'FILTER_ECONOMY';
+export const FILTER_MARKED = 'FILTER_MARKED';
+export const FILTER_FAVORITE = 'FILTER_FAVORITE';
 
 export const nextPagesAction = () => {
     return {
@@ -34,5 +40,35 @@ export const filterSearchDateAction = (date: string) => {
   return {
       type: FILTER_DATE_SEARCH,
       payload: date,
+  };
+}
+export const filterGeoscienceAction = () => {
+  return {
+      type: FILTER_GEOSCIENCE,
+  };
+}
+export const filterSocialAction = () => {
+  return {
+      type: FILTER_SOCIAL,
+  };
+}
+export const filterIbgeAction = () => {
+  return {
+      type: FILTER_IBGE,
+  };
+}
+export const filterEconomyAction = () => {
+  return {
+      type: FILTER_ECONOMY,
+  };
+}
+export const filterMarkedAction = () => {
+  return {
+      type: FILTER_MARKED,
+  };
+}
+export const filterFavoriteAction = () => {
+  return {
+      type: FILTER_FAVORITE,
   };
 }
