@@ -62,3 +62,21 @@ export type SearchNewsType = {
     searchNews: string;
   };
 };
+export type UserTypes = [{
+      id: number,
+      nome: string,
+      sobrenome: string,
+      idade: number,
+      foto: string, 
+      email: string,
+      senha: string,
+      connected?: boolean,
+      endereco: {
+        rua: string,
+        numero: number,
+        bairro: string,
+        cidade: string,
+        estado: string,
+        pais: string,
+         },
+}]

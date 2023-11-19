@@ -422,3 +422,28 @@ h3 {
   margin: auto;
   cursor: pointer;
 }
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid #000c005b;
+  margin: auto;
+  margin-top: 1vh;
+  width:90%;
+  background-color: rgba(255, 255, 255, 0.925);
+}
+.register-container button {
+  background-color: rgba(18, 118, 118, 0.5);
+  width: 50%;
+  height: 4vh;
+  font-size: 16px;
+  cursor: pointer;
+}
+.register-container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
