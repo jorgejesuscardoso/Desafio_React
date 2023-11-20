@@ -4,6 +4,7 @@ import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../ic
 import { FormEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchNewsAction } from "../redux/action/actions";
+import TopFilter from "../buttons/TopFilterBtn";
 
 function Header () {
   const navigate = useNavigate();
@@ -116,48 +117,63 @@ function Header () {
             }
           { showMenu ? (
             <div className="menu-header-container">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (userConnected) {
-                    handleLogout();
-                    return;
-                  } 
-                  if (!userConnected){
-                    navigate('/login');
-                  }
-                }}
-                className={ userConnected ? 'logout-btn' : 'btn-login-header'}           
-              >
-               { userConnected ? 'Sair' : 'Entrar' }
-              </button>
-              <button
-                onClick={() => navigate('/register')}
-                style={{ display: userConnected ? 'none' : 'block' }}
-              >
-                Registrar-se
-              </button>
-              <button
-                onClick={() => navigate('/about')}
-              >
-                About
-              </button>
-              <button
-                onClick={() => navigate('/contact')}
-              >
-                Contact
-              </button>
-              <button
-                onClick={ handleShowMenu }
-                className="btn-close-header"
-              >
-                ❌
-              </button>
+              <ul>
+                <li>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (userConnected) {
+                        handleLogout();
+                        return;
+                      } 
+                      if (!userConnected){
+                        navigate('/login');
+                      }
+                    }}
+                    className={ userConnected ? 'logout-btn' : 'btn-login-header'}           
+                  >
+                  { userConnected ? 'Sair' : 'Entrar' }
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigate('/register')}
+                    style={{ display: userConnected ? 'none' : 'block' }}
+                  >
+                    Registrar-se
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => navigate('/about')}
+                  >
+                    About
+                  </button>
+                </li>
+              <li>
+                <button
+                    onClick={() => navigate('/contact')}
+                  >
+                    Contact
+                  </button>
+              </li>
+              <li>
+                <button
+                  onClick={ handleShowMenu }
+                  className="btn-close-header"
+                >
+                  ❌
+                </button>
+              </li>
+             </ul>
             </div>
           ) : (
             <></>
           )
           }
+        </div>
+        <div className="top-filter">
+          <TopFilter />
         </div>
       </header>
   );

@@ -6,7 +6,6 @@ import { DateProp, FilterTypeNewsRelease, ItemProps, MenuType, MiscellanousFilte
 import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
-import TopFilter from "../buttons/TopFilterBtn";
 import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
 import DisplayFooterFIlter from "../buttons/DisplayFooterFIlter";
 import FilterDate from "../filter/FilterDate";
@@ -129,9 +128,6 @@ function Home() {
     <>
       <Header />
       <main className=" homer-container ">
-        <div className="top-filter">
-          <TopFilter />
-        </div>
         <section className="card-container">
           {error || items.length === 0 ? (
             <div className="error-div">

@@ -30,7 +30,7 @@ function NewsCard (item: ItemProps) {
       </div>
       <div className="link-full-news">
         <Link to={link}>
-          <h3>Leia mais</h3>
+          <h3>Ler mais</h3>
         </Link>
       </div>
       <div className="date">

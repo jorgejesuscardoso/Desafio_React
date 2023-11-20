@@ -188,16 +188,20 @@ function EditProfile () {
                     minLength={ 6 }
                   />
                   <label htmlFor="confirma">Confirme a senha</label>
+                  <div className="confirma-senha-cont">
                   <input
                     type="password"
                     name="confirma"
                     id="confirma"
                     value={ confirmNewPass.senha }
                     onChange={ (e) => setConfirmNewPass({ ...confirmNewPass, senha: e.target.value }) }
+                    minLength={ 6 }
+                    className="confirma-senha"
                   />
+                  { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
+                  </div>
                   {error2 && <p>{error2}</p>}
                   {error && <p>{error}</p>}
-                  { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
                   <h4>Endereço:</h4>
                   <label htmlFor="rua">Rua:</label>
                   <input

@@ -242,7 +242,7 @@ function Register () {
             setError(false);
             setIsRegister(false);
             }}
-          type='text'
+          type='number'
           placeholder='Número'
           id="number"
           required

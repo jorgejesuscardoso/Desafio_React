@@ -7,7 +7,6 @@ function DisplayFooterFIlter() {
   const { filterEconomy, filterGeoscience, filterIbge, filterSocial } = useSelector((state: MiscellanousFilterType) => state.filterAll);
   const { searchDate } = useSelector((state: DateProp) => state.filterDate);
   const dispatch = useDispatch();
-
   const handleFilterGeosciences = () => {
     dispatch(filterGeoscienceAction());
     scrolTop();
