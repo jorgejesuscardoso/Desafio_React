@@ -48,7 +48,8 @@ function Home() {
   const [error, setError] = useState(false); // Armazena o erro da API
   const [numberPage, setNumberPage] = useState(1); // Armazena a página atual
   const [typeNews, setTypeApi] = useState(''); // Armazena o tipo de API
- 
+  const [popUp, setPopUp] = useState(''); 
+
   useEffect(() => {
     if (filterNewsAndRelease || filterNewsAndRelease === '') {
       setTypeApi(filterNewsAndRelease); 
@@ -78,11 +79,19 @@ function Home() {
           //Obtem os favoritos na chave favorite do localStorage
           if (filterFavorite) {
             const favoriteList = JSON.parse(localStorage.getItem('favorite') || '[]');
+            if (favoriteList.length === 0) {
+              setPopUp('Não há notícias favoritadas')
+              return item;
+            }
             return favoriteList.includes(item.id);
           }
           //Obtem os marcados na chave marked do localStorage
           if (filterMarked) {
             const markedList = JSON.parse(localStorage.getItem('marked') || '[]');
+            if (markedList.length === 0) {
+              setPopUp('Não há notícias marcadas')
+              return item;
+            }
             return markedList.includes(item.id);
           }
           return item;
@@ -104,7 +113,7 @@ function Home() {
         setError(true);
       }
     };
-  
+  console.log('useeffect')
     fetchData();
   }, [numberPage, typeNews, filterNewsAndRelease, filterDate, filterEconomy, filterGeoscience, filterIbge, filterSocial, filterFavorite, searchNews, filterMarked]);
 
@@ -116,8 +125,6 @@ function Home() {
   }, [nextOrPrevPage]); // Sem useEffect precisa clicar duas vezes para atualizar o estado
   
   const { items, page, totalPages } = data; // Desestrutura o estado para usar os dados da API
-
-  console.log(searchNews);
   return (
     <>
       <Header />
@@ -151,6 +158,13 @@ function Home() {
           : (' ')}
         { searchDate
           ? (<FilterDate />)
+          : ('')
+        }
+        { popUp
+          ? (<div className="pop-up">
+            <p>{ popUp }</p>
+            <button onClick={() => setPopUp('')}>X</button>
+          </div>)
           : ('')
         }
       </main>

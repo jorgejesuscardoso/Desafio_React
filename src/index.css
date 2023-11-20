@@ -103,7 +103,21 @@ input, label, button {
   .ico-container {
     display: flex;
     justify-content: space-around;
-    width: 60%;
+    width: 100%;
+  }
+  .user-name-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(0, 0, 150);
+    width: 45%;
+  }
+  .user-name-header p {
+    font-size: 14px;
+  }
+  .user-name-header img {
+    margin-left: 0;
+    width: 40px;
   }
   .logo {
     width: 70px;
@@ -199,7 +213,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(142, 160, 142);
+  background-color: rgb(0, 150, 0);
   font-size: 16px;
   font-weight: 600;
   height: 40px;
@@ -246,7 +260,7 @@ h3 {
   align-items: center;
   margin-top: 2%;
   background-color: rgba(255, 255, 255, 0.589);
-  color: rgb(70, 109, 8);
+  color: rgb(0, 109, 0);
   height: 4vh;
   width: 80%;
 }
@@ -345,13 +359,11 @@ h3 {
   border-color: white !important;
 }
 .filtred-btn-top {
-  background-color: rgb(2, 209, 2) !important;
+  background-color: rgb(0, 160, 0) !important;
   color: white !important;
   font-size: 15px !important;
   font-weight: 600 !important;
   border: none !important;
-  border-left: 1px solid white !important;
-  border-right: 1px solid white !important;
 }
 
 .search-header-container {
@@ -424,26 +436,186 @@ h3 {
 }
 
 .register-container {
+  background-image: URL('src/assets/bnLogo.png');
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  border: 1px solid #000c005b;
   margin: auto;
-  margin-top: 1vh;
-  width:90%;
+  width:100%;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0.925);
 }
-.register-container button {
-  background-color: rgba(18, 118, 118, 0.5);
+.register-container form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 5px 1px rgba(100, 155, 200, 1);
+  justify-content: center;
+  font-size: 16px;
+  width: 88%;
+  margin: auto;
+  height: 70%;
+  gap: 5px;
+}
+.form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  gap: 10px;
+}
+.form-page input{
+  text-indent: 10px;
+  width: 100%;
+  height: 3.5vh;
+  outline: none;
+}
+.form-register {
+  position: fixed;
+  top: 85vh;
+  display: flex;
+  justify-content: space-between;
+  width: 64%;
+  height: 7vh;
+  gap: 5px;
+}
+.form-pic p {
+  text-align: center;
+  font-size: 16px;
+}
+.btn-next-and-prev-register, .btn-next-and-prev-register-prev{
+  margin: auto;
+  background-color: rgb(0, 150, 0);
   width: 50%;
+  height: 4vh;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  bottom: 0;
+}
+.btn-form-register {
+  position: fixed;
+  background-color: rgb(0, 10, 146);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  top: 70vh;
+  right: 25%;
+  width: 50%;
+  height: 4vh;
+  gap: 5px;
+}
+.btn-next-and-prev-register-active {
+  background-color: rgb(200, 0, 0);
+}
+.have-account {
+  background-color: rgb(179, 179, 179);
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 7vh;
+  bottom: 0;
+  font-size: 17px;
+}
+.have-account button  {
+  background-color: rgb(0, 50, 255);
+  width: 30%;
+  height: 4vh;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pop-up {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  border: 1px solid #000c005b;
+  width: 60%;
+  height: 10vh;
+  top: 35%;
+  right: 20%;
+  background-color: rgba(255, 255, 255, 0.925);
+}
+.pop-up button {
+  background-color: rgba(230, 18, 10, 0.5);
+  width: 10%;
   height: 4vh;
   font-size: 16px;
   cursor: pointer;
 }
-.register-container form {
+.login-container {
+  background-image: url('src/assets/bnLogo.png');
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+.login-container form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px 5px 1px #0000004d;
+  border-radius: 8px;
+  width: 60%;
+  height: 35vh;
   gap: 5px;
 }
+
+.login-input {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  font-size: 16px;
+  gap: 5px;
+}
+.login-input input {
+  text-indent: 10px;
+  width: 100%;
+  height: 3.5vh;
+  outline: none;
+}
+
+.login-input button {
+  margin: auto;
+  background-color: rgb(0, 200, 0);
+  width: 50%;
+  height: 4vh;
+  margin-top: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.footer-form-login {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 4vh;
+  border-top: 1px solid #000c005b;
+}
+.footer-form-login button {
+  font-size: 14px;
+  cursor: pointer;
+}
+

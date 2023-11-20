@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { AnyAction } from "redux"
+import { logoIcon } from "../icons/Imports"
 
 function Register () {
   const [email, setEmail] = useState('')
@@ -19,6 +20,9 @@ function Register () {
   const [isRegister, setIsRegister] = useState(false)
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
+  const [page, setPage] = useState(0)
+  const [disable, setDisable] = useState(true)
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -56,13 +60,46 @@ function Register () {
     setError(false);
     setErrorMsg('');
   };
-
+  useEffect(() => {
+    if (page === 0) {
+      if (password.length < 6 || email.includes('@') === false || email.includes('.com') === false) {
+        setDisable(true)
+      } else {
+        setDisable(false)
+      }
+    } else if (page === 1) {
+      if (name.length < 3 || lastname.length < 3 || age.length < 2) {
+        setDisable(true)
+      } else {
+        setDisable(false)
+      }
+    } else if (page === 2) {
+      if (address.rua.length < 3 || address.numero === '' || address.bairro.length < 3 || address.cidade.length <3 || address.estado.length < 2) {
+        setDisable(true)
+      } else {
+        setDisable(false)
+      }
+    } else {
+      setDisable(false)
+    }
+    if (disable !== false) {
+      document.querySelector('.btn-next-and-prev-register')?.classList.add('btn-next-and-prev-register-active')
+      
+    } else {
+      document.querySelector('.btn-next-and-prev-register')?.classList.remove('btn-next-and-prev-register-active')
+    }
+  },[page, email, password, name, lastname, age, address.rua, address.numero, address.bairro, address.cidade, address.estado, confirmPassword, disable])
   return (
     <div className="register-container">
       <form
         onSubmit={handleOnSubmit}
         
       >
+       { page === 0 ?  
+       (
+        <div className="form-page">
+          <img src={ logoIcon } alt="" style={{width: 150, margin: 'auto'}} />
+         <h2>Formulário de Cadastro</h2>
         <label htmlFor="login">E-mail:</label>
         <input
           value={email}
@@ -71,12 +108,12 @@ function Register () {
             setError(false);
             setIsRegister(false);
             }}
-          type='text'
+          type='email'
           placeholder='email'
           id="login"
           required
         />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Senha:</label>
         <input
           value={password}
           onChange={(e) => {
@@ -90,7 +127,27 @@ function Register () {
           minLength={6}
           required
         />
-        <label htmlFor="name">Nome:</label>
+        <label htmlFor="confirme-pass">Confirme a senha:</label>
+        <input
+          type='password'
+          placeholder='Confirme a senha'
+          id="confirme-pass"
+          minLength={6}
+          value={confirmPassword}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+            setError(false);
+            setIsRegister(false);
+            }}
+          required
+        />
+        { password !== confirmPassword && <p>As senhas não coincidem!</p>}
+        </div>) 
+        : page === 1 
+        ? (
+        <div className="form-page">
+         <img src={ logoIcon } alt="" style={{width: 150, margin: 'auto'}} />         
+         <label htmlFor="name">Nome:</label>
         <input
           value={name}
           onChange={(e) => {
@@ -129,8 +186,13 @@ function Register () {
           id="age"
           required
         />
-        <label htmlFor="street">Rua:</label>
-        <input
+        </div>
+        ) : page === 2
+        ? (
+        <div className="form-page">
+          <img src={ logoIcon } alt="" style={{width: 100, margin: 'auto', marginTop: -25}} />
+          <label htmlFor="street">Rua:</label>
+          <input
           value={address.rua}
           onChange={(e) => {
             setAddress({...address, rua: e.target.value});
@@ -206,22 +268,52 @@ function Register () {
           placeholder='País'
           id="country"
         />
-        <label htmlFor="thumb">Foto:</label>
-        <input
-          value={thumb}
-          onChange={(e) => {
-            setThumb(e.target.value);
-            setError(false);
-            setIsRegister(false);
-            }}
-          type='text'
-          placeholder='Foto'
-          id="thumb"
-          required
-        />
-        <button type='submit'>Registrar</button>
+        </div>
+        ) : (
+        <div className="form-page form-pic">
+           <img src={ logoIcon } alt="" style={{width: 150, margin: 'auto'}} />
+          <p>Gostaria de Adicionar uma foto ao seu perfil ?</p>
+          <label htmlFor="thumb">Foto:</label>
+          <input
+            value={thumb}
+            onChange={(e) => {
+              setThumb(e.target.value);
+              setError(false);
+              setIsRegister(false);
+              }}
+            type='text'
+            placeholder='Url da foto'
+            id="thumb"
+          />
+          <button
+            type='submit'
+            className="btn-form-register"
+          >
+            Registrar
+          </button>
+        </div>)}
+        <div 
+          className="form-register"
+        >
+          <button
+            type='button'
+            onClick={() => setPage(page - 1)}
+            disabled={page === 0}
+            className="btn-next-and-prev-register-prev"
+          >
+              Anterior
+          </button>
+          <button
+            type='button'
+            onClick={() => setPage(page + 1)}
+            disabled={page === 3 || disable === true}
+            className="btn-next-and-prev-register"
+          >
+            Próximo
+          </button>
+        </div>
       </form>
-      <div>
+      <div className="have-account">
         <h4>Já possui conta?</h4>
         <button onClick={() => window.location.href = '/login'}>Login</button>
       </div>

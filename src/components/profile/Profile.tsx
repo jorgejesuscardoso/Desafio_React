@@ -32,9 +32,18 @@ function Profile () {
           <h1>Seu perfil</h1>
           <div>
             <img src={ userConnected[0].foto } alt={ userConnected[0].nome } />
-            <h2>{ userConnected[0].nome } { userConnected[0].sobrenome }</h2>
-            <h4>{ userConnected[0].idade } anos</h4>
             <div>
+              <div>
+                <h2>{ userConnected[0].nome } { userConnected[0].sobrenome }</h2>
+                <h4>{ userConnected[0].idade } anos</h4>            
+              </div>
+              <button
+                onClick={() => navigate('/profile/edit-profile')}
+              >
+                Editar Perfil
+              </button>
+            </div>
+           <div>
               <h3>
                 Endereço:                
               </h3>

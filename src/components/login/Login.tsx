@@ -46,11 +46,8 @@ function Login () {
     const connectedUser = {
       id: existingUser.id,
       nome: existingUser.name,
-      idade: existingUser.age,
-      endereco: existingUser.address,
-      foto: existingUser.thumb,
       email: existingUser.email,
-      senha: existingUser.password,
+      senha: existingUser.senha,
       connected: true
     };
     
@@ -67,7 +64,7 @@ function Login () {
 
   
   return (
-    <div>
+    <main className="login-container">
       { userConnected && userConnected.length > 0 ? (
         <div>
           <p>Você já está logado!</p>
@@ -80,50 +77,54 @@ function Login () {
       )         
        : (<form
           onSubmit={handleOnSubmit}
-        >
-          <label htmlFor="login">E-mail:</label>
-          <input
-            value={email}
-            onChange={(e) => (
-              setEmail(e.target.value),
-              setError(false) )}
-            type='email'
-            placeholder='Email'
-            id="login"
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value),
-              setError(false)}}
-            type='password'
-            placeholder='Password'
-            id="password"
-            minLength={6}
-            required
-          />
-          <button type='submit'>Logar</button>
+        > <h1>Login</h1>
+          <div className="login-input">
+            <label htmlFor="login">E-mail:</label>
+            <input
+              value={email}
+              onChange={(e) => (
+                setEmail(e.target.value),
+                setError(false) )}
+              type='email'
+              placeholder='Email'
+              id="login"
+              required
+            />
+            <label htmlFor="password">Password:</label>
+            <input
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value),
+                setError(false)}}
+              type='password'
+              placeholder='Password'
+              id="password"
+              minLength={6}
+              required
+            />
+            <button type='submit'>Logar</button>
+          </div>
+          <footer className="footer-form-login">
+            <div>
+              <button
+                onClick={() => navigate('/register')}
+              >
+                Criar conta
+              </button>
+            </div>
+            <button
+              onClick={() => navigate('/')}
+            >
+              Voltar ao início
+            </button>
+          </footer>
         </form>)}
       <div>
         { error && <p>{errorMsg}</p> }
         { isConnected && <p>Logado com sucesso!</p>}
         { loading && <p>Carregando...</p>}
       </div>
-      <div>
-        <button
-          onClick={() => navigate('/register')}
-        >
-          Criar conta
-        </button>
-      </div>
-      <button
-        onClick={() => navigate('/')}
-      >
-        Voltar ao início
-      </button>
-    </div>
+    </main>
   )
 }
 

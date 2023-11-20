@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
-import { logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
-import { FormEvent, useState } from "react";
+import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
+import { FormEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchNewsAction } from "../redux/action/actions";
 
@@ -11,6 +12,23 @@ function Header () {
   const [showSearch, setShowSearch] = useState(false); // Armazena o estado do input de pesquisa [true/false
   const [search, setSearch] = useState(''); // Armazena o valor do input de pesquisa
   const [showMenu, setShowMenu] = useState(false); // Armazena o estado do menu [true/false]
+  const [userConnected, setUserConected] = useState(false); // Armazena o estado do usuário logado [true/false]
+  const [user, setUser] = useState({ name: '', thumb: ''});
+
+  useEffect(() => {
+    const user = localStorage.getItem('connected');
+    const userData = localStorage.getItem('users');
+    if (user) {      
+      const users = JSON.parse(userData || '[]');
+      const mapUser = users.map((u: any) => u).find((u: any) => u.id === JSON.parse(user).id);
+      setUserConected(true);
+      setUser({name: mapUser.nome, thumb: mapUser.foto});
+    } else {
+      setUserConected(false);
+      setUser({name: '', thumb: ''});
+    }
+  }
+  ,[userConnected]);
 
   const handleShowSearch = () => {
     setShowSearch(!showSearch);
@@ -24,6 +42,10 @@ function Header () {
   const handleShowMenu = () => {
     setShowMenu(!showMenu);
   }
+  const handleLogout = () => {
+    localStorage.removeItem('connected');
+    setUserConected(false);
+  }
   return (
       <header className="header-container">
           <img
@@ -32,6 +54,10 @@ function Header () {
             className="logo"
             />
         <div className="ico-container">
+          <div className="user-name-header">
+            <img src={ userConnected ? user.thumb : SemFoto } alt="" />
+            {userConnected ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
+          </div>
           <button
             onClick={() => navigate('/profile')}
           >
@@ -91,12 +117,22 @@ function Header () {
           { showMenu ? (
             <div className="menu-header-container">
               <button
-                onClick={() => navigate('/login')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (userConnected) {
+                    handleLogout();
+                    return;
+                  } 
+                  if (!userConnected){
+                    navigate('/login');
+                  }
+                }}                
               >
-                Login
+               { userConnected ? 'Sair' : 'Entrar' }
               </button>
               <button
                 onClick={() => navigate('/register')}
+                style={{ display: userConnected ? 'none' : 'block' }}
               >
                 Registrar-se
               </button>
