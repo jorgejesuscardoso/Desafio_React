@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { AnyAction } from "redux"
-import { logoIcon } from "../icons/Imports"
+import { SemFoto, logoIcon } from "../icons/Imports"
+import { useNavigate } from "react-router-dom"
 
 function Register () {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
@@ -23,6 +25,7 @@ function Register () {
   const [page, setPage] = useState(0)
   const [disable, setDisable] = useState(true)
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [error3, setError3] = useState('')
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,14 +47,14 @@ function Register () {
       newUser.id = usersArray.length;
     }
 
-    const existingUser = usersArray.find((user: AnyAction) => user.login === newUser.email);
+    const existingUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
 
     if (existingUser) {
       setError(true);
-      setErrorMsg('Usuário já cadastrado!');
+      setErrorMsg('Usuário já registrado!');
       setIsRegister(false);
       return;
-    }
+    } 
 
     usersArray.push(newUser);
 
@@ -62,10 +65,16 @@ function Register () {
   };
   useEffect(() => {
     if (page === 0) {
-      if (password.length < 6 || email.includes('@') === false || email.includes('.com') === false) {
-        setDisable(true)
+      if (password.length < 6 || password !== confirmPassword || email.includes('@') === false || email.includes('.com') === false) {
+        setDisable(true);
       } else {
         setDisable(false)
+        setError3('')
+      }
+      if (email.includes('@') === false || email.includes('.com') === false) {
+        setError3('Formato de email inválido! Ex: user@gmail.com')
+      } else {
+        setError3('')
       }
     } else if (page === 1) {
       if (name.length < 3 || lastname.length < 3 || age.length < 2) {
@@ -74,7 +83,7 @@ function Register () {
         setDisable(false)
       }
     } else if (page === 2) {
-      if (address.rua.length < 3 || address.numero === '' || address.bairro.length < 3 || address.cidade.length <3 || address.estado.length < 2) {
+      if (address.rua.length < 3 || address.numero === '' || address.bairro.length < 3 || address.cidade.length <3 || address.estado.length < 2 || address.pais.length < 3) {
         setDisable(true)
       } else {
         setDisable(false)
@@ -88,9 +97,16 @@ function Register () {
     } else {
       document.querySelector('.btn-next-and-prev-register')?.classList.remove('btn-next-and-prev-register-active')
     }
-  },[page, email, password, name, lastname, age, address.rua, address.numero, address.bairro, address.cidade, address.estado, confirmPassword, disable])
+  },[page, email, password, name, lastname, age, address.rua, address.numero, address.bairro, address.cidade, address.estado, confirmPassword, disable, address.pais])
   return (
     <div className="register-container">
+      {page > 0 &&
+        <img 
+          src={ logoIcon }
+          alt="logo"
+          className="logo-register"
+        />         
+        }
       <form
         onSubmit={handleOnSubmit}
         
@@ -141,12 +157,14 @@ function Register () {
             }}
           required
         />
-        { password !== confirmPassword && <p>As senhas não coincidem!</p>}
+        <div className="msg-err-register">
+          { password !== confirmPassword && <p>As senhas não coincidem!</p>}
+          { email !== '' && <p>{error3}</p>}
+        </div>
         </div>) 
         : page === 1 
         ? (
         <div className="form-page">
-         <img src={ logoIcon } alt="" style={{width: 150, margin: 'auto'}} />         
          <label htmlFor="name">Nome:</label>
         <input
           value={name}
@@ -190,7 +208,6 @@ function Register () {
         ) : page === 2
         ? (
         <div className="form-page">
-          <img src={ logoIcon } alt="" style={{width: 100, margin: 'auto', marginTop: -25}} />
           <label htmlFor="street">Rua:</label>
           <input
           value={address.rua}
@@ -204,19 +221,6 @@ function Register () {
           id="street"
           required
         />
-        <label htmlFor="number">Número:</label>
-        <input
-          value={address.numero}
-          onChange={(e) => {
-            setAddress({...address, numero: e.target.value});
-            setError(false);
-            setIsRegister(false);
-            }}
-          type='text'
-          placeholder='Número'
-          id="number"
-          required
-        />
         <label htmlFor="district">Bairro:</label>
         <input
           value={address.bairro}
@@ -228,6 +232,19 @@ function Register () {
           type='text'
           placeholder='Bairro'
           id="district"
+          required
+        />
+        <label htmlFor="number">Número:</label>
+        <input
+          value={address.numero}
+          onChange={(e) => {
+            setAddress({...address, numero: e.target.value});
+            setError(false);
+            setIsRegister(false);
+            }}
+          type='text'
+          placeholder='Número'
+          id="number"
           required
         />
         <label htmlFor="city">Cidade:</label>
@@ -271,8 +288,8 @@ function Register () {
         </div>
         ) : (
         <div className="form-page form-pic">
-           <img src={ logoIcon } alt="" style={{width: 150, margin: 'auto'}} />
-          <p>Gostaria de Adicionar uma foto ao seu perfil ?</p>
+          <img src={ SemFoto } alt="sem-foto" className="sem-foto-registro" />
+           <p>Gostaria de adicionar uma foto ao seu perfil ?</p>
           <label htmlFor="thumb">Foto:</label>
           <input
             value={thumb}
@@ -297,7 +314,11 @@ function Register () {
         >
           <button
             type='button'
-            onClick={() => setPage(page - 1)}
+            onClick={() => {
+              setPage(page - 1),
+              setError(false),
+              setErrorMsg('')
+            }}
             disabled={page === 0}
             className="btn-next-and-prev-register-prev"
           >
@@ -311,16 +332,29 @@ function Register () {
           >
             Próximo
           </button>
+          <div className="btn-home-form-register-container">
+            <button
+              type='button'
+              onClick={ () => navigate('/') }
+              className="btn-home-form-register"
+            >
+             Home
+            </button>
+          </div>
         </div>
       </form>
       <div className="have-account">
         <h4>Já possui conta?</h4>
         <button onClick={() => window.location.href = '/login'}>Login</button>
       </div>
-      { isRegister && <div><h1>Registrado com sucesso!</h1></div> }
-      { error && <div>
-        <h1>Erro ao registrar!</h1>
-        <p>{ errorMsg }</p>
+      { isRegister &&
+        <div className="isRegisted">
+          <p>Registrado com sucesso!</p>
+        </div> }
+      { error && 
+        <div className="erro-to-register">
+          <p>Erro ao registrar!</p>
+          <p>{ errorMsg }</p>
         </div> }
     </div>
   )

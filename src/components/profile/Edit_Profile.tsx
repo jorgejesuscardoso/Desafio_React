@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
 import { useEffect, useState } from "react";
+import { SemFoto } from "../icons/Imports";
 
 function EditProfile () {
   const navigate = useNavigate();
@@ -97,12 +98,12 @@ function EditProfile () {
   }
   console.log(newUserInfo);
   return (
-    <div>
+    <div className="edit-profile-container">
       {userInfo && userInfo.length > 0 ? (
-        <div>
+        <div className="edit-profile-data">
           <h1>Editar Perfil</h1>
           <form onSubmit={ handleNewsData }>
-            <img src={ userInfo[0].foto } alt={ userInfo[0].nome } />
+            <img src={ userInfo[0].foto || SemFoto } alt={ userInfo[0].nome } />
             <div>
               <label htmlFor="foto">URL da nova foto:</label>
               <input
@@ -121,8 +122,13 @@ function EditProfile () {
                 <p>Email: <strong>{ userInfo[0].email}</strong></p>
                 <p>Senha: <strong>{ showPass ? (userInfo[0].senha) : '******' }</strong></p>
                 <div>
-                  <p>Revelar/ocultar senha</p>
-                  <button type="button" onClick={ handleShowPass }>Exibir/ocultar</button>
+                  <button
+                    type="button"
+                    onClick={ handleShowPass }
+                    className="show-pass-btn"
+                  >
+                   { showPass ? 'Esconder' : 'Mostrar'}
+                  </button>
                 </div>
               </div>
               <br/>
@@ -244,9 +250,14 @@ function EditProfile () {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="salve-cancel-edit-btn">
               <button type="submit">Salvar</button>
-              <button onClick={() => navigate('/profile')}>Cancelar</button>
+              <button
+                onClick={() => navigate('/profile')}
+                className="cancel-edit-btn"
+              >
+                Cancelar
+              </button>
             </div>
           </form>
         </div>

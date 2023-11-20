@@ -6,6 +6,10 @@
   margin: 0;
   padding: 0;
 }
+.logout-btn {
+  color: white !important;
+  background-color: rgb(200, 0, 0) !important;
+}
 a {
   color: #000;  
 }
@@ -15,8 +19,15 @@ button {
   outline: none;
   border: none;
 }
-input, label, button {
+label, button {
   font-family: sans-serif;
+  font-weight: bold;
+}
+input {
+  outline: none;
+  font-family: sans-serif;
+  border: 1px solid #000c005b;
+  border-radius: 5px;
 }
 /* Telas grandes */
 @media screen and (min-width: 1601px) {
@@ -109,7 +120,8 @@ input, label, button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: rgb(0, 0, 150);
+    color: rgb(0, 110, 0);
+    font-weight: 600;
     width: 45%;
   }
   .user-name-header p {
@@ -117,7 +129,9 @@ input, label, button {
   }
   .user-name-header img {
     margin-left: 0;
-    width: 40px;
+    width: 50px;
+    border: none;
+    border-radius: 15px;
   }
   .logo {
     width: 70px;
@@ -451,11 +465,41 @@ h3 {
   align-items: center;
   box-shadow: 1px 1px 5px 1px rgba(100, 155, 200, 1);
   justify-content: center;
+  border-radius: 7px;
   font-size: 16px;
   width: 88%;
   margin: auto;
+  margin-top: 50px;
   height: 70%;
   gap: 5px;
+}
+.msg-err-register {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 14px;
+  width: 80%;
+  top: 71%;
+}
+.isRegisted {
+  position: fixed;
+  top: 50%;
+  left: 15%;
+}
+.erro-to-register {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 52.5%;
+  left: 15%;
+  color: red;
+}
+.sem-foto-registro {
+  position: fixed;
+  width: 150px;
+  top: 10%;
+  left: 30%;
 }
 .form-page {
   display: flex;
@@ -472,7 +516,7 @@ h3 {
 }
 .form-register {
   position: fixed;
-  top: 85vh;
+  top: 80vh;
   display: flex;
   justify-content: space-between;
   width: 64%;
@@ -496,9 +540,35 @@ h3 {
   cursor: pointer;
   bottom: 0;
 }
+.btn-home-form-register-container {
+  position: fixed;
+  top: 8%;
+  left: 8%;
+  width: 87%;
+  color: black;
+  font-size: 16px;
+}
+.btn-home-form-register {
+  width: 20%;
+  height: 3vh;
+  margin-top: 1px;
+  font-size: 14px;
+  color: darkgreen;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid blue;
+}
+.logo-register {
+  position: fixed;
+  top: 8%;
+  right:6%;
+  width: 25%;
+  height: 10%;
+}
 .btn-form-register {
   position: fixed;
-  background-color: rgb(0, 10, 146);
+  background-color: rgb(0, 150, 255);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -543,17 +613,21 @@ h3 {
   align-items: center;
   position: fixed;
   border: 1px solid #000c005b;
-  width: 60%;
-  height: 10vh;
+  width: 63%;
+  height: 12vh;
+  font-size: 16px;
   top: 35%;
-  right: 20%;
-  background-color: rgba(255, 255, 255, 0.925);
+  right: 18%;
+  border-radius: 7px;
+  border: 2px solid rgb(5, 110, 67);
+  background-color: white;
 }
 .pop-up button {
-  background-color: rgba(230, 18, 10, 0.5);
-  width: 10%;
+  background-color: rgb(4, 28, 247);
+  width: 12%;
   height: 4vh;
-  font-size: 16px;
+  color: white;
+  font-size: 25px;
   cursor: pointer;
 }
 .login-container {
@@ -571,10 +645,10 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px 1px 5px 1px #0000004d;
+  box-shadow: 1px 1px 5px 1px #000000a6;
   border-radius: 8px;
-  width: 60%;
-  height: 35vh;
+  width: 70%;
+  height: 40vh;
   gap: 5px;
 }
 
@@ -618,4 +692,256 @@ h3 {
   font-size: 14px;
   cursor: pointer;
 }
-
+.login-status {
+  position: fixed;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  top: 71%;
+  height: 9vh;
+  width: 150px;
+  gap: 10px;
+}
+.user-logado {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  width: 80%;
+  margin: auto;
+}
+.user-logado h3 {
+  color: red;
+}
+.user-logado p, h3 {
+  text-align: center;
+  font-size: 20px;
+  margin: 10px;
+}
+.user-logado span {
+  color: green;
+  font-weight: 600;
+}
+.user-logado button {
+  background-color: rgb(0, 50, 150);
+  width: 30%;
+  height: 4vh;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  margin: auto;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.profile-container {
+  background-color: #aaa;
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+}
+.profile-data {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 10px;
+}
+.profile-card-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.profile-card-container img {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-shadow: 1px 1px 5px 1px #0000004d;
+  width: 90%;
+  border-radius: 5px;
+}
+.card-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+  font-size: 14px;
+  font-weight: 600;
+}
+.card-name button {
+  background-color: rgb(100, 100, 100);
+  width: 20%;
+  height: 4vh;
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.address-info-container {
+  background-color: rgb(124, 124, 124, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40vh;
+  gap: 10px;
+}
+.address-info-container h3 {
+  text-align: start;
+  margin: 0;
+  margin-top: 10px;
+}
+.address-info-container p {
+  text-indent: 10px;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  background-color: #ccc;
+  height: 3.5vh;
+  gap: 10px;
+}
+.profile-footer-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 4vh;
+}
+.profile-footer-btn button {
+  background-color: rgb(0, 50, 150);
+  width: 35%;
+  height: 4vh;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+.erro-msg-profile-logout {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  color: red;
+  font-size: 14px;
+}
+.erro-msg-profile-logout-btn {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  height: 4vh;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.erro-msg-profile-logout-btn button {
+  background-color: rgb(0, 150, 50);
+  width: 35%;
+  height: 4vh;
+  font-size: 16px;
+  margin-top: 30px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.erro-msg-profile-logout span {
+  color: green;
+}
+.erro-msg-profile-logout-btn-home {
+  background-color: rgb(0, 50, 150);
+  width: 25%;
+  height: 4vh;
+  font-size: 16px;
+  margin-top: 50px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.edit-profile-container {
+  width: 100%;
+  height: 100vh;
+}
+.edit-profile-data {
+  width: 90%;
+  margin: auto;
+}
+.edit-profile-data form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px 1px #0000004d;
+  border-radius: 8px;
+  width: 100%;
+  gap: 5px;
+}
+.edit-profile-data form input {
+  display: flex;
+  flex-direction: column;
+  text-indent: 10px;
+  width: 80%;
+  height: 3.5vh;
+  outline: none;
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+.edit-profile-data h3, .edit-profile-data h4 {
+  text-align: start;
+  margin: 10px 0;
+}
+.salve-cancel-edit-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: top;
+  margin-top: 20px;
+  width: 100%;
+  height: 9vh;
+}
+.salve-cancel-edit-btn button {
+  background-color: rgb(0, 150, 50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 4vh;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.cancel-edit-btn {
+  background-color: rgb(200, 0, 0) !important;
+}
+.show-pass-btn {
+  height: 3vh;
+  width: 30%;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  background-color: rgb(107, 107, 107) !important;
+}

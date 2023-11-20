@@ -66,13 +66,18 @@ function Login () {
   return (
     <main className="login-container">
       { userConnected && userConnected.length > 0 ? (
-        <div>
-          <p>Você já está logado!</p>
+        <div className="user-logado">
+          <h3>Você já está logado!</h3>
           {userConnected.map((user) => (
             <div key={user.id}>
-              <p>Logado como: {user.nome} { user.sobrenome }</p>              
+              <p>Logado como: <span>{user.nome} { user.sobrenome }</span></p>
             </div>
           ))}
+          <button
+            onClick={() => navigate('/')}
+          >
+            Inicio
+          </button>         
         </div>
       )         
        : (<form
@@ -119,7 +124,7 @@ function Login () {
             </button>
           </footer>
         </form>)}
-      <div>
+      <div className="login-status">
         { error && <p>{errorMsg}</p> }
         { isConnected && <p>Logado com sucesso!</p>}
         { loading && <p>Carregando...</p>}

@@ -55,7 +55,7 @@ function Header () {
             />
         <div className="ico-container">
           <div className="user-name-header">
-            <img src={ userConnected ? user.thumb : SemFoto } alt="" />
+            <img src={ user.thumb || SemFoto } alt="" />
             {userConnected ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
           </div>
           <button
@@ -126,7 +126,8 @@ function Header () {
                   if (!userConnected){
                     navigate('/login');
                   }
-                }}                
+                }}
+                className={ userConnected ? 'logout-btn' : 'btn-login-header'}           
               >
                { userConnected ? 'Sair' : 'Entrar' }
               </button>

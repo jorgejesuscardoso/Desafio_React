@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
+import { SemFoto } from "../icons/Imports";
 
 function Profile () {
   const navigate = useNavigate();
@@ -26,13 +27,13 @@ function Profile () {
     navigate('/login');
   }
   return (
-    <div>
+    <div className="profile-container">
       { userConnected
-        ? (<div>
+        ? (<div className="profile-data">
           <h1>Seu perfil</h1>
-          <div>
-            <img src={ userConnected[0].foto } alt={ userConnected[0].nome } />
-            <div>
+          <div className="profile-card-container">
+            <img src={ userConnected[0].foto || SemFoto } alt={ userConnected[0].nome } />
+            <div className="card-name">
               <div>
                 <h2>{ userConnected[0].nome } { userConnected[0].sobrenome }</h2>
                 <h4>{ userConnected[0].idade } anos</h4>            
@@ -40,36 +41,59 @@ function Profile () {
               <button
                 onClick={() => navigate('/profile/edit-profile')}
               >
-                Editar Perfil
+                Editar
               </button>
             </div>
-           <div>
+           <div className="address-info-container">
               <h3>
                 Endereço:                
               </h3>
-              <p>Rua: { userConnected[0].endereco.rua }</p>
-              <p>Número: { userConnected[0].endereco.numero }</p>
-              <p>Bairro: { userConnected[0].endereco.bairro }</p>
-              <p>Cidade: { userConnected[0].endereco.cidade }</p>
-              <p>Estado: { userConnected[0].endereco.estado }</p>
-              <p>País: { userConnected[0].endereco.pais }</p>
+              <p><b>Rua:</b> { userConnected[0].endereco.rua }</p>
+              <p><b>Número:</b> { userConnected[0].endereco.numero }</p>
+              <p><b>Bairro: </b>{ userConnected[0].endereco.bairro }</p>
+              <p><b>Cidade:</b> { userConnected[0].endereco.cidade }</p>
+              <p><b>Estado:</b> { userConnected[0].endereco.estado }</p>
+              <p><b>País: </b>{ userConnected[0].endereco.pais }</p>
             </div>
 
           </div>
-          <button onClick={ handleLogout }>Logout</button>
+         <div className="profile-footer-btn">
+          <button
+              onClick={ handleLogout }
+              className="logout-btn"
+            >
+              Logout
+            </button>
+            <button
+              onClick={() => navigate('/')}
+            >
+              Inicio
+            </button>
+         </div>
         </div>)
         : (
-          <div>
-            <h1>Você não está logado, faça login ou crie uma conta já!</h1>
-            <button onClick={() => navigate('/login')}>Login</button>
-            <button onClick={() => navigate('/register')}>Registrar</button>
-          </div>) 
+          <div className="erro-msg-profile-logout">
+            <h1>Você não está logado, faça login ou cadastre-se já! <br/> <span>É grátis!</span> </h1>
+            <div className="erro-msg-profile-logout-btn">
+              <button
+                onClick={() => navigate('/login')}
+              >
+                  Login
+              </button>
+              <button
+                onClick={() => navigate('/register')}
+              >
+                Criar
+              </button>    
+            </div>
+            <button 
+              onClick={() => navigate('/')} 
+              className="erro-msg-profile-logout-btn-home"
+            >
+              Inicio
+            </button>
+           </div>) 
       }
-      <button
-        onClick={() => navigate('/')}
-      >
-        Inicio
-      </button>
     </div>
   )
 }
