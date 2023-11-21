@@ -7,20 +7,23 @@ import About from "./components/register/About"
 import Contact from "./components/register/Contact"
 import NotFound from "./components/register/NotFound"
 import EditProfile from "./components/profile/Edit_Profile"
+import LayOut from "./components/nav/LayOut"
 
 
 function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/:editProfile" element={<EditProfile />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="*" element={<NotFound />} />
+      <Route  element={ <LayOut /> } >
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:editProfile" element={<EditProfile />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
     </Routes>
   )
 }
