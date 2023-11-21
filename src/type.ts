@@ -63,20 +63,29 @@ export type SearchNewsType = {
   };
 };
 export type UserTypes = [{
-      id: number,
-      nome: string,
-      sobrenome: string,
-      idade: number,
-      foto: string, 
-      email: string,
-      senha: string,
-      connected?: boolean,
-      endereco: {
-        rua: string,
-        numero: number,
-        bairro: string,
-        cidade: string,
-        estado: string,
-        pais: string,
-         },
+  id: number,
+  nome: string,
+  sobrenome: string,
+  idade: number,
+  foto: string, 
+  email: string,
+  senha: string,
+  connected?: boolean,
+  endereco: {
+    rua: string,
+    numero: number,
+    bairro: string,
+    cidade: string,
+    estado: string,
+    pais: string,
+      },
 }]
+
+export type UserConnetedProps = {
+  userConnected: UserTypes;
+};
+
+export type LoginType = {
+  email: string;
+  senha: string;
+};

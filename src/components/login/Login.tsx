@@ -1,8 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { AnyAction } from "redux"
-import { UserTypes } from "../../type";
+import { LoginBtn } from "../buttons/GlobalButtons";
+import {
+  getUserLocalStorage,
+  setUserConnectedToLocalStorage,
+  userConnected,
+  users } from "../utils/Utils";
+import ErrUserConnected from "./ErrUserConneted";
+import { LoginType } from "../../type";
 
 function Login () {
   const navigate = useNavigate();
@@ -11,31 +17,26 @@ function Login () {
   const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const [isConnected, setConnected] = useState(false)
-  const [userConnected, setUserConnected] = useState<UserTypes>()
+  const [isUserConnected, setUserConnected] = useState<any>()
   const [loading, setLoading] = useState(false)
   
   useEffect(() => {
-    const connectedUser = JSON.parse(localStorage.getItem('connected') || '{}');
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    console.log(users);
-    if (connectedUser.connected) {
+    if (userConnected.connected) {
       users.find((user: any) => {
-        if (user.id === connectedUser.id) {
+        if (isUserConnected && isUserConnected.id === user.id) {
           setUserConnected([user]);
         }
       }
       );
-    }
-   
-  }, []);
-  
+    }   
+  }, [isUserConnected]);  
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const usersArray = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')!) : [];
+    const usersArray = getUserLocalStorage('users');
 
-    const existingUser = usersArray.find((user: AnyAction) => user.email === email && user.senha === password);
+    const existingUser = usersArray.find((user: LoginType) => user.email === email && user.senha === password);
 
     if (!existingUser) {
       setError(true);
@@ -51,7 +52,7 @@ function Login () {
       connected: true
     };
     
-    localStorage.setItem('connected', JSON.stringify(connectedUser));
+    setUserConnectedToLocalStorage('connected', connectedUser);
     setConnected(true);
     setLoading(true);
     setError(false);
@@ -62,75 +63,64 @@ function Login () {
     }, 2000);
   };
 
-  
-  return (
-    <main className="login-container">
-      { userConnected && userConnected.length > 0 ? (
-        <div className="user-logado">
-          <h3>Você já está logado!</h3>
-          {userConnected.map((user) => (
-            <div key={user.id}>
-              <p>Logado como: <span>{user.nome} { user.sobrenome }</span></p>
-            </div>
-          ))}
+return (
+  <main className="login-container">
+    { userConnected && userConnected.length > 0 ? (
+      <ErrUserConnected
+        userConnected={ userConnected }
+      />
+    )         
+      : (<form
+        onSubmit={handleOnSubmit}
+      > <h1>Login</h1>
+        <div className="login-input">
+          <label htmlFor="login">E-mail:</label>
+          <input
+            value={email}
+            onChange={(e) => (
+              setEmail(e.target.value),
+              setError(false) )}
+            type='email'
+            placeholder='Email'
+            id="login"
+            required
+          />
+          <label htmlFor="password">Password:</label>
+          <input
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value),
+              setError(false)}}
+            type='password'
+            placeholder='Password'
+            id="password"
+            minLength={6}
+            required
+          />
+          <LoginBtn />
+        </div>
+        <footer className="footer-form-login">
+          <div>
+            <button
+              onClick={() => navigate('/register')}
+            >
+              Criar conta
+            </button>
+          </div>
           <button
             onClick={() => navigate('/')}
           >
-            Inicio
-          </button>         
-        </div>
-      )         
-       : (<form
-          onSubmit={handleOnSubmit}
-        > <h1>Login</h1>
-          <div className="login-input">
-            <label htmlFor="login">E-mail:</label>
-            <input
-              value={email}
-              onChange={(e) => (
-                setEmail(e.target.value),
-                setError(false) )}
-              type='email'
-              placeholder='Email'
-              id="login"
-              required
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value),
-                setError(false)}}
-              type='password'
-              placeholder='Password'
-              id="password"
-              minLength={6}
-              required
-            />
-            <button type='submit'>Logar</button>
-          </div>
-          <footer className="footer-form-login">
-            <div>
-              <button
-                onClick={() => navigate('/register')}
-              >
-                Criar conta
-              </button>
-            </div>
-            <button
-              onClick={() => navigate('/')}
-            >
-              Voltar ao início
-            </button>
-          </footer>
-        </form>)}
-      <div className="login-status">
-        { error && <p>{errorMsg}</p> }
-        { isConnected && <p>Logado com sucesso!</p>}
-        { loading && <p>Carregando...</p>}
-      </div>
-    </main>
-  )
+            Voltar ao início
+          </button>
+        </footer>
+      </form>)}
+    <div className="login-status">
+      { error && <p>{errorMsg}</p> }
+      { isConnected && <p>Logado com sucesso!</p>}
+      { loading && <p>Carregando...</p>}
+    </div>
+  </main>
+ )
 }
 
 export default Login
