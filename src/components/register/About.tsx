@@ -397,6 +397,13 @@ return (
       </span>
       <br/>
       <br/>
+
+       <h3>Agradecimentos Especiais</h3>
+      <span>
+        Gostaria de agradecer ao ChatGPT pela ajuda na revisão da documentação deste projeto. Além de tirar muitas duvidas que sugiram durante o desenvolvimento. Suas contribuições foram valiosas durante o desenvolvimento do projeto e na qualidade e clareza das informações apresentadas neste README.
+
+      </span>
+      <br />
       <h3 id='finaly'>Considerações finais</h3>
       <span>
         Obrigado por ler até aqui. Espero que tenha gostado do projeto. Foi feito com muito carinho e dedicação. E espero que tenha gostado do resultado.
