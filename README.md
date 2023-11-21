@@ -160,6 +160,10 @@ Teste de cobertura
 Para fazer o build do projeto, basta rodar o comando `npm run build` ou `yarn build`.
 Apos executar o comando, será criada uma pasta chamada 'dist' com os arquivos necessários para o deploy.
 
+#### Agradecimentos Especiais
+
+Gostaria de agradecer ao ChatGPT pela ajuda na revisão da documentação deste projeto. Além de tirar muitas duvidas que sugiram durante o desenvolimento. Suas contribuições foram valiosas durante o desenvolvimento do projeto e na qualidade e clareza das informações apresentadas neste READEME.
+
 ## Considerações Finais
 
 Obrigado por dedicar seu tempo até aqui! Espero que tenha apreciado o projeto tanto quanto eu gostei de desenvolvê-lo. Ele foi construído com muito carinho e empenho.
