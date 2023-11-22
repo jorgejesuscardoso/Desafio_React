@@ -23,7 +23,6 @@ function NewsCard (item: ItemProps) {
       <CardImg
         src={ `https://${domain}/${imageIntro}` }
         alt=""
-        className="card-image"
       />
       <h3>{titulo}</h3>
       

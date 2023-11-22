@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { filterAllAction, filterDateAction, filterSearchDateAction } from "../redux/action/actions";
 import { FormEvent, useState } from "react";
 import { CloseBtn, DivDate, ErrMsgDiv, Form, SearchBtn } from "./Style";
+import { scrolTop } from "../utils/Utils";
 
 
 function FilterDate () {
@@ -22,25 +23,22 @@ function FilterDate () {
       dispatch(filterAllAction('noticia'));
       const date = '';
       dispatch(filterSearchDateAction(date));
-      window.scrollTo(0, 0);
+      scrolTop();
     } 
     if (initialDate && finalDate) {
       const fullDate = `de=${initialDate}&ate=${finalDate}`;
       dispatch(filterSearchDateAction(fullDate));
-      window.scrollTo(0, 0);
+      scrolTop();
     } else if (initialDate) {
       dispatch(filterSearchDateAction(`de=${initialDate}`));
-      window.scrollTo(0, 0);
+      scrolTop();
     } else if (finalDate) {
       dispatch(filterSearchDateAction(`ate=${finalDate}`));
-      window.scrollTo(0, 0);
+      scrolTop();
     }
     dispatch(filterDateAction());
-    window.scrollTo(0, 0);
+    scrolTop();
   }
-  const handleClose = () => { 
-    dispatch(filterDateAction());
-  };
   return (
     <div>
       <Form
@@ -49,7 +47,8 @@ function FilterDate () {
         <CloseBtn
           type="button"
           className="close"
-          onClick={ handleClose }
+          onClick={ () => 
+            dispatch(filterDateAction()) }
         >                
           <p>✖️</p>
         </CloseBtn>

@@ -82,6 +82,7 @@ export const filterDateReducer = (state = initialSearchDate, action: AnyAction) 
       return state;
   }
 }
+
 export const miscellaneousFilterReducer = (state = MISCELLANEOUS_FILTER, action: AnyAction) => {
   switch (action.type) {
     case 'FILTER_GEOSCIENCE':

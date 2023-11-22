@@ -12,6 +12,7 @@ import DisplayFooterFIlter from "../filter/DisplayFooterFIlter";
 import FilterDate from "../filter/FilterDate";
 import { scrolTop } from "../utils/Utils";
 import { 
+  Card,
   CardContainer,
   Container,
   ErrMsg,
@@ -100,7 +101,7 @@ function Home() {
   }, [filterNewsAndRelease])
 
   useEffect(() => {
-     const fetchData = async () => {
+    const fetchData = async () => {
       try {
         const apiData = await FetchApi(
           typeNews,
@@ -157,9 +158,9 @@ function Home() {
             : items.length > 0 ? (
                 items.map((item) => (
                   
-                  <div key={item.id}>
+                  <Card key={item.id}>
                     <NewsCard { ...item } /> 
-                  </div>
+                  </Card>
                 ))
                )
             : (<p>Carregando...</p>)

@@ -44,6 +44,12 @@ h3 {
   font-size: 15px !important;
   font-weight: 600 !important;
 }
+.loginBtn {
+  background-color: var(--green-600) !important;
+  color: var(--white) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
 .home-btn {
   background-color: var(--green-600);
   color: white;
@@ -82,6 +88,7 @@ h3 {
   --white: #fff;
   --black-opacity-05: rgba(0, 0, 0, 0.5);
   --gray-300:rgb(100, 100, 100);
+  --gray-400-02: rgba(124, 124, 124, 0.2);
   --green-500: rgb(0, 150, 50);
   --green-600: rgb(0, 150, 0);
   --green-700: rgb(0, 100, 0);

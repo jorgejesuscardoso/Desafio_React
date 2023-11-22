@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -23,6 +23,8 @@ export const CardContainer = styled.section`
   margin-top: 60px;
   gap: 10px;
   overflow-y: scroll;
+`;
+export const Card = styled.article`
 `;
 export const ErrMsg = styled.div`
   text-align: center;

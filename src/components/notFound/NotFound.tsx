@@ -7,6 +7,8 @@ function NotFound() {
           onClick={() => {
             window.location.href = "/";
           }}
+          style={ { position: 'fixed', top: '30%', left: '30%', width: 120, height: 30 } }
+          className="loginBtn"
         >
           Voltar ao inicio
         </button>

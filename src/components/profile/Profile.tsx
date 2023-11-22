@@ -3,6 +3,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
 import { SemFoto } from "../icons/Imports";
+import { 
+  CardInfo,
+  CardName,
+  DeletPerfilBtn,
+  FooterBtn,
+  HomeButton,
+  MsgErro,
+  MsgErroNotLogged,
+  ProfileCardContainer,
+  ProfileContainer,
+  ProfileMain,} from "./Style";
+import { removeUserConnectedToLocalStorage, removeUserLocalStorage } from "../utils/Utils";
 
 function Profile () {
   const navigate = useNavigate();
@@ -27,13 +39,13 @@ function Profile () {
     navigate('/login');
   }
   return (
-    <div className="profile-container">
+    <ProfileMain>
       { userConnected
-        ? (<div className="profile-data">
+        ? (<ProfileContainer>
           <h1>Seu perfil</h1>
-          <div className="profile-card-container">
+          <ProfileCardContainer>
             <img src={ userConnected[0].foto || SemFoto } alt={ userConnected[0].nome } />
-            <div className="card-name">
+            <CardName>
               <div>
                 <h2>{ userConnected[0].nome } { userConnected[0].sobrenome }</h2>
                 <h4>{ userConnected[0].idade } anos</h4>            
@@ -43,25 +55,33 @@ function Profile () {
               >
                 Editar
               </button>
-            </div>
-           <div className="address-info-container">
-              <h3>
-                Endereço:                
-              </h3>
+            </CardName>
+           <CardInfo>
+              <p>Endereço:</p>
               <p><b>Rua:</b> { userConnected[0].endereco.rua }</p>
               <p><b>Número:</b> { userConnected[0].endereco.numero }</p>
               <p><b>Bairro: </b>{ userConnected[0].endereco.bairro }</p>
               <p><b>Cidade:</b> { userConnected[0].endereco.cidade }</p>
               <p><b>Estado:</b> { userConnected[0].endereco.estado }</p>
               <p><b>País: </b>{ userConnected[0].endereco.pais }</p>
-            </div>
+              <p><b>Deletar Perfil:</b> <strong style={ { color: 'red' } }>Não tem volta!</strong></p>
+              <DeletPerfilBtn
+                onClick={() => {
+                  removeUserLocalStorage(userConnected[0].id),
+                  removeUserConnectedToLocalStorage('connected'),
+                  navigate('/')
+                } }
+              >
+                Deletar Perfil
+              </DeletPerfilBtn>
+            </CardInfo>
 
-          </div>
-         <div className="profile-footer-btn">
+          </ProfileCardContainer>
+         <FooterBtn>
           <button
               onClick={ handleLogout }
               className="logoutBtn"
-            >
+            > 
               Logout
             </button>
             <button
@@ -69,12 +89,12 @@ function Profile () {
             >
               Inicio
             </button>
-         </div>
-        </div>)
+         </FooterBtn>
+        </ProfileContainer>)
         : (
-          <div className="erro-msg-profile-logout">
+          <MsgErroNotLogged>
             <h1>Você não está logado, faça login ou cadastre-se já! <br/> <span>É grátis!</span> </h1>
-            <div className="erro-msg-profile-logout-btn">
+            <MsgErro>
               <button
                 onClick={() => navigate('/login')}
               >
@@ -85,16 +105,15 @@ function Profile () {
               >
                 Criar
               </button>    
-            </div>
-            <button 
+            </MsgErro>
+            <HomeButton 
               onClick={() => navigate('/')} 
-              className="erro-msg-profile-logout-btn-home"
             >
               Inicio
-            </button>
-           </div>) 
+            </HomeButton>
+           </MsgErroNotLogged>) 
       }
-    </div>
+    </ProfileMain>
   )
 }
 

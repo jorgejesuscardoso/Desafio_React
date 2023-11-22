@@ -19,6 +19,7 @@ import {
   PagesContent,
   ErrMsgPage0,
   Page3} from "./Style";
+import { getUserLocalStorage, setNewUserToLocalStorage } from "../utils/Utils";
 
 function Register () {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ function Register () {
       foto: thumb,
     };
 
-    const usersArray = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')!) : [];
+    const usersArray = getUserLocalStorage('users');
 
     if (usersArray.length > 0) {
       newUser.id = usersArray.length;
@@ -75,11 +76,12 @@ function Register () {
 
     usersArray.push(newUser);
 
-    localStorage.setItem('users', JSON.stringify(usersArray));
+    setNewUserToLocalStorage(usersArray)
     setIsRegister(true);
     setError(false);
     setErrorMsg('');
   };
+
   useEffect(() => {
     if (page === 0) {
       if (password.length < 6 || password !== confirmPassword || email.includes('@') === false || email.includes('.com') === false) {

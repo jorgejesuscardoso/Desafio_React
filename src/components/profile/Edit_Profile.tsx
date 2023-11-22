@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
 import { useEffect, useState } from "react";
 import { SemFoto } from "../icons/Imports";
-import { Container, EditButtonFooter, Main, ShowPassBTn } from "./Style";
+import { ConfirmPass, Container, EditButtonFooter, InputConfirmePass, Main, ShowPassBTn } from "./Style";
 
 function EditProfile () {
   const navigate = useNavigate();
@@ -191,18 +191,19 @@ function EditProfile () {
                     minLength={ 6 }
                   />
                   <label htmlFor="confirma" style={{ marginLeft: 10 }}>Confirme a senha</label>
-                  <div className="confirma-senha-cont">
-                  <input
-                    type="password"
-                    name="confirma"
-                    id="confirma"
-                    value={ confirmNewPass.senha }
-                    onChange={ (e) => setConfirmNewPass({ ...confirmNewPass, senha: e.target.value }) }
-                    minLength={ 6 }
-                    style={{ marginLeft: 10 }}
-                  />
-                  { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
-                  </div>
+                  <ConfirmPass>
+                    <InputConfirmePass
+                      type="password"
+                      name="confirma"
+                      id="confirma"
+                      value={ confirmNewPass.senha }
+                      onChange={ (e) => setConfirmNewPass({ ...confirmNewPass, senha: e.target.value }) }
+                      minLength={ 6 }
+                      style={{ marginLeft: 10 }}
+
+                    />
+                    { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
+                  </ConfirmPass>
                   {error2 && <p>{error2}</p>}
                   {error && <p>{error}</p>}
                   <h4>Endereço:</h4>

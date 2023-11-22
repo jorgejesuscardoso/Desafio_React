@@ -45,3 +45,19 @@ export function setUserConnectedToLocalStorage (key: string, userConnected: obje
 export function removeUserConnectedToLocalStorage (key: string) {
   localStorage.removeItem(key);
 }
+export function setNewUserToLocalStorage (user: string) {
+  localStorage.setItem('users', JSON.stringify(user));
+}
+export function removeUserLocalStorage(id: number) {
+  const users = JSON.parse(localStorage.getItem('users') || '[]') as { id: number }[];
+
+  const userIndex = users.findIndex(user => user.id === id);
+
+  if (userIndex !== -1) {
+
+    users.splice(userIndex, 1);
+    localStorage.setItem('users', JSON.stringify(users));
+  } else {
+    console.error(`Usuário com ID ${id} não encontrado.`);
+  }
+}
