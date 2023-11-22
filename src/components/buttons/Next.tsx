@@ -1,6 +1,7 @@
 import { PagesProps } from '../../type';
 import { useDispatch } from 'react-redux';
 import { nextPagesAction } from '../redux/action/actions';
+import { PrevNextPageBtn } from './Style';
 
 export function NextBtn ({ page, totalPages }: PagesProps) {
   const dispatch = useDispatch();
@@ -9,12 +10,12 @@ export function NextBtn ({ page, totalPages }: PagesProps) {
     dispatch(nextPagesAction());
   }
   return (
-      <button
+      <PrevNextPageBtn
       onClick={handleNextPage}
       disabled={page === totalPages}
       className='page-btn'
     >
       {'>>>'}
-    </button>
+    </PrevNextPageBtn>
   );
 }

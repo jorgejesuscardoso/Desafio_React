@@ -4,6 +4,7 @@ import DateTimeDisplay from "../dateTime/DateTImeDIsplay";
 import Favorite from "../favorite/Favorite";
 import Share from "../share/ShareIcon";
 import Mark from "../mark/Mark";
+import { CardContainer, CardImg, FooterCard, FullNewsLink, IntroNews, PostDate } from "./Style";
 
 function NewsCard (item: ItemProps) {
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
@@ -18,40 +19,37 @@ function NewsCard (item: ItemProps) {
   const domain = url.hostname;
  
   return (
-    <div key={id} className="news-card">      
-      <img
+    <CardContainer key={id}>      
+      <CardImg
         src={ `https://${domain}/${imageIntro}` }
         alt=""
         className="card-image"
       />
       <h3>{titulo}</h3>
-      <div className="intro" >        
+      
+      <IntroNews>        
           <span>{introducao}</span>
-      </div>
-      <div className="link-full-news">
+      </IntroNews>
+
+      <FullNewsLink>
         <Link to={link}>
           <h3>Ler mais</h3>
         </Link>
-      </div>
-      <div className="date">
+      </FullNewsLink>
+
+      <PostDate>
         <div>
-          <DateTimeDisplay
-            dateTime={ data_publicacao }
-          />
+          <DateTimeDisplay dateTime={ data_publicacao } />
         </div>
-      </div>
-      <div className="favorite-mark-and-share-container">
-        <Favorite 
-          id={ id }
-        />
-        <Share
-          id={ id }
-        />
-        <Mark
-          id={ id }
-        />
-      </div>
-   </div>
+      </PostDate>
+
+      <FooterCard>
+        <Favorite id={ id } />
+        <Share id={ id } />
+        <Mark id={ id }/>
+      </FooterCard>
+
+   </CardContainer>
   );
 }
 

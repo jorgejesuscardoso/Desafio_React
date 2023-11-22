@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { LoginBtn } from "../buttons/GlobalButtons";
+import { LoginBtn } from "./LoginBtn";
 import {
   getUserLocalStorage,
   setUserConnectedToLocalStorage,
@@ -9,6 +9,11 @@ import {
   users } from "../utils/Utils";
 import ErrUserConnected from "./ErrUserConneted";
 import { LoginType } from "../../type";
+import {
+  Container,
+  FooterFormLogin,
+  InputContainer, 
+  LoginError} from "./Style";
 
 function Login () {
   const navigate = useNavigate();
@@ -64,7 +69,7 @@ function Login () {
   };
 
 return (
-  <main className="login-container">
+  <Container>
     { userConnected && userConnected.length > 0 ? (
       <ErrUserConnected
         userConnected={ userConnected }
@@ -73,7 +78,7 @@ return (
       : (<form
         onSubmit={handleOnSubmit}
       > <h1>Login</h1>
-        <div className="login-input">
+        <InputContainer>
           <label htmlFor="login">E-mail:</label>
           <input
             value={email}
@@ -98,8 +103,9 @@ return (
             required
           />
           <LoginBtn />
-        </div>
-        <footer className="footer-form-login">
+        </InputContainer>
+
+        <FooterFormLogin>
           <div>
             <button
               onClick={() => navigate('/register')}
@@ -112,14 +118,14 @@ return (
           >
             Voltar ao início
           </button>
-        </footer>
+        </FooterFormLogin>
       </form>)}
-    <div className="login-status">
+    <LoginError>
       { error && <p>{errorMsg}</p> }
       { isConnected && <p>Logado com sucesso!</p>}
       { loading && <p>Carregando...</p>}
-    </div>
-  </main>
+    </LoginError>
+  </Container>
  )
 }
 

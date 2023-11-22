@@ -10,6 +10,7 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+  background-color: transparent;
 }
 input {
   outline: none;
@@ -30,5 +31,29 @@ ul {
   align-items: center;
   height: 100vh;
   width: 100%;
+}
+.home-btn {
+  background-color: var(--green-600);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  width: 50%;
+  height: 4vh;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h3 {
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 10px;
+}
+:root {
+  --white: #fff;
+  --Black-opacity-05: rgba(0, 0, 0, 0.5);
+  --green-500: rgb(0, 150, 50);
+  --green-600: rgb(0, 150, 0);
+  --blue-400: rgb(0, 10, 150);
 }
 /* End Global Styles */

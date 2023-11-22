@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FavoriteType } from "../../type";
 
 // Rolagem para o topo da página
@@ -33,10 +34,14 @@ export const users = JSON.parse(localStorage.getItem('users') || '[]');
 
 // Verifica user logado
 export const userConnected = JSON.parse(localStorage.getItem('connected') || '{}');
+
 export function getUserLocalStorage (user: string) {
   const isUser = localStorage.getItem(user) ? JSON.parse(localStorage.getItem(user)!) : [];
   return isUser;
 }
 export function setUserConnectedToLocalStorage (key: string, userConnected: object) {
   localStorage.setItem( key, JSON.stringify(userConnected));
+}
+export function removeUserConnectedToLocalStorage (key: string) {
+  localStorage.removeItem(key);
 }

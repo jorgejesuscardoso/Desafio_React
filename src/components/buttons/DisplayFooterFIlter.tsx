@@ -33,19 +33,34 @@ function DisplayFooterFIlter() {
       <div className="title-display-menu">
         <h3>Filtros</h3>
       </div>
-        <button className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterGeosciences}>
+        <button
+          className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" }
+          onClick={handleFilterGeosciences}
+        >
           Geociências
         </button>
-        <button className={ filterSocial ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterSocial}>
+        <button
+          className={ filterSocial ? "display-menu-btn filtred-btn" : "display-menu-btn" }
+          onClick={handleFilterSocial}
+        >
           Sociais
         </button>
-        <button className={ searchDate ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterDate}>
+        <button
+          className={ searchDate ? "display-menu-btn filtred-btn" : "display-menu-btn" }
+          onClick={handleFilterDate}
+        >
           Data
         </button>
-        <button className={ filterIbge ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterIBGE}>
+        <button
+          className={ filterIbge ? "display-menu-btn filtred-btn" : "display-menu-btn" }
+          onClick={handleFilterIBGE}
+        >
           IBGE
         </button>
-        <button className={ filterEconomy ? "display-menu-btn filtred-btn" : "display-menu-btn" } onClick={handleFilterEconomy}>
+        <button
+          className={ filterEconomy ? "display-menu-btn filtred-btn" : "display-menu-btn" }
+          onClick={handleFilterEconomy}
+        >
           Economia
         </button>
     </div>

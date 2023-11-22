@@ -1,27 +1,36 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
 import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchNewsAction } from "../redux/action/actions";
 import TopFilter from "../buttons/TopFilterBtn";
+import {
+  HeaderContainer,
+  Ico,
+  Icones,
+  Logo,
+  Search,
+  UserNameHeader,
+  MenuHeader,
+  TopFilterContainer } from "./Style";
+import { getUserLocalStorage } from "../utils/Utils";
 
 function Header () {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  
   const [showSearch, setShowSearch] = useState(false); // Armazena o estado do input de pesquisa [true/false
   const [search, setSearch] = useState(''); // Armazena o valor do input de pesquisa
   const [showMenu, setShowMenu] = useState(false); // Armazena o estado do menu [true/false]
-  const [userConnected, setUserConected] = useState(false); // Armazena o estado do usuário logado [true/false]
+  const [userConnectado, setUserConected] = useState(false); // Armazena o estado do usuário logado [true/false]
   const [user, setUser] = useState({ name: '', thumb: ''});
 
   useEffect(() => {
     const user = localStorage.getItem('connected');
-    const userData = localStorage.getItem('users');
+    const userData = getUserLocalStorage('users');
     if (user) {      
-      const users = JSON.parse(userData || '[]');
-      const mapUser = users.map((u: any) => u).find((u: any) => u.id === JSON.parse(user).id);
+      const mapUser = userData.map((u: any) => u).find((u: any) => u.id === JSON.parse(user).id);
       setUserConected(true);
       setUser({name: mapUser.nome, thumb: mapUser.foto});
     } else {
@@ -29,67 +38,54 @@ function Header () {
       setUser({name: '', thumb: ''});
     }
   }
-  ,[userConnected]);
+  ,[userConnectado]);
 
-  const handleShowSearch = () => {
-    setShowSearch(!showSearch);
-    setSearch('');
-  }
-  const handleSearch = (e: FormEvent) => {
-    e.preventDefault();
-    dispatch(searchNewsAction(search));
-    setSearch('');
-  }
-  const handleShowMenu = () => {
-    setShowMenu(!showMenu);
-  }
-  const handleLogout = () => {
-    localStorage.removeItem('connected');
-    setUserConected(false);
-  }
   return (
-      <header className="header-container">
-          <img
+      <HeaderContainer>
+          <Logo
             src={ logoIcon }
             alt="Logo"
-            className="logo"
             />
-        <div className="ico-container">
-          <div className="user-name-header">
+        <Icones>
+          <UserNameHeader>
             <img src={ user.thumb || SemFoto } alt="" />
-            {userConnected ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
-          </div>
+            {userConnectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
+          </UserNameHeader>
           <button
             onClick={() => navigate('/profile')}
           >
-            <img
+            <Ico
               src={ profileIcon }
               alt="perfil"
-              className="ico"
               />
           </button>
           <button
-            onClick={ handleShowSearch }
+            onClick={ () => {
+              setShowSearch(!showSearch);
+               setSearch('');
+            } }
           >
-            <img
+            <Ico
               src={ searchIcon }
               alt="lupa"
-              className="ico"
             />
           </button>
           <button
             type="button"
-            onClick={ handleShowMenu }
+            onClick={ () => setShowMenu(!showMenu) }
           >
-            <img
+            <Ico
               src={ menuPontoIcon }
               alt="menu"
-              className="ico"
             />
           </button>
           { showSearch ? (
-            <div className="search-header-container">
-              <form onSubmit={ handleSearch }>
+            <Search>
+              <form onSubmit={ (e) => {
+                e.preventDefault();
+                dispatch(searchNewsAction(search));
+                setSearch('');
+              } }>
                 <input
                   type="text"
                   placeholder="Pesquisar"
@@ -97,48 +93,51 @@ function Header () {
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <button
-                  type="submit"
-                  className="btn-search-header"    
+                  type="submit"   
                 >
                   Buscar
                 </button>
                 <button 
                   type="button"
-                  onClick={ handleShowSearch }
-                  className="btn-close-header"
+                  onClick={ () => {
+                    setShowSearch(!showSearch);
+                    setSearch('');
+                  } }
+                  style={{ backgroundColor: '#fff', width: 25, height: 25 }}
                 >
                   ❌
                 </button>
               </form>
-            </div>
+            </Search>
               ) : (
                 <></>
               )
             }
           { showMenu ? (
-            <div className="menu-header-container">
+            <MenuHeader>
               <ul>
                 <li>
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      if (userConnected) {
-                        handleLogout();
+                      if (userConnectado) {
+                        localStorage.removeItem('connected');
+                        setUserConected(false);
                         return;
                       } 
-                      if (!userConnected){
+                      if (!userConnectado){
                         navigate('/login');
                       }
                     }}
-                    className={ userConnected ? 'logout-btn' : 'btn-login-header'}           
+                    className={ userConnectado ? 'logout-btn' : 'btn-login-header'}           
                   >
-                  { userConnected ? 'Sair' : 'Entrar' }
+                  { userConnectado ? 'Sair' : 'Entrar' }
                   </button>
                 </li>
                 <li>
                   <button
                     onClick={() => navigate('/register')}
-                    style={{ display: userConnected ? 'none' : 'block' }}
+                    style={{ display: userConnectado ? 'none' : 'block' }}
                   >
                     Registrar-se
                   </button>
@@ -159,23 +158,22 @@ function Header () {
               </li>
               <li>
                 <button
-                  onClick={ handleShowMenu }
-                  className="btn-close-header"
+                  onClick={ () => setShowMenu(!showMenu) }
                 >
                   ❌
                 </button>
               </li>
              </ul>
-            </div>
+            </MenuHeader>
           ) : (
             <></>
           )
           }
-        </div>
-        <div className="top-filter">
+        </Icones>
+        <TopFilterContainer className="top-filter">
           <TopFilter />
-        </div>
-      </header>
+        </TopFilterContainer>
+      </HeaderContainer>
   );
 }
 

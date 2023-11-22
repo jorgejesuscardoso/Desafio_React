@@ -1,23 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
+import { Container, Sumary } from "./Style";
 
 function About () {
 const navigate = useNavigate();
 return (
  <>
-  <main
-    className="about-container"
-    style={{
-      textAlign: 'justify',
-      fontSize: '16px',
-      margin: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '80%',
-      gap: '30px'
-    }}
-  >
+  <Container>
     <h1>Sobre este projeto</h1>
     <button
         onClick={() => navigate('/')}
@@ -34,7 +23,7 @@ return (
       Top
     </button>
     <section style={{ width: "100%" }}>
-      <div className="sumary">
+      <Sumary>
         <h2>Sumário</h2>
         <ol>
           <li>
@@ -94,9 +83,9 @@ return (
             <a href="#finaly">Considerações finais</a>
           </li>
         </ol>
-      </div>
+      </Sumary>
     </section>
-    <section className="about">
+    <section>
       <h2 style={{ textAlign: 'center' }}>Desafio React</h2>
         <article>
           <h3 id='about'>Descrição</h3>
@@ -420,7 +409,7 @@ return (
       <br />
     </article>
   </section>
-  </main>
+  </Container>
   <Footer />
 </>
 );

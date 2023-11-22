@@ -1,15 +1,18 @@
+import {
+  FooterContainer, FooterContent, } from "./Style";
+
 function Footer () {
   return (
-    <footer className="footer">
-    <div className="footer-container">
-      <p>© Desenvolvido por Jorge de Jesus Cardoso, 2023</p>
-      <p>Desafio React</p>
-      <p>Front-end</p>
-      <p>Todos os direitos reservados</p>
+    <FooterContainer>
+      <FooterContent>
+        <p>© Desenvolvido por Jorge de Jesus Cardoso, 2023</p>
+        <p>Desafio React</p>
+        <p>Front-end</p>
+        <p>Todos os direitos reservados</p>
 
-      <div className="social-media">
-      <span className="span-footer">Minhas redes sociais</span>
-        <ul>
+        <div className="social-media">
+        <span className="span-footer">Minhas redes sociais</span>
+          <ul>
           <li>
             <a 
               href="https://www.linkedin.com/in/jorgejesuscardoso/" 
@@ -49,8 +52,8 @@ function Footer () {
           </li>
         </ul>
       </div>
-    </div>
-  </footer>
+    </FooterContent>
+  </FooterContainer>
   )
 }
 

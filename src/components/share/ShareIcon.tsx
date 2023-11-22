@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { shareIcon } from "../icons/Imports";
 import { FavoriteType } from "../../type";
 import { getLocalStorage, setLocalStorage } from "../utils/Utils";
+import { Container } from "./Style";
 
 function Share(id: FavoriteType) {
 
@@ -21,7 +22,7 @@ function Share(id: FavoriteType) {
       setShareCount(shareCount + 1);    
   }
   return(
-    <div className="favoriteCount">
+    <Container>
       <button onClick={ handleShare }>
         <img
           src={ shareIcon }
@@ -30,7 +31,7 @@ function Share(id: FavoriteType) {
         />
       </button>
       <p>{ shareCount }</p>
-    </div>
+    </Container>
   );
 }
 

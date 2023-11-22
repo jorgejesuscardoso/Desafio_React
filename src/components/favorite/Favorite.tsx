@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FavoriteType } from "../../type";
 import { getLocalStorage, removeFromLocalStorage, setLocalStorage } from "../utils/Utils";
 import { liked, unliked } from "../icons/Imports";
+import { Container } from "./Style";
 
 function Favorite (favoriteId: FavoriteType) {
   const [isFavorited, setFavorited] = useState(false);
@@ -31,7 +32,7 @@ function Favorite (favoriteId: FavoriteType) {
   };
   
   return (
-    <div className="favoriteCount">
+    <Container>
       <button
         onClick={ handleFavorite }
       >
@@ -42,7 +43,7 @@ function Favorite (favoriteId: FavoriteType) {
         />
       </button>
       <p>{ favoriteCount }</p>
-    </div>
+    </Container>
   )
 }
 export default Favorite;

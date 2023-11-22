@@ -45,6 +45,7 @@ export type FilterTypeNewsRelease = {
   filterNewsAndRelease: {
     filterNewsAndRelease: string;
   };
+  items: ItemProps[];
 };
 
 export type MiscellanousFilterType = {
