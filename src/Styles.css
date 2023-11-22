@@ -32,6 +32,12 @@ ul {
   height: 100vh;
   width: 100%;
 }
+.logoutBtn {
+  background-color: var(--red-500) !important;
+  color: var(--white) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
 .home-btn {
   background-color: var(--green-600);
   color: white;
@@ -40,7 +46,20 @@ ul {
   width: 50%;
   height: 4vh;
   border-radius: 5px;
-  cursor: pointer;
+}
+.filtred-btn {
+  background-color: var(--green-600) !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+.filtred-btn-top {
+  background-color: var(--green-600) !important;
+  color: white !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border: none !important;
 }
 
 h3 {
@@ -51,9 +70,12 @@ h3 {
 }
 :root {
   --white: #fff;
-  --Black-opacity-05: rgba(0, 0, 0, 0.5);
+  --black-opacity-05: rgba(0, 0, 0, 0.5);
+  --gray-300:rgb(100, 100, 100);
   --green-500: rgb(0, 150, 50);
   --green-600: rgb(0, 150, 0);
+  --green-900-05: #000c0050;
   --blue-400: rgb(0, 10, 150);
+  --red-500: rgb(200, 10, 0);
 }
 /* End Global Styles */

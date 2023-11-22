@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterDateAction, filterEconomyAction, filterGeoscienceAction, filterIbgeAction, filterSocialAction } from "../redux/action/actions";
 import { DateProp, MiscellanousFilterType } from "../../type";
 import { scrolTop } from "../utils/Utils";
+import { ContainerFooterMenu, TitleFooterMenu } from "../buttons/Style";
 
 function DisplayFooterFIlter() {
   const { filterEconomy, filterGeoscience, filterIbge, filterSocial } = useSelector((state: MiscellanousFilterType) => state.filterAll);
@@ -29,10 +30,10 @@ function DisplayFooterFIlter() {
   }
 
   return (
-    <div className="display-footer-menu">
-      <div className="title-display-menu">
+    <ContainerFooterMenu>
+      <TitleFooterMenu>
         <h3>Filtros</h3>
-      </div>
+      </TitleFooterMenu>
         <button
           className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" }
           onClick={handleFilterGeosciences}
@@ -63,7 +64,7 @@ function DisplayFooterFIlter() {
         >
           Economia
         </button>
-    </div>
+    </ContainerFooterMenu>
   );
 }
 

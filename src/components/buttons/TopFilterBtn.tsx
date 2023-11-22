@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { filterAllAction, filterFavoriteAction, filterMarkedAction } from "../redux/action/actions"
 import { FilterTypeNewsRelease, MiscellanousFilterType } from "../../type"
 import { scrolTop } from "../utils/Utils"
+import { FilterBtnTop } from "./Style"
 
 function TopFilter () {
   const dispatch = useDispatch()
@@ -31,40 +32,40 @@ function TopFilter () {
   }
   return (
     <>
-      <button
-        className={ !filterNewsAndRelease ? "filter-btn filtred-btn-top" : "filter-btn" }
+      <FilterBtnTop
+        className={ !filterNewsAndRelease ? "filtred-btn-top" : "" }
         onClick={handeFilterAll}
       >
         Todos
-      </button>
+      </FilterBtnTop>
 
-      <button
+      <FilterBtnTop
         className={ !filterFavorite ? "filter-btn" : "filter-btn filtred-btn-top"}
         onClick={handeFilterFavorites}
       >
         Favoritos
-      </button>
+      </FilterBtnTop>
 
-      <button
+      <FilterBtnTop
         className={ !filterMarked ? "filter-btn" : "filter-btn filtred-btn-top"}
         onClick={handeFilterMarked}
       >
         Marcados
-      </button>
+      </FilterBtnTop>
 
-      <button 
+      <FilterBtnTop 
         className={ filterNewsAndRelease === 'noticia' ? "filter-btn filtred-btn-top" : "filter-btn" }
         onClick={handeFilterNews}
       >
         Notícias
-      </button>
+      </FilterBtnTop>
 
-      <button
+      <FilterBtnTop
         className={ filterNewsAndRelease === 'release' ? "filter-btn filtred-btn-top" : "filter-btn" }
         onClick={handeFilterRelease}
       >
         Releases
-      </button>
+      </FilterBtnTop>
     </>
   )
 }

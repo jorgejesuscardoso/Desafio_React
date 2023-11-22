@@ -8,7 +8,7 @@ import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
 import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
-import DisplayFooterFIlter from "../buttons/DisplayFooterFIlter";
+import DisplayFooterFIlter from "../filter/DisplayFooterFIlter";
 import FilterDate from "../filter/FilterDate";
 import { scrolTop } from "../utils/Utils";
 import { 

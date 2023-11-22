@@ -73,13 +73,13 @@ export const Search = styled.div`
     }
 `;
 export const MenuHeader = styled.div`
-  background-color: #000c003f;
+  background-color: var(--green-900-05);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   position: fixed;
-  width: 25%;
+  width: 27%;
   top: 49px;
   right: 1%;
   height: 23vh;
@@ -87,15 +87,22 @@ export const MenuHeader = styled.div`
   z-index: 99;
     
     button {
-    width: 90%;
+    background-color: var(--white);
+    width: 100%;
     height: 3.5vh;
-    font-size: 12px;
-    color: rgb(100,100,100);
+    font-size: 14px;
+    color: var(--gray-300);
     font-weight: 600;
     border-radius: 7px;
     margin: auto;
   }
-    li {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 90%;
+  }
+  li {
     text-align: center;
   }
 `;

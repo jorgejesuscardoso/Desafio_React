@@ -129,7 +129,7 @@ function Header () {
                         navigate('/login');
                       }
                     }}
-                    className={ userConnectado ? 'logout-btn' : 'btn-login-header'}           
+                    className={ userConnectado ? 'logoutBtn' : 'btn-login-header'}           
                   >
                   { userConnectado ? 'Sair' : 'Entrar' }
                   </button>

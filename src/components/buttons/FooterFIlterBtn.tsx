@@ -1,6 +1,7 @@
 import { menuFilterIcon } from "../icons/Imports";
 import { footerMenuDisplayAction } from "../redux/action/actions";
 import { useDispatch } from "react-redux";
+import { FilterFooterMenu } from "./Style";
 
 function FooterFIlterBtn () {
   const dispatch = useDispatch();
@@ -8,12 +9,11 @@ function FooterFIlterBtn () {
     dispatch(footerMenuDisplayAction());
   }
   return (
-    <button
-     className="page-btn filter"
+    <FilterFooterMenu
       onClick={ handleFilter }
     >
       <img src={ menuFilterIcon } alt="menu-filter" />
-    </button>
+    </FilterFooterMenu>
   );
 }
 

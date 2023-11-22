@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { filterAllAction, filterDateAction, filterSearchDateAction } from "../redux/action/actions";
 import { FormEvent, useState } from "react";
+import { CloseBtn, DivDate, Form, SearchBtn } from "./Style";
 
 
 function FilterDate () {
@@ -42,47 +43,45 @@ function FilterDate () {
   };
   return (
     <div className="filter-items">
-      <form
-       className="search-date"
+      <Form
        onSubmit={ handleSearch }
       >
-              <button
-                type="button"
-                className="close"
-                onClick={ handleClose }
-              >                
-                <p>✖️</p>
-              </button>
-              <div className="inputs-search-date">
-                <label htmlFor="searchInitialDate">Data inicial:</label>
-                <input
-                  type="date"
-                  id="searchInitialDate"
-                  placeholder="MM-DD-AA"
-                  value={ initialDate }
-                  onChange={ (e) => setInitialDate(e.target.value) }
-                />
-              </div>
-              <div className="inputs-search-date">
-                <label htmlFor="searchFinalDate">Data final:</label>
-                <input
-                  type="date"
-                  id="searchFinalDate"
-                  placeholder="MM-DD-AA"
-                  value={ finalDate }
-                  onChange={ (e) => setFinalDate(e.target.value) }
-                />
-              </div>
-              <button
-                className="search-date-btn"
-                type="submit"
-              >
-                Buscar
-              </button>
-              <div className="erro-msg-date">
-              { erroDate && <p className="error">Data inicial não pode ser maior que a data final!</p> }
-              </div>
-            </form>
+        <CloseBtn
+          type="button"
+          className="close"
+          onClick={ handleClose }
+        >                
+          <p>✖️</p>
+        </CloseBtn>
+        <DivDate className="inputs-search-date">
+          <label htmlFor="searchInitialDate">Data inicial:</label>
+          <input
+            type="date"
+            id="searchInitialDate"
+            placeholder="MM-DD-AA"
+            value={ initialDate }
+            onChange={ (e) => setInitialDate(e.target.value) }
+          />
+        </DivDate>
+        <DivDate>
+          <label htmlFor="searchFinalDate">Data final:</label>
+          <input
+            type="date"
+            id="searchFinalDate"
+            placeholder="MM-DD-AA"
+            value={ finalDate }
+            onChange={ (e) => setFinalDate(e.target.value) }
+          />
+        </DivDate>
+        <SearchBtn
+          type="submit"
+        >
+          Buscar
+        </SearchBtn>
+        <div className="erro-msg-date">
+        { erroDate && <p className="error">Data inicial não pode ser maior que a data final!</p> }
+        </div>
+      </Form>
     </div>
   );
 }

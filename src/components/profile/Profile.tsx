@@ -60,7 +60,7 @@ function Profile () {
          <div className="profile-footer-btn">
           <button
               onClick={ handleLogout }
-              className="logout-btn"
+              className="logoutBtn"
             >
               Logout
             </button>
