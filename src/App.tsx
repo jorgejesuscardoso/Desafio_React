@@ -4,10 +4,10 @@ import Profile from "./components/profile/Profile"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import About from "./components/about/About"
-import Contact from "./components/register/Contact"
-import NotFound from "./components/register/NotFound"
+import Contact from "./components/contact/Contact"
+import NotFound from "./components/notFound/NotFound"
 import EditProfile from "./components/profile/Edit_Profile"
-import LayOut from "./components/nav/LayOut"
+import LayOut from "./components/layout/LayOut"
 import './Styles.css'
 
 

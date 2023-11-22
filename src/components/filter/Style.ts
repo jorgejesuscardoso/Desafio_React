@@ -46,3 +46,10 @@ export const CloseBtn = styled.button`
   top: 35%;
   right: 25%;
 `;
+export const ErrMsgDiv = styled.div`
+  text-align: center;
+  display: flex;
+  width: 100%;
+  color: red;
+  font-size: 14px;
+`;

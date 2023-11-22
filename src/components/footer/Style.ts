@@ -5,16 +5,27 @@ export const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 45vh;
+  height: 50vh;
   gap: 10px;
+  bottom: 0;
+
+  @media (min-width: 768px) {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30vh;
+    gap: 10px;
+    top: 100vh;
+    bottom: 0;
+  }
 `;
 export const FooterContent = styled.div`
- background-color: #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 90%;
-  height: 50vh;
+  height: 100%;
   gap: 10px;
     a {
       color: var(--blue-400)
@@ -28,3 +39,5 @@ export const FooterContent = styled.div`
       font-size: 16px;
     }
 `;
+
+

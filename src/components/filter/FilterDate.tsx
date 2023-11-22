@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { filterAllAction, filterDateAction, filterSearchDateAction } from "../redux/action/actions";
 import { FormEvent, useState } from "react";
-import { CloseBtn, DivDate, Form, SearchBtn } from "./Style";
+import { CloseBtn, DivDate, ErrMsgDiv, Form, SearchBtn } from "./Style";
 
 
 function FilterDate () {
@@ -42,7 +42,7 @@ function FilterDate () {
     dispatch(filterDateAction());
   };
   return (
-    <div className="filter-items">
+    <div>
       <Form
        onSubmit={ handleSearch }
       >
@@ -78,9 +78,12 @@ function FilterDate () {
         >
           Buscar
         </SearchBtn>
-        <div className="erro-msg-date">
-        { erroDate && <p className="error">Data inicial não pode ser maior que a data final!</p> }
-        </div>
+        <ErrMsgDiv>
+         { erroDate &&
+          <p>
+            Data inicial não pode ser maior que a data final!
+          </p> }
+        </ErrMsgDiv>
       </Form>
     </div>
   );
