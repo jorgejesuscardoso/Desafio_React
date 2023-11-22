@@ -22,9 +22,9 @@ export const UserNameHeader = styled.div`
   justify-content: space-between;
   color: rgb(0, 110, 0);
   font-weight: 600;
-  width: 45%;
+  width: 30%;
     p {
-      font-size: 14px;
+      font-size: 16px;
     }
     img {      
       margin-left: 0;
@@ -69,7 +69,7 @@ export const Search = styled.div`
       justify-content: space-evenly;
       align-items: center;
       width: 80%;
-      height: 100%;
+      height: 100%; 
     }
 `;
 export const MenuHeader = styled.div`

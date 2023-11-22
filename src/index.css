@@ -214,72 +214,7 @@
   border-radius: 3px;
   cursor: pointer;
 }
-.edit-profile-container {
-  width: 100%;
-  height: 100vh;
-}
-.edit-profile-data {
-  width: 90%;
-  margin: auto;
-}
-.edit-profile-data form {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 15px;
-  box-shadow: 1px 1px 5px 1px #0000004d;
-  border-radius: 8px;
-  width: 100%;
-  gap: 5px;
-}
-.edit-profile-data form input {
-  display: flex;
-  flex-direction: column;
-  text-indent: 10px;
-  width: 80%;
-  height: 3.5vh;
-  outline: none;
-  margin-top: 1px;
-  margin-bottom: 10px;
-}
-.edit-profile-data h3, .edit-profile-data h4 {
-  text-align: start;
-  margin: 10px 0;
-}
-.salve-cancel-edit-btn {
-  display: flex;
-  justify-content: space-around;
-  align-items: top;
-  margin-top: 20px;
-  width: 100%;
-  height: 9vh;
-}
-.salve-cancel-edit-btn button {
-  background-color: rgb(0, 150, 50);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 35%;
-  height: 4vh;
-  font-size: 16px;
-  color: white;
-  font-weight: 600;
-  border-radius: 3px;
-  cursor: pointer;
-}
-.cancel-edit-btn {
-  background-color: rgb(200, 0, 0) !important;
-}
-.show-pass-btn {
-  height: 3vh;
-  width: 30%;
-  font-size: 14px;
-  cursor: pointer;
-  color: white;
-  font-weight: 600;
-  background-color: rgb(107, 107, 107) !important;
-}
+
 .btn-login-header {
   background-color: rgb(0, 150, 50) !important;
   color: white !important;

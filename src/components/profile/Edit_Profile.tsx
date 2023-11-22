@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
 import { useEffect, useState } from "react";
 import { SemFoto } from "../icons/Imports";
+import { Container, EditButtonFooter, Main, ShowPassBTn } from "./Style";
 
 function EditProfile () {
   const navigate = useNavigate();
@@ -61,49 +62,52 @@ function EditProfile () {
       setError('');
     }
   }, [newUserInfo.senha, confirmNewPass.senha, userInfo]);
+
   const handleNewsData = () => {   
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const connectedUser = JSON.parse(localStorage.getItem('connected') || '{}');
     
     const newUsers = users.map((user: any) => {
-      if (user.id === connectedUser.id) {
-        return {
-          ...user,
-          nome: newUserInfo.nome || user.nome,
-          sobrenome: newUserInfo.sobrenome || user.sobrenome,
-          idade: newUserInfo.idade || user.idade,
-          foto: newUserInfo.foto || user.foto,
-          senha: newUserInfo.senha || user.senha,
-          email: newUserInfo.email || user.email,
-          endereco: {
-            ...user.endereco,
-            rua: newUserInfo.endereco.rua || user.endereco.rua,
-            numero: newUserInfo.endereco.numero || user.endereco.numero,
-            bairro: newUserInfo.endereco.bairro || user.endereco.bairro,
-            cidade: newUserInfo.endereco.cidade || user.endereco.cidade,
-            estado: newUserInfo.endereco.estado || user.endereco.estado,
-            pais: newUserInfo.endereco.pais || user.endereco.pais
-          }
+     if (user.id === connectedUser.id) {
+      return {
+        ...user,
+        nome: newUserInfo.nome || user.nome,
+        sobrenome: newUserInfo.sobrenome || user.sobrenome,
+        idade: newUserInfo.idade || user.idade,
+        foto: newUserInfo.foto || user.foto,
+        senha: newUserInfo.senha || user.senha,
+        email: newUserInfo.email || user.email,
+        endereco: {
+          ...user.endereco,
+          rua: newUserInfo.endereco.rua || user.endereco.rua,
+          numero: newUserInfo.endereco.numero || user.endereco.numero,
+          bairro: newUserInfo.endereco.bairro || user.endereco.bairro,
+          cidade: newUserInfo.endereco.cidade || user.endereco.cidade,
+          estado: newUserInfo.endereco.estado || user.endereco.estado,
+          pais: newUserInfo.endereco.pais || user.endereco.pais
         }
       }
+    }
 
-      return user;
-    });
-    // Atualiza os dados do usuário no localStorage com os novos valores
-    localStorage.setItem('users', JSON.stringify(newUsers));
-
+    return user;
+  });
+  // Atualiza os dados do usuário no localStorage com os novos valores
+  localStorage.setItem('users', JSON.stringify(newUsers));
   }
+
   const handleShowPass = () => {
     setShowPass(!showPass);
   }
-  console.log(newUserInfo);
+
   return (
-    <div className="edit-profile-container">
-      {userInfo && userInfo.length > 0 ? (
-        <div className="edit-profile-data">
+    <Main>
+     {userInfo && userInfo.length > 0
+      ? (
+       <Container>
           <h1>Editar Perfil</h1>
           <form onSubmit={ handleNewsData }>
-            <img src={ userInfo[0].foto || SemFoto } alt={ userInfo[0].nome } />
+           <img src={ userInfo[0].foto || SemFoto } alt={ userInfo[0].nome } />
+         
             <div>
               <label htmlFor="foto">URL da nova foto:</label>
               <input
@@ -122,13 +126,12 @@ function EditProfile () {
                 <p>Email: <strong>{ userInfo[0].email}</strong></p>
                 <p>Senha: <strong>{ showPass ? (userInfo[0].senha) : '******' }</strong></p>
                 <div>
-                  <button
+                  <ShowPassBTn
                     type="button"
                     onClick={ handleShowPass }
-                    className="show-pass-btn"
                   >
-                   { showPass ? 'Esconder' : 'Mostrar'}
-                  </button>
+                    { showPass ? 'Esconder' : 'Mostrar'}
+                  </ShowPassBTn>
                 </div>
               </div>
               <br/>
@@ -154,7 +157,7 @@ function EditProfile () {
                     value={ newUserInfo.nome }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, nome: e.target.value }) }
                   />
-                  <label htmlFor="sobrenome">Sobrenome:</label>
+                  <label htmlFor="sobrenome" style={{ marginLeft: 10 }}>Sobrenome:</label>
                   <input
                     type="text"
                     name="sobrenome"
@@ -162,7 +165,7 @@ function EditProfile () {
                     value={ newUserInfo.sobrenome }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, sobrenome: e.target.value }) }
                   />
-                  <label htmlFor="idade">Idade:</label>
+                  <label htmlFor="idade" style={{ marginLeft: 10 }}>Idade:</label>
                   <input
                     type="number"
                     name="idade"
@@ -170,7 +173,7 @@ function EditProfile () {
                     value={ newUserInfo.idade }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, idade: Number(e.target.value) }) }
                   />
-                  <label htmlFor="email">Email:</label>
+                  <label htmlFor="email" style={{ marginLeft: 10 }}>Email:</label>
                   <input
                     type="email"
                     name="email"
@@ -178,7 +181,7 @@ function EditProfile () {
                     value={ newUserInfo.email }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, email: e.target.value }) }
                   />
-                  <label htmlFor="senha">Senha:</label>
+                  <label htmlFor="senha" style={{ marginLeft: 10 }}>Senha:</label>
                   <input
                     type="password"
                     name="senha"
@@ -187,7 +190,7 @@ function EditProfile () {
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, senha: e.target.value }) }
                     minLength={ 6 }
                   />
-                  <label htmlFor="confirma">Confirme a senha</label>
+                  <label htmlFor="confirma" style={{ marginLeft: 10 }}>Confirme a senha</label>
                   <div className="confirma-senha-cont">
                   <input
                     type="password"
@@ -196,14 +199,14 @@ function EditProfile () {
                     value={ confirmNewPass.senha }
                     onChange={ (e) => setConfirmNewPass({ ...confirmNewPass, senha: e.target.value }) }
                     minLength={ 6 }
-                    className="confirma-senha"
+                    style={{ marginLeft: 10 }}
                   />
                   { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
                   </div>
                   {error2 && <p>{error2}</p>}
                   {error && <p>{error}</p>}
                   <h4>Endereço:</h4>
-                  <label htmlFor="rua">Rua:</label>
+                  <label htmlFor="rua" style={{ marginLeft: 10 }}>Rua:</label>
                   <input
                     type="text"
                     name="rua"
@@ -211,7 +214,7 @@ function EditProfile () {
                     value={ newUserInfo.endereco.rua }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, rua: e.target.value } }) }
                   />
-                  <label htmlFor="numero">Número:</label>
+                  <label htmlFor="numero" style={{ marginLeft: 10 }}>Número:</label>
                   <input
                     type="number"
                     name="numero"
@@ -219,7 +222,7 @@ function EditProfile () {
                     value={ newUserInfo.endereco.numero }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, numero: Number(e.target.value) } }) }
                   />
-                  <label htmlFor="bairro">Bairro:</label>
+                  <label htmlFor="bairro" style={{ marginLeft: 10 }}>Bairro:</label>
                   <input
                     type="text"
                     name="bairro"
@@ -227,7 +230,7 @@ function EditProfile () {
                     value={ newUserInfo.endereco.bairro }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, bairro: e.target.value } }) }
                   />
-                  <label htmlFor="cidade">Cidade:</label>
+                  <label htmlFor="cidade" style={{ marginLeft: 10 }}>Cidade:</label>
                   <input
                     type="text"
                     name="cidade"
@@ -235,7 +238,7 @@ function EditProfile () {
                     value={ newUserInfo.endereco.cidade }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, cidade: e.target.value } }) }
                   />
-                  <label htmlFor="estado">Estado:</label>
+                  <label htmlFor="estado" style={{ marginLeft: 10 }}>Estado:</label>
                   <input
                     type="text"
                     name="estado"
@@ -243,7 +246,7 @@ function EditProfile () {
                     value={ newUserInfo.endereco.estado }
                     onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, estado: e.target.value } }) }
                   />
-                  <label htmlFor="pais">País:</label>
+                  <label htmlFor="pais" style={{ marginLeft: 10 }}>País:</label>
                   <input
                     type="text"
                     name="pais"
@@ -254,28 +257,30 @@ function EditProfile () {
                 </div>
               </div>
             </div>
-            <div className="salve-cancel-edit-btn">
-              <button type="submit">Salvar</button>
-              <button
-                onClick={() => navigate('/profile')}
-                className="cancel-edit-btn"
-              >
-                Cancelar
-              </button>
-            </div>
-          </form>
-        </div>
-            ) : (
-            <div>
-              <h3>Você não está conectado</h3>
-              <p>Fazer Login?:</p>
-              <button onClick={() => navigate('/login')}>Login</button>
-              <p>Criar uma conta?:</p>
-              <button onClick={() => navigate('/register')}>Criar Conta</button>
-              <p>Voltar a página inicial:</p>
-              <button onClick={() => navigate('/')}>Home</button>
-              </div>)}
+          <EditButtonFooter>
+            <button type="submit">Salvar</button>
+            <button
+              onClick={() => navigate('/profile')}
+              className="logoutBtn"
+            >
+              Cancelar
+            </button>
+          </EditButtonFooter>
+        </form>
+      </Container>
+  ) : 
+  (
+    <div>
+      <h3>Você não está conectado</h3>
+      <p>Fazer Login?:</p>
+      <button onClick={() => navigate('/login')}>Login</button>
+      <p>Criar uma conta?:</p>
+      <button onClick={() => navigate('/register')}>Criar Conta</button>
+      <p>Voltar a página inicial:</p>
+      <button onClick={() => navigate('/')}>Home</button>
     </div>
+    )}
+  </Main>
   )
 }
 
