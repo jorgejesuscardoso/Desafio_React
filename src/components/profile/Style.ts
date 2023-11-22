@@ -165,17 +165,18 @@ export const CardInfo = styled.div`
       }
 `;
 export const FooterBtn = styled.div`
+  background-color: var(--gray-200);
   position: fixed;
-  bottom: 5%;
+  bottom: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  width: 70%;
-  height: 4vh;
+  width: 70vh;
+  height: 5vh;
 
     button {
-      background-color: rgb(0, 150, 50);
-      width: 35%;
+      background-color: var(--green-600);
+      width: 25%;
       height: 4vh;
       font-size: 16px;
       color: white;

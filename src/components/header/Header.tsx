@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -13,7 +13,8 @@ import {
   Search,
   UserNameHeader,
   MenuHeader,
-  TopFilterContainer } from "./Style";
+  TopFilterContainer, 
+  UserNameConnected} from "./Style";
 import { getUserLocalStorage } from "../utils/Utils";
 
 function Header () {
@@ -51,10 +52,15 @@ function Header () {
         alt="Logo"
         />
     <Icones>
-      <UserNameHeader>
-        <img src={ user.thumb || SemFoto } alt="" />
-        {userConnectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
-      </UserNameHeader>
+      <Link to='/profile'>
+        <UserNameHeader>
+          <img src={ user.thumb || SemFoto } alt="" />
+          <UserNameConnected>
+            {userConnectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
+          </UserNameConnected>
+          
+        </UserNameHeader>
+      </Link>
       <button
         onClick={() => navigate('/profile')}
       >

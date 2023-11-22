@@ -11,13 +11,13 @@ function EditProfile () {
   const [newUserInfo, setNewUserInfo] = useState({
     nome: '',
     sobrenome: '',
-    idade: 0,
+    idade: '',
     foto: '',
     email: '',
     senha: '',
     endereco: {
       rua: '',
-      numero: 0,
+      numero: '',
       bairro: '',
       cidade: '',
       estado: '',
@@ -171,7 +171,7 @@ function EditProfile () {
                     name="idade"
                     id="idade"
                     value={ newUserInfo.idade }
-                    onChange={ (e) => setNewUserInfo({ ...newUserInfo, idade: Number(e.target.value) }) }
+                    onChange={ (e) => setNewUserInfo({ ...newUserInfo, idade: String(e.target.value) }) }
                   />
                   <label htmlFor="email" style={{ marginLeft: 10 }}>Email:</label>
                   <input
@@ -221,8 +221,8 @@ function EditProfile () {
                     name="numero"
                     id="numero"
                     value={ newUserInfo.endereco.numero }
-                    onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, numero: Number(e.target.value) } }) }
-                  />
+                    onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, numero: String (e.target.value) } }) }
+                  /> 
                   <label htmlFor="bairro" style={{ marginLeft: 10 }}>Bairro:</label>
                   <input
                     type="text"

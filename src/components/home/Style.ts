@@ -10,7 +10,7 @@ export const Container = styled.main`
 `;
 export const FooterHome = styled.footer`
   position: fixed;
-  bottom: 1px;
+  bottom: 0;
   display: flex;
   margin: auto;
   height: 5vh;

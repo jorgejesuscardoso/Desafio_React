@@ -7,7 +7,7 @@ function Layout() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 900px)');
+    const mediaQuery = window.matchMedia('(min-width: 2080px)');
     setIsMobile(mediaQuery.matches);
 
     const handleResize = (e: any) => {

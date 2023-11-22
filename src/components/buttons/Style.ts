@@ -72,4 +72,5 @@ export const FilterBtnTop = styled.button`
   background-color: #cccccc4f ;
   color: rgb(100, 100, 100);
   border-radius: 5px;
+  box-shadow: 0px 0px 2px 0px rgb(0, 100, 0);
 `;

@@ -22,7 +22,7 @@ export const UserNameHeader = styled.div`
   justify-content: space-between;
   color: rgb(0, 110, 0);
   font-weight: 600;
-  width: 30%;
+  width: 22vh;
     p {
       font-size: 16px;
     }
@@ -121,4 +121,10 @@ export const TopFilterContainer = styled.div`
       width: 19%;
       height: 3.5vh;
     }
+`;
+export const UserNameConnected = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;
