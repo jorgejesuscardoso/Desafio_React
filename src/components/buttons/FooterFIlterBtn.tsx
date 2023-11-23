@@ -5,12 +5,10 @@ import { FilterFooterMenu } from "./Style";
 
 function FooterFIlterBtn () {
   const dispatch = useDispatch();
-  const handleFilter = () => {
-    dispatch(footerMenuDisplayAction());
-  }
+  
   return (
     <FilterFooterMenu
-      onClick={ handleFilter }
+      onClick={ () => dispatch(footerMenuDisplayAction())  }
     >
       <img src={ menuFilterIcon } alt="menu-filter" />
     </FilterFooterMenu>

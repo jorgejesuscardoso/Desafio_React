@@ -5,13 +5,10 @@ import { PrevNextPageBtn } from './Style';
 
 export function PrevBtn ({ page }: PagesProps) {
   const dispatch = useDispatch();
-
-  const handlePrevPage = () => {
-    dispatch(prevPagesAction());
-  }
+  
   return (
       <PrevNextPageBtn
-      onClick={handlePrevPage}
+      onClick={ () => dispatch(prevPagesAction()) }
       disabled={page === 1}
     >
       {'<<<'}

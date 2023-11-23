@@ -3,30 +3,17 @@ import { filterDateAction, filterEconomyAction, filterGeoscienceAction, filterIb
 import { DateProp, MiscellanousFilterType } from "../../type";
 import { scrolTop } from "../utils/Utils";
 import { ContainerFooterMenu, TitleFooterMenu } from "../buttons/Style";
+import { AnyAction } from "redux";
+
 
 function DisplayFooterFIlter() {
   const { filterEconomy, filterGeoscience, filterIbge, filterSocial } = useSelector((state: MiscellanousFilterType) => state.filterAll);
   const { searchDate } = useSelector((state: DateProp) => state.filterDate);
   const dispatch = useDispatch();
-  const handleFilterGeosciences = () => {
-    dispatch(filterGeoscienceAction());
+ 
+  const handleButtonClick = (action: AnyAction ) => {
     scrolTop();
-  }
-  const handleFilterEconomy = () => {
-    dispatch(filterEconomyAction())
-    scrolTop();
-  }
-  const handleFilterSocial = () => {
-    dispatch(filterSocialAction())
-    scrolTop();
-  }
-  const handleFilterIBGE = () => {
-    dispatch(filterIbgeAction())
-    scrolTop();
-  }
-  const handleFilterDate = () => {
-    dispatch(filterDateAction());
-    scrolTop();
+    dispatch(action);
   }
 
   return (
@@ -36,31 +23,31 @@ function DisplayFooterFIlter() {
       </TitleFooterMenu>
         <button
           className={ filterGeoscience ? "display-menu-btn filtred-btn" : "display-menu-btn" }
-          onClick={handleFilterGeosciences}
+          onClick={ () => handleButtonClick(filterGeoscienceAction())}
         >
           Geociências
         </button>
         <button
           className={ filterSocial ? "display-menu-btn filtred-btn" : "display-menu-btn" }
-          onClick={handleFilterSocial}
+          onClick={ () => handleButtonClick(filterSocialAction()) }
         >
           Sociais
         </button>
         <button
           className={ searchDate ? "display-menu-btn filtred-btn" : "display-menu-btn" }
-          onClick={handleFilterDate}
+          onClick={ () => handleButtonClick(filterDateAction())}
         >
           Data
         </button>
         <button
           className={ filterIbge ? "display-menu-btn filtred-btn" : "display-menu-btn" }
-          onClick={handleFilterIBGE}
+          onClick={ () => handleButtonClick(filterIbgeAction())}
         >
           IBGE
         </button>
         <button
           className={ filterEconomy ? "display-menu-btn filtred-btn" : "display-menu-btn" }
-          onClick={handleFilterEconomy}
+          onClick={ () => handleButtonClick(filterEconomyAction())}
         >
           Economia
         </button>

@@ -6,12 +6,9 @@ import { PrevNextPageBtn } from './Style';
 export function NextBtn ({ page, totalPages }: PagesProps) {
   const dispatch = useDispatch();
 
-  const handleNextPage = () => {
-    dispatch(nextPagesAction());
-  }
   return (
-      <PrevNextPageBtn
-      onClick={handleNextPage}
+    <PrevNextPageBtn
+      onClick={ () => dispatch(nextPagesAction()) }
       disabled={page === totalPages}
       className='page-btn'
     >

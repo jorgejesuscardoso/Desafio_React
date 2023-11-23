@@ -11,33 +11,35 @@ function FilterDate () {
   const [finalDate, setFinalDate] = useState("");
   const [erroDate, setErroDate] = useState(false);
 
+  const executeSearch = (searchString: string) => {
+    dispatch(filterSearchDateAction(searchString));
+    dispatch(filterDateAction());
+    scrolTop();
+  };
+
   const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     const initial = new Date(initialDate);
     const final = new Date(finalDate);
+    
     if (initial > final) {
       setErroDate(true);
       return;
     }
+
     if (!initialDate && !finalDate) {
       dispatch(filterAllAction('noticia'));
-      const date = '';
-      dispatch(filterSearchDateAction(date));
-      scrolTop();
-    } 
-    if (initialDate && finalDate) {
+      executeSearch('');
+    } else if (initialDate && finalDate && initial <= final) {
       const fullDate = `de=${initialDate}&ate=${finalDate}`;
-      dispatch(filterSearchDateAction(fullDate));
-      scrolTop();
-    } else if (initialDate) {
-      dispatch(filterSearchDateAction(`de=${initialDate}`));
-      scrolTop();
-    } else if (finalDate) {
-      dispatch(filterSearchDateAction(`ate=${finalDate}`));
-      scrolTop();
+      executeSearch(fullDate);
+    } else if (initialDate && initial <= final) {
+      executeSearch(`de=${initialDate}`);
+    } else if (finalDate && initial <= final) {
+      executeSearch(`ate=${finalDate}`);
+    } else {
+      setErroDate(true);
     }
-    dispatch(filterDateAction());
-    scrolTop();
   }
   return (
     <div>

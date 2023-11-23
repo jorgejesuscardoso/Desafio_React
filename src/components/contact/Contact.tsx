@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 function Contact() {
   const navigate = useNavigate();
+  
   return (
     <main style={{textAlign: 'center', fontSize: '16px'}}>
       <section>
