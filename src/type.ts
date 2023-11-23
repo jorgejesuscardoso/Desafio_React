@@ -137,6 +137,17 @@ export type UserConnetedProps = {
   userConnected: UserTypes;
 };
 
+export type NewUserType = {
+  id: number, 
+  email: string,
+  senha: string,
+  nome: string,
+  sobrenome: string,
+  idade: string,
+  endereco: string,
+  foto: string,
+};
+
 export type LoginType = {
   email: string;
   senha: string;

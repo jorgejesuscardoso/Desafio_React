@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
 import { AnyAction } from "redux"
@@ -40,9 +41,25 @@ function Register () {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error3, setError3] = useState('')
 
+  const handleNewUser = (newUser: any, usersArray: any) => {
+    const existingUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
+
+    if (existingUser) {
+      setError(true);
+      setErrorMsg('Usuário já registrado!');
+      setIsRegister(false);
+      return;
+    } 
+    usersArray.push(newUser);
+    setNewUserToLocalStorage(usersArray)
+    setIsRegister(true);
+    setError(false);
+    setErrorMsg('');
+  }
+
+
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const newUser = {
       id: 0, 
       email: email,
@@ -59,22 +76,7 @@ function Register () {
     if (usersArray.length > 0) {
       newUser.id = usersArray.length;
     }
-
-    const existingUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
-
-    if (existingUser) {
-      setError(true);
-      setErrorMsg('Usuário já registrado!');
-      setIsRegister(false);
-      return;
-    } 
-
-    usersArray.push(newUser);
-
-    setNewUserToLocalStorage(usersArray)
-    setIsRegister(true);
-    setError(false);
-    setErrorMsg('');
+    handleNewUser(newUser, usersArray);   
   };
 
   const handleDisable = () => {
@@ -118,7 +120,7 @@ function Register () {
   },[page, email, password, name, lastname, age, address.rua, address.numero, address.bairro, address.cidade, address.estado, confirmPassword, disable, address.pais])
 
   const handlePopUp = () => {
-    if (!isRegister) {
+    if (isRegister) {
       return (
         <PopUp />
       )
@@ -128,15 +130,9 @@ function Register () {
 return (
 
   <Main>
-    {page === 3 &&
-      <Logo 
-        src={ logoIcon }
-        alt="logo"
-      />         
-      }
+    {page === 3 && <Logo src={ logoIcon } alt="logo" /> }
     <form
-      onSubmit={handleOnSubmit}
-      
+      onSubmit={handleOnSubmit}      
     >
       { page === 0 ?  
         <Page0Form
