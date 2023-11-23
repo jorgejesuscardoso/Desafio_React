@@ -26,6 +26,11 @@ export const ErrUserConnectedContainer = styled.div`
   color: green;
   font-weight: 600;
   }
+  button {
+    width: 30%;
+    margin: auto;
+    height: 4vh;
+  }
 `
 export const Container = styled.main`
   background-image: url('src/assets/bnLogo.png');

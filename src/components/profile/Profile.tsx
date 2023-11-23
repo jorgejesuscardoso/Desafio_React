@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
@@ -25,7 +25,7 @@ function Profile () {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     
     if (connectedUser.connected) {
-      users.find((user: any) => {
+      users.find((user: UserTypes[0]) => {
         if (user.id === connectedUser.id) {
           setUserConnected([user]);
         }

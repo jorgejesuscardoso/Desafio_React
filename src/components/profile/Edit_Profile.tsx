@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useNavigate } from "react-router-dom";
 import { UserTypes } from "../../type";
 import { useEffect, useState } from "react";
@@ -41,7 +40,7 @@ function EditProfile () {
     const connectedUser = JSON.parse(localStorage.getItem('connected') || '{}');
     
     if (connectedUser.connected) {
-      users.find((user: any) => {
+      users.find((user: UserTypes[0]) => {
         if (user.id === connectedUser.id) {
           setUserInfo([user]);
         }
@@ -73,7 +72,7 @@ function EditProfile () {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const connectedUser = JSON.parse(localStorage.getItem('connected') || '{}');
     
-    const newUsers = users.map((user: any) => {
+    const newUsers = users.map((user: UserTypes[0]) => {
       if (user.id === connectedUser.id) {
         return {
           ...user,

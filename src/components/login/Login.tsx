@@ -1,65 +1,75 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import {
   getUserLocalStorage,
   setUserConnectedToLocalStorage,
-  userConnected,
-  users } from "../utils/Utils";
-import ErrUserConnected from "./ErrUserConneted";
+  users} from "../utils/Utils";
 import { LoginType } from "../../type";
 import {
   Container,
+  ErrUserConnectedContainer,
   LoginError} from "./Style";
 import FormLogin from "./FormLogin";
 
-function Login () {
+export interface UserInfo {
+  id: number;
+  nome: string;
+  sobrenome: string;
+}
+function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState(false)
-  const [errorMsg, setErrorMsg] = useState('')
-  const [isConnected, setConnected] = useState(false)
-  const [isUserConnected, setUserConnected] = useState<any>()
-  const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [conectou, setConectou] = useState(false);
+  const [userJaConectado, setUserJaConectado] = useState<UserInfo>();
+  const [loading, setLoading] = useState(false);
   
-  useEffect(() => {
-    if (userConnected.connected) {
-      users.find((user: any) => {
-        if (isUserConnected && isUserConnected.id === user.id) {
-          setUserConnected([user]);
-        }
+  const handleConnectedUser = () => {
+    const taConectado = getUserLocalStorage('connected');
+    if (taConectado) {
+      const userInfo = users.find((user: LoginType) => user.id === taConectado.id);
+      if(userInfo) {
+        setUserJaConectado({
+          id: userInfo.id,
+          nome: userInfo.nome,
+          sobrenome: userInfo.sobrenome
+        });
       }
-      );
-    }   
-  }, [isUserConnected]);  
+    }
+  }
+  useEffect(() => {
+   handleConnectedUser();
+  }, []);
 
-  const setLocalStorage = (existingUser: LoginType) => {
+  const setLocalStorage = (existeUser: LoginType) => {
     const connectedUser = {
-      id: existingUser.id,
-      nome: existingUser.name,
-      email: existingUser.email,
-      senha: existingUser.senha,
+      id: existeUser.id,
+      nome: existeUser.name,
+      email: existeUser.email,
+      senha: existeUser.senha,
       connected: true
     };
-    
+
     setUserConnectedToLocalStorage('connected', connectedUser);
   };
-  
+
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const usersArray = getUserLocalStorage('users');
 
-    const existingUser = usersArray.find((user: LoginType) => user.email === email && user.senha === password);
+    const existeUser = usersArray.find((user: LoginType) => user.email === email && user.senha === password);
 
-    if (!existingUser) {
+    if (!existeUser) {
       setError(true);
       setErrorMsg('Usuário não cadastrado!');
       return;
     }
-    setLocalStorage(existingUser);
-    setConnected(true);
+    setLocalStorage(existeUser);
+    setConectou(true);
     setLoading(true);
     setError(false);
     setErrorMsg('');
@@ -68,30 +78,40 @@ function Login () {
       navigate('/');
     }, 2000);
   };
-
-return (
-  <Container>
-    { userConnected && userConnected.length > 0 ? (
-      <ErrUserConnected
-        userConnected={ userConnected }
-      />
-    )         
-      : <FormLogin
-          email={ email }
-          password={ password }
-          setEmail={ setEmail }
-          setPassword={ setPassword }
-          handleOnSubmit={ handleOnSubmit }
-          setError={ setError }
+  return (
+    <Container>
+      {userJaConectado && userJaConectado ? (
+          <ErrUserConnectedContainer>
+          <h3>Você já está logado!</h3>
+          { 
+            <div key={userJaConectado.id}>
+              <p>Logado como: <span>{userJaConectado.nome} { userJaConectado.sobrenome }</span></p>
+            </div>
+          }
+          <button
+            onClick={() => navigate('/')}
+            className="loginBtn"
+          >
+            Inicio
+          </button>         
+        </ErrUserConnectedContainer>
+      ) : (
+        <FormLogin
+          email={email}
+          password={password}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          handleOnSubmit={handleOnSubmit}
+          setError={setError}
         />
-      }
-    <LoginError>
-      { error && <p>{errorMsg}</p> }
-      { isConnected && <p>Logado com sucesso!</p>}
-      { loading && <p>Carregando...</p>}
-    </LoginError>
-  </Container>
- )
+      )}
+      <LoginError>
+        {error && <p>{errorMsg}</p>}
+        {conectou && <p>Logado com sucesso!</p>}
+        {loading && <p>Carregando...</p>}
+      </LoginError>
+    </Container>
+  );
 }
 
-export default Login
+export default Login;

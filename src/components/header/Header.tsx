@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Link } from "react-router-dom";
 import { SemFoto, logoIcon } from "../icons/Imports";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ import { getUserLocalStorage } from "../utils/Utils";
 import MenuHeaderContent from "./MenuHeader";
 import SearchContent from "./SearchHeader";
 import IconesHeader from "./IconesHeader";
+import { UserTypes } from "../../type";
 
 function Header () {
   
@@ -31,7 +32,7 @@ function Header () {
     const user = localStorage.getItem('connected');
     const userData = getUserLocalStorage('users');
     if (user) {      
-      const mapUser = userData.map((u: any) => u).find((u: any) => u.id === JSON.parse(user).id);
+      const mapUser = userData.map((u: UserTypes) => u).find((u: UserTypes[0]) => u.id === JSON.parse(user).id);
       setUserConected(true);
       setUser({name: mapUser.nome, thumb: mapUser.foto});
     } else {
