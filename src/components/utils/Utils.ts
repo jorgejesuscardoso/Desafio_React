@@ -11,7 +11,7 @@ export function scrolTop () {
 }
 
 // Obtem local storage dinamicamente e verifica se o item já está salvo, necessário passar, key e id
-export function getLocalStorage (key: string, id: FavoriteType) {
+export function getFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteType) {
   const Store = localStorage.getItem(`${key}`) || "[]";    
     const favoriteArray = JSON.parse(Store);
     const storedItems = [...favoriteArray]
@@ -26,7 +26,7 @@ export function setLocalStorage (key: string, id: FavoriteType, array: number[])
 }
 
 
-export function removeFromLocalStorage (key: string, id: FavoriteType, array: number[]) {
+export function removeFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteType, array: number[]) {
   const index = array.indexOf(id.id);
   array.splice(index, 1);
   localStorage.setItem(`${key}`, JSON.stringify(array));

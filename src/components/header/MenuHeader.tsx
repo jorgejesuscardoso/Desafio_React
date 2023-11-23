@@ -3,16 +3,16 @@ import { MenuHeader } from "./Style";
 import { MenuHeaderContentProps } from "../../type";
 
 
-function MenuHeaderContent ({ userConnectado, setUserConnectado, setShowMenu }: MenuHeaderContentProps) {
+function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: MenuHeaderContentProps) {
   const navigate = useNavigate();
   
   const handleLogout = () => {
     localStorage.removeItem('connected');
-    setUserConnectado(false);
+    setUserConectado(false);
   };
 
   const handleLoginClick = () => {
-    if (!userConnectado) {
+    if (!userConectado) {
       navigate('/login');
     }
   };
@@ -23,17 +23,17 @@ function MenuHeaderContent ({ userConnectado, setUserConnectado, setShowMenu }: 
         <button
           onClick={(e) => {
             e.preventDefault();
-            userConnectado ? handleLogout() : handleLoginClick();
+            userConectado ? handleLogout() : handleLoginClick();
           }}
-          className={ userConnectado ? 'logoutBtn' : 'loginBtn'}           
+          className={ userConectado ? 'logoutBtn' : 'loginBtn'}           
         >
-        { userConnectado ? 'Sair' : 'Entrar' }
+        { userConectado ? 'Sair' : 'Entrar' }
         </button>
       </li>
       <li>
         <button
           onClick={() => navigate('/register')}
-          style={{ display: userConnectado ? 'none' : 'block' }}
+          style={{ display: userConectado ? 'none' : 'block' }}
         >
           Registrar-se
         </button>

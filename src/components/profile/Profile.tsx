@@ -21,12 +21,12 @@ function Profile () {
   const [userConnected, setUserConnected] = useState<UserTypes>();
 
   useEffect(() => {
-    const connectedUser = JSON.parse(localStorage.getItem('connected') || '{}');
+    const taConectado = JSON.parse(localStorage.getItem('connected') || '{}');
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     
-    if (connectedUser.connected) {
+    if (taConectado.connected) {
       users.find((user: UserTypes[0]) => {
-        if (user.id === connectedUser.id) {
+        if (user.id === taConectado.id) {
           setUserConnected([user]);
         }
       }

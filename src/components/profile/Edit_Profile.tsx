@@ -31,7 +31,7 @@ function EditProfile () {
   });
   const [showPass, setShowPass] = useState(false);
   const [confirmNewPass, setConfirmNewPass] = useState({ senha: ''});
-  const [confirmaSenha, setConfirmaSenha] = useState(false);
+  const [msgConfirmaSenha, setMsgConfirmaSenha] = useState(false);
   const [error, setError] = useState('');
   const [passError, setPassError] = useState('');
 
@@ -52,9 +52,9 @@ function EditProfile () {
   useEffect(() => {
 
     if (newUserInfo.senha === confirmNewPass.senha) {
-      setConfirmaSenha(true);
+      setMsgConfirmaSenha(true);
     } else {
-      setConfirmaSenha(false);
+      setMsgConfirmaSenha(false);
     }
     if (newUserInfo.senha.length < 6) {
       setPassError('A senha deve ter no mínimo 6 caracteres');
@@ -128,7 +128,7 @@ function EditProfile () {
                     setNewUserInfo={ setNewUserInfo }
                     confirmNewPass={ confirmNewPass }
                     setConfirmNewPass={ setConfirmNewPass }
-                    confirmaSenha={ confirmaSenha }
+                    msgConfirmaSenha={ msgConfirmaSenha }
                   />
                   {passError && <p>{passError}</p>}
                   {error && <p>{error}</p>}

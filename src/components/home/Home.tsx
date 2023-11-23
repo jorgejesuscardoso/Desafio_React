@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
 import Header from "../header/Header";
@@ -31,10 +30,10 @@ function Home() {
   const nextOrPrevPage = handlePage.page // Armazena o estado do redux. Botoes next e prev
 
   const footerMenu = useSelector((state: MenuType) => state.footerMenu);
-  const displayMenu = footerMenu.display;
+  const displayFooterMenu = footerMenu.display;
 
-  const filterNewsState = useSelector((state: FilterTypeNewsRelease) => state.filterNewsAndRelease);
-  const { filterNewsAndRelease } = filterNewsState;
+  const filtraTipoDeNoticia = useSelector((state: FilterTypeNewsRelease) => state.filterNewsAndRelease);
+  const { filterNewsAndRelease } = filtraTipoDeNoticia;
 
   const handleDate = useSelector((state: DateProp) => state.filterDate);
   const { filterDate } = handleDate;
@@ -86,7 +85,7 @@ function Home() {
 
 
   const renderDisplayFooterFilter = () => {
-    return displayMenu ? <DisplayFooterFIlter /> : null;
+    return displayFooterMenu ? <DisplayFooterFIlter /> : null;
   };
   
   const renderFilterDate = () => {

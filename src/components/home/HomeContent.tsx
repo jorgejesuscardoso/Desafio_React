@@ -16,8 +16,8 @@ function Content({ items, error, page }: ContentProps) {
             Recarregar
           </button>
         </ErrMsg>
-      ) : items.length > 0 ? (
-        items.map((item) => (
+      ) : items.length > 0 
+        ? ( items.map((item) => (
           <Card key={item.id}>
             <NewsCard {...item} /> 
           </Card>

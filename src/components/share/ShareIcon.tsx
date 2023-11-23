@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { shareIcon } from "../icons/Imports";
 import { FavoriteType } from "../../type";
-import { getLocalStorage, setLocalStorage } from "../utils/Utils";
+import { getFavoriteAndMarkedFromLocalStorage, setLocalStorage } from "../utils/Utils";
 import { Container } from "./Style";
 
 function Share(id: FavoriteType) {
@@ -9,7 +9,7 @@ function Share(id: FavoriteType) {
   const [shareCount, setShareCount] = useState(0);
 
   useEffect(() => {
-    const { isStored, storedItems } = getLocalStorage('shared',id)
+    const { isStored, storedItems } = getFavoriteAndMarkedFromLocalStorage('shared',id)
     if (isStored) {
       setShareCount(storedItems.filter((item) => item === id.id).length);
     }
@@ -17,7 +17,7 @@ function Share(id: FavoriteType) {
 
   // Seta o estado e localstorage do ícone de compartilhar
   const handleShare = () => {
-    const { storedItems } = getLocalStorage('shared',id)
+    const { storedItems } = getFavoriteAndMarkedFromLocalStorage('shared',id)
       setLocalStorage('shared',id, storedItems)
       setShareCount(shareCount + 1);    
   }

@@ -46,9 +46,9 @@ function Register () {
   }
   // Esse any não é o ideal, mas não consegui resolver o problema de tipagem
   const handleNewUser = (newUser: Address, usersArray: any) => {
-    const existingUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
+    const existeUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
 
-    if (existingUser) {
+    if (existeUser) {
       setError(true);
       setErrorMsg('Usuário já registrado!');
       setIsRegister(false);

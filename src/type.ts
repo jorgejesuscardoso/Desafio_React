@@ -10,8 +10,8 @@ export interface ItemProps {
   imagens: string;
 }
 export interface MenuHeaderContentProps {
-  userConnectado: boolean;
-  setUserConnectado: React.Dispatch<React.SetStateAction<boolean>>;
+  userConectado: boolean;
+  setUserConectado: React.Dispatch<React.SetStateAction<boolean>>;
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export interface SearchContentProps {
@@ -181,7 +181,7 @@ export interface ValidateInfoProps {
   setConfirmNewPass: React.Dispatch<React.SetStateAction<{
     senha: string;
   }>>;
-  confirmaSenha: boolean;
+  msgConfirmaSenha: boolean;
 }
 export interface AddressInfoProps {
   newUserInfo: any;

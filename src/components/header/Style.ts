@@ -29,8 +29,9 @@ export const UserNameHeader = styled.div`
     img {      
       margin-left: 0;
       width: 5vh;
+      height: 4.5vh;
       border: none;
-      border-radius: 15px;
+      border-radius: 20px;
     }
 `;
 export const Logo = styled.img`

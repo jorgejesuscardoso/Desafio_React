@@ -3,7 +3,7 @@ import { ConfirmPass, InputConfirmePass } from "./Style";
 
 
 
-function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setConfirmNewPass, confirmaSenha }: ValidateInfoProps) {
+function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setConfirmNewPass, msgConfirmaSenha }: ValidateInfoProps) {
 
   return (
     <>
@@ -60,7 +60,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
           style={{ marginLeft: 10 }}
 
         />
-        { !confirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
+        { !msgConfirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
       </ConfirmPass>
     </>
   )

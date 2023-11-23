@@ -24,7 +24,7 @@ function Header () {
 
   const [showMenu, setShowMenu] = useState(false); 
 
-  const [userConnectado, setUserConected] = useState<boolean>(false); 
+  const [userConectado, setUserConectado] = useState<boolean>(false); 
 
   const [user, setUser] = useState({ name: '', thumb: ''});
 
@@ -33,15 +33,14 @@ function Header () {
     const userData = getUserLocalStorage('users');
     if (user) {      
       const mapUser = userData.map((u: UserTypes) => u).find((u: UserTypes[0]) => u.id === JSON.parse(user).id);
-      setUserConected(true);
+      setUserConectado(true);
       setUser({name: mapUser.nome, thumb: mapUser.foto});
     } else {
-      setUserConected(false);
+      setUserConectado(false);
       setUser({name: '', thumb: ''});
     }
   }
-  ,[userConnectado]);
-  console.log(userConnectado)
+  ,[userConectado]);
   return (
   <HeaderContainer>
     <button
@@ -57,7 +56,7 @@ function Header () {
         <UserNameHeader>
           <img src={ user.thumb || SemFoto } alt="" />
           <UserNameConnected>
-            {userConnectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
+            {userConectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
           </UserNameConnected>          
         </UserNameHeader>
       </Link>
@@ -79,8 +78,8 @@ function Header () {
           )}
       { showMenu ? (
         <MenuHeaderContent
-          userConnectado={ userConnectado }
-          setUserConnectado={ setUserConected }
+          userConectado={ userConectado }
+          setUserConectado={ setUserConectado }
           setShowMenu={ setShowMenu }
         />
       ) : ( <></> )}

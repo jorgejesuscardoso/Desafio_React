@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FavoriteType } from "../../type";
-import { getLocalStorage, removeFromLocalStorage, setLocalStorage } from "../utils/Utils";
+import { getFavoriteAndMarkedFromLocalStorage, removeFavoriteAndMarkedFromLocalStorage, setLocalStorage } from "../utils/Utils";
 import { liked, unliked } from "../icons/Imports";
 import { Container } from "./Style";
 
@@ -10,7 +10,7 @@ function Favorite (favoriteId: FavoriteType) {
   
   // Recupera o array de favoritos do localStorage
   useEffect(() => {
-    const { isStored, storedItems } = getLocalStorage('favorite',favoriteId);
+    const { isStored, storedItems } = getFavoriteAndMarkedFromLocalStorage('favorite',favoriteId);
     if (isStored) {
       setFavorited(true);
       setFavoriteCount(storedItems.filter((item) => item === favoriteId.id).length);
@@ -19,9 +19,9 @@ function Favorite (favoriteId: FavoriteType) {
 
   // Seta o estado do ícone de favorito e o contador de favoritos e localStorage
   const handleFavorite = () => {
-    const { isStored, storedItems } = getLocalStorage('favorite',favoriteId);
+    const { isStored, storedItems } = getFavoriteAndMarkedFromLocalStorage('favorite',favoriteId);
     if (isStored) {
-      removeFromLocalStorage('favorite',favoriteId, storedItems);
+      removeFavoriteAndMarkedFromLocalStorage('favorite',favoriteId, storedItems);
       setFavorited(false);
       setFavoriteCount(favoriteCount - 1);
     } else {
