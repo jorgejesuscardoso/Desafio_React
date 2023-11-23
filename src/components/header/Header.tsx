@@ -2,24 +2,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { searchNewsAction } from "../redux/action/actions";
 import TopFilter from "../buttons/TopFilterBtn";
 import {
   HeaderContainer,
   Ico,
   Icones,
   Logo,
-  Search,
   UserNameHeader,
   TopFilterContainer, 
   UserNameConnected} from "./Style";
 import { getUserLocalStorage } from "../utils/Utils";
 import MenuHeaderContent from "./MenuHeader";
+import SearchContent from "./SearchHeader";
 
 function Header () {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   
   const [showSearch, setShowSearch] = useState(false); 
 
@@ -94,35 +91,12 @@ function Header () {
         />
       </button>
       { showSearch ? (
-        <Search>
-          <form onSubmit={ (e) => {
-            e.preventDefault();
-            dispatch(searchNewsAction(search));
-            setSearch('');
-          } }>
-            <input
-              type="text"
-              placeholder="Pesquisar"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <button
-              type="submit"   
-            >
-              Buscar
-            </button>
-            <button 
-              type="button"
-              onClick={ () => {
-                setShowSearch(!showSearch);
-                setSearch('');
-              } }
-              style={{ backgroundColor: '#fff', width: 25, height: 25 }}
-            >
-              ❌
-            </button>
-          </form>
-        </Search>
+        <SearchContent
+          showSearch={ showSearch }
+          setShowSearch={ setShowSearch }
+          search={ search }
+          setSearch={ setSearch }
+        />
           ) : (
             <></>
           )

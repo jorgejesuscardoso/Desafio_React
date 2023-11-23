@@ -13,6 +13,12 @@ export interface MenuHeaderContentProps {
   setUserConnectado: React.Dispatch<React.SetStateAction<boolean>>;
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
+export interface SearchContentProps {
+  showSearch: boolean;
+  setShowSearch: (value: boolean) => void;
+  search: string;
+  setSearch: (value: string) => void;
+}
 export type DataHour = {
   dateTime: string;
 };
