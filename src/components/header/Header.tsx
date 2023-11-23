@@ -12,10 +12,10 @@ import {
   Logo,
   Search,
   UserNameHeader,
-  MenuHeader,
   TopFilterContainer, 
   UserNameConnected} from "./Style";
 import { getUserLocalStorage } from "../utils/Utils";
+import MenuHeaderContent from "./MenuHeader";
 
 function Header () {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function Header () {
 
   const [showMenu, setShowMenu] = useState(false); 
 
-  const [userConnectado, setUserConected] = useState(false); 
+  const [userConnectado, setUserConected] = useState<boolean>(false); 
 
   const [user, setUser] = useState({ name: '', thumb: ''});
 
@@ -44,13 +44,17 @@ function Header () {
     }
   }
   ,[userConnectado]);
-
+  console.log(userConnectado)
   return (
   <HeaderContainer>
+    <button
+      onClick={ () => window.location.reload() }
+    >
       <Logo
         src={ logoIcon }
         alt="Logo"
         />
+    </button>
     <Icones>
       <Link to='/profile'>
         <UserNameHeader>
@@ -124,57 +128,11 @@ function Header () {
           )
         }
       { showMenu ? (
-        <MenuHeader>
-          <ul>
-            <li>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (userConnectado) {
-                    localStorage.removeItem('connected');
-                    setUserConected(false);
-                    return;
-                  } 
-                  if (!userConnectado){
-                    navigate('/login');
-                  }
-                }}
-                className={ userConnectado ? 'logoutBtn' : 'loginBtn'}           
-              >
-              { userConnectado ? 'Sair' : 'Entrar' }
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate('/register')}
-                style={{ display: userConnectado ? 'none' : 'block' }}
-              >
-                Registrar-se
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => navigate('/about')}
-              >
-                About
-              </button>
-            </li>
-          <li>
-            <button
-                onClick={() => navigate('/contact')}
-              >
-                Contact
-              </button>
-          </li>
-          <li>
-            <button
-              onClick={ () => setShowMenu(!showMenu) }
-            >
-              ❌
-            </button>
-          </li>
-          </ul>
-        </MenuHeader>
+        <MenuHeaderContent
+          userConnectado={ userConnectado }
+          setUserConnectado={ setUserConected }
+          setShowMenu={ setShowMenu }
+        />
       ) : (
         <></>
       )

@@ -3,61 +3,51 @@ import { filterAllAction, filterFavoriteAction, filterMarkedAction } from "../re
 import { FilterTypeNewsRelease, MiscellanousFilterType } from "../../type"
 import { scrolTop } from "../utils/Utils"
 import { FilterBtnTop } from "./Style"
+import { AnyAction } from "redux"
 
 function TopFilter () {
   const dispatch = useDispatch()
   const { filterFavorite, filterMarked } = useSelector((state: MiscellanousFilterType) => state.filterAll)
   const { filterNewsAndRelease } = useSelector((state: FilterTypeNewsRelease) => state.filterNewsAndRelease)
+
+  const handleButtonClick = (action: AnyAction) => {
+    scrolTop()
+    dispatch(action)
+  }
   
   return (
     <>
       <FilterBtnTop
         className={ !filterNewsAndRelease ? "filtred-btn-top" : "" }
-        onClick={() => {
-          dispatch(filterAllAction('')),
-          window.location.reload(),
-          scrolTop()
-        }}
+        onClick={ () => handleButtonClick(filterAllAction('')) }
       >
         Todos
       </FilterBtnTop>
 
       <FilterBtnTop
         className={ !filterFavorite ? "filter-btn" : "filter-btn filtred-btn-top"}
-        onClick={ () => {
-          dispatch(filterFavoriteAction()),
-          scrolTop()
-        } }
+        onClick={ () => handleButtonClick(filterFavoriteAction())}
       >
         Favoritos
       </FilterBtnTop>
 
       <FilterBtnTop
         className={ !filterMarked ? "filter-btn" : "filter-btn filtred-btn-top"}
-        onClick={ () => {
-          dispatch(filterMarkedAction()),
-          scrolTop()
-        } }
+        onClick={ () => handleButtonClick(filterMarkedAction())}
       >
         Marcados
       </FilterBtnTop>
 
       <FilterBtnTop 
         className={ filterNewsAndRelease === 'noticia' ? "filter-btn filtred-btn-top" : "filter-btn" }
-        onClick={ () => {
-          dispatch(filterAllAction('noticia')),
-          scrolTop()
-        }}
+        onClick={ () => handleButtonClick(filterAllAction('noticia'))}
       >
         Notícias
       </FilterBtnTop>
 
       <FilterBtnTop
         className={ filterNewsAndRelease === 'release' ? "filter-btn filtred-btn-top" : "filter-btn" }
-        onClick={ () => {
-          dispatch(filterAllAction('release')),
-          scrolTop()
-        }}
+        onClick={ () => handleButtonClick(filterAllAction('release'))}
       >
         Releases
       </FilterBtnTop>

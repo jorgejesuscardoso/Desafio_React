@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import FetchApi from "../../services/DataApi";
@@ -103,29 +104,33 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiData = await FetchApi(
-          typeNews,
-          numberPage,
-          filterDate,
-          searchNews,
-          ); 
-        const filterByEditoria = Filtros(apiData);
-        if (Array.isArray(filterByEditoria) && filterByEditoria.length === 0) {
-          setNumberPage(numberPage + 1); // Se não houver notícias na página atual, avança até uma página que tenha notícias
-        }
-        setData(prevData => ({
-          ...prevData,
-          items: filterByEditoria,
-          page: apiData.page,
-          totalPages: apiData.totalPages,
-        }));         
-        window.scrollTo(0, 0);
+        const apiData = await fetchDataFromApi();
+        handleApiData(apiData);
       } catch (error) {
         setError(true);
       }
     };
     fetchData();
   }, [numberPage, typeNews, filterDate, filterEconomy, filterGeoscience, filterIbge, filterSocial, filterFavorite, searchNews, filterMarked]);
+  
+  const fetchDataFromApi = async () => {
+    return await FetchApi(typeNews, numberPage, filterDate, searchNews);
+  };
+  
+  const handleApiData = (apiData: any) => {
+    const filterByEditoria = Filtros(apiData);
+    if (Array.isArray(filterByEditoria) && filterByEditoria.length === 0) {
+      setNumberPage((prevNumberPage) => prevNumberPage + 1);
+    }
+    setData((prevData) => ({
+      ...prevData,
+      items: filterByEditoria,
+      page: apiData.page,
+      totalPages: apiData.totalPages,
+    }));
+    scrolTop();
+  };
+  console.log(data);
 
   useEffect(() => {
     if (nextOrPrevPage > 0) {
@@ -141,11 +146,11 @@ function Home() {
       <Header />
       <Container>
         <CardContainer className="card-container">
-          {error || items.length === 0 
+          { error || items.length === 0 
             ? (
                 <ErrMsg>
                   <p>
-                    Erro ao buscar por notícias ou não há notícias nesta página. Você pode aguardar um momento, tentar avançar para a próxima página ou recarregar a página para limpar os filtros.
+                    Procurando por notícias... Isso pode levar um tempo. Procurando na página: {page}. Se preferir, recarregue a página.
                   </p>
                   
                   <button

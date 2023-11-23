@@ -8,6 +8,11 @@ export interface ItemProps {
   link: string;
   imagens: string;
 }
+export interface MenuHeaderContentProps {
+  userConnectado: boolean;
+  setUserConnectado: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
 export type DataHour = {
   dateTime: string;
 };

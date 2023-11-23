@@ -127,16 +127,6 @@ export const miscellaneousFilterReducer = (state = MISCELLANEOUS_FILTER, action:
         ...state,
         filterFavorite: !state.filterFavorite,
       };
-    case FILTER_NEWS_AND_RELEASE:
-      return {
-        ...state,
-        filterGeoscience: false,
-        filterSocial: false,
-        filterIbge: false,
-        filterEconomy: false,
-        filterMarked: false,
-        filterFavorite: false,
-      };
     default:
       return state;
   }

@@ -6,8 +6,8 @@ export const CardContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-top: 10px;
-  margin-bottom: 20px ;
+  margin-top: 15px;
+  margin-bottom: 100px ;
   box-shadow: 1px 1px 5px 1px #0000004d;
   width: 94%;
   border-radius: 7px;
