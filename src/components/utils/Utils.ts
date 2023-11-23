@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ApiDataType, FavoriteType, ItemProps } from "../../type";
+import { ApiDataType, FavoriteType, ItemProps, UserTypes } from "../../type";
 
 // Rolagem para o topo da página
 export function scrolTop () {
@@ -118,7 +118,7 @@ export const handleApiData = ({ apiData, setNumberPage, setData, AllFilters, set
   if (Array.isArray(filterByEditoria) && filterByEditoria.length === 0) {
     setNumberPage((prevNumberPage: number) => prevNumberPage + 1);
   }
-  setData((prevData: any) => ({
+  setData((prevData: UserTypes) => ({
     ...prevData,
     items: filterByEditoria,
     page: apiData.page,

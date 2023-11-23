@@ -41,7 +41,11 @@ function Register () {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error3, setError3] = useState('')
 
-  const handleNewUser = (newUser: any, usersArray: any) => {
+  type Address = {
+    email: string,  
+  }
+  // Esse any não é o ideal, mas não consegui resolver o problema de tipagem
+  const handleNewUser = (newUser: Address, usersArray: any) => {
     const existingUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
 
     if (existingUser) {
@@ -88,31 +92,40 @@ function Register () {
     }
   }
 
+  const handlePage0 = () => {
+    if (password.length < 6 || password !== confirmPassword || email.includes('@') === false || email.includes('.com') === false) {
+      setDisable(true);
+    } else {
+      setDisable(false)
+      setError3('')
+    }
+    if (email.includes('@') === false || email.includes('.com') === false) {
+      setError3('Formato de email inválido! Ex: user@gmail.com')
+    } else {
+      setError3('')
+    }
+  }
+  const handlePage1 = () => {
+    if (name.length < 3 || lastname.length < 3 || age.length < 2) {
+      setDisable(true)
+    } else {
+      setDisable(false)
+    }
+  }
+  const handlePage2 = () => {
+    if (address.rua.length < 3 || address.numero === '' || address.bairro.length < 3 || address.cidade.length <3 || address.estado.length < 2 || address.pais.length < 3) {
+      setDisable(true)
+    } else {
+      setDisable(false)
+    }
+  }
   useEffect(() => {
     if (page === 0) {
-      if (password.length < 6 || password !== confirmPassword || email.includes('@') === false || email.includes('.com') === false) {
-        setDisable(true);
-      } else {
-        setDisable(false)
-        setError3('')
-      }
-      if (email.includes('@') === false || email.includes('.com') === false) {
-        setError3('Formato de email inválido! Ex: user@gmail.com')
-      } else {
-        setError3('')
-      }
+     handlePage0()
     } else if (page === 1) {
-      if (name.length < 3 || lastname.length < 3 || age.length < 2) {
-        setDisable(true)
-      } else {
-        setDisable(false)
-      }
+     handlePage1()
     } else if (page === 2) {
-      if (address.rua.length < 3 || address.numero === '' || address.bairro.length < 3 || address.cidade.length <3 || address.estado.length < 2 || address.pais.length < 3) {
-        setDisable(true)
-      } else {
-        setDisable(false)
-      }
+      handlePage2()
     } else {
       setDisable(false)
     }
