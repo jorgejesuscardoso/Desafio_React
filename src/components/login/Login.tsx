@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { LoginBtn } from "./LoginBtn";
 import {
   getUserLocalStorage,
   setUserConnectedToLocalStorage,
@@ -11,9 +10,8 @@ import ErrUserConnected from "./ErrUserConneted";
 import { LoginType } from "../../type";
 import {
   Container,
-  FooterFormLogin,
-  InputContainer, 
   LoginError} from "./Style";
+import FormLogin from "./FormLogin";
 
 function Login () {
   const navigate = useNavigate();
@@ -36,6 +34,18 @@ function Login () {
     }   
   }, [isUserConnected]);  
 
+  const setLocalStorage = (existingUser: LoginType) => {
+    const connectedUser = {
+      id: existingUser.id,
+      nome: existingUser.name,
+      email: existingUser.email,
+      senha: existingUser.senha,
+      connected: true
+    };
+    
+    setUserConnectedToLocalStorage('connected', connectedUser);
+  };
+  
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -48,16 +58,7 @@ function Login () {
       setErrorMsg('Usuário não cadastrado!');
       return;
     }
-
-    const connectedUser = {
-      id: existingUser.id,
-      nome: existingUser.name,
-      email: existingUser.email,
-      senha: existingUser.senha,
-      connected: true
-    };
-    
-    setUserConnectedToLocalStorage('connected', connectedUser);
+    setLocalStorage(existingUser);
     setConnected(true);
     setLoading(true);
     setError(false);
@@ -75,51 +76,15 @@ return (
         userConnected={ userConnected }
       />
     )         
-      : (<form
-        onSubmit={handleOnSubmit}
-      > <h1>Login</h1>
-        <InputContainer>
-          <label htmlFor="login">E-mail:</label>
-          <input
-            value={email}
-            onChange={(e) => (
-              setEmail(e.target.value),
-              setError(false) )}
-            type='email'
-            placeholder='Email'
-            id="login"
-            required
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value),
-              setError(false)}}
-            type='password'
-            placeholder='Password'
-            id="password"
-            minLength={6}
-            required
-          />
-          <LoginBtn />
-        </InputContainer>
-
-        <FooterFormLogin>
-          <div>
-            <button
-              onClick={() => navigate('/register')}
-            >
-              Criar conta
-            </button>
-          </div>
-          <button
-            onClick={() => navigate('/')}
-          >
-            Voltar ao início
-          </button>
-        </FooterFormLogin>
-      </form>)}
+      : <FormLogin
+          email={ email }
+          password={ password }
+          setEmail={ setEmail }
+          setPassword={ setPassword }
+          handleOnSubmit={ handleOnSubmit }
+          setError={ setError }
+        />
+      }
     <LoginError>
       { error && <p>{errorMsg}</p> }
       { isConnected && <p>Logado com sucesso!</p>}

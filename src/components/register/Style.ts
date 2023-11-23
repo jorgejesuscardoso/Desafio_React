@@ -90,9 +90,32 @@ export const ErrToRegister = styled.div`
   color: var(--red);
 `;
 export const DivUserRegistered = styled.div`
+background-color: var(--white);
 position: fixed;
-top: 60%;
-left: 15%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 15px;
+width: 80%;
+height: 20%;
+top: 40%;
+left: 10%;
+color: var(--green-700);
+font-weight: 600;
+border-radius: 7px;
+border: 1px solid var(--green-700);
+gap: 5px;
+
+    button {
+      background-color: var(--green-700);
+      width: 30%;
+      height: 5vh;
+      font-size: 16px;
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+    }
 `;
 export const Foto = styled.img`
   position: fixed;
