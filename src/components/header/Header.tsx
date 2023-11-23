@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link, useNavigate } from "react-router-dom";
-import { SemFoto, logoIcon, menuPontoIcon, profileIcon, searchIcon } from "../icons/Imports";
+import { Link } from "react-router-dom";
+import { SemFoto, logoIcon } from "../icons/Imports";
 import { useEffect, useState } from "react";
 import TopFilter from "../buttons/TopFilterBtn";
 import {
   HeaderContainer,
-  Ico,
   Icones,
   Logo,
   UserNameHeader,
@@ -14,9 +13,9 @@ import {
 import { getUserLocalStorage } from "../utils/Utils";
 import MenuHeaderContent from "./MenuHeader";
 import SearchContent from "./SearchHeader";
+import IconesHeader from "./IconesHeader";
 
 function Header () {
-  const navigate = useNavigate();
   
   const [showSearch, setShowSearch] = useState(false); 
 
@@ -58,38 +57,16 @@ function Header () {
           <img src={ user.thumb || SemFoto } alt="" />
           <UserNameConnected>
             {userConnectado ? (<h2>{user.name}</h2>) : (<p>Você está deslogado!</p>)}
-          </UserNameConnected>
-          
+          </UserNameConnected>          
         </UserNameHeader>
       </Link>
-      <button
-        onClick={() => navigate('/profile')}
-      >
-        <Ico
-          src={ profileIcon }
-          alt="perfil"
-          />
-      </button>
-      <button
-        onClick={ () => {
-          setShowSearch(!showSearch);
-            setSearch('');
-        } }
-      >
-        <Ico
-          src={ searchIcon }
-          alt="lupa"
-        />
-      </button>
-      <button
-        type="button"
-        onClick={ () => setShowMenu(!showMenu) }
-      >
-        <Ico
-          src={ menuPontoIcon }
-          alt="menu"
-        />
-      </button>
+      <IconesHeader
+        showSearch={ showSearch }
+        setShowSearch={ setShowSearch }
+        setSearch={ setSearch }
+        showMenu={ showMenu }
+        setShowMenu={ setShowMenu }
+      />
       { showSearch ? (
         <SearchContent
           showSearch={ showSearch }
@@ -97,20 +74,15 @@ function Header () {
           search={ search }
           setSearch={ setSearch }
         />
-          ) : (
-            <></>
-          )
-        }
+          ) : (   <></>
+          )}
       { showMenu ? (
         <MenuHeaderContent
           userConnectado={ userConnectado }
           setUserConnectado={ setUserConected }
           setShowMenu={ setShowMenu }
         />
-      ) : (
-        <></>
-      )
-      }
+      ) : ( <></> )}
     </Icones>
     <TopFilterContainer className="top-filter">
       <TopFilter />

@@ -19,6 +19,13 @@ export interface SearchContentProps {
   search: string;
   setSearch: (value: string) => void;
 }
+export interface IconesHeaderProps {
+  showSearch: boolean;
+  setShowSearch: (value: boolean) => void;
+  setSearch: (value: string) => void;
+  showMenu: boolean;
+  setShowMenu: (value: boolean) => void;
+}
 export type DataHour = {
   dateTime: string;
 };
