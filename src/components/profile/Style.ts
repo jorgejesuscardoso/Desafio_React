@@ -37,7 +37,7 @@ export const Container = styled.div`
         margin-bottom: 10px;
       }
     }
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       h3 {
         text-align: center;
         font-size: 20px;
@@ -115,13 +115,13 @@ export const ProfileContainer = styled.div`
       font-size: 20px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       height: 100vh;
       h1 {
         display: inline-block;
         position: fixed;
         font-size: 30px;
-        right: 24%;
+        right: 22%;
       }
     }
 `;
@@ -155,16 +155,33 @@ export const ProfileCardContainer = styled.div`
       }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       position: fixed;
       right: 5%;
       flex-direction: row;
-      width: 45%;
+      width: 40%;
       img {
         position: fixed;
-        right: 20%;
+        width: 30%;
+        max-width: 300px;
+        max-height: 160px;
+        right: 12%;
         top: 10%;
       }
+      h1 {
+        position: fixed;
+        left: 15%;
+        top: 40%;
+        font-size: 50px;
+        color: var(--gray-500);
+      
+      }
+    }
+    @media (min-width: 1400px) {
+      img {
+        max-height: 180px;
+        right: 15.5%;
+      }    
     }
 `;
 export const CardName = styled.div`
@@ -186,14 +203,14 @@ export const CardName = styled.div`
         border-radius: 5px;
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 900px) {
             position: fixed;
-            right: 26%;
+            right: 17%;
             top: 30%;
-            width: 10%;            
+            width: 17%;            
           button {
             position: fixed;
-            right: 20%;
+            right: 15.5%;
             top: 30%;
             width: 5%;
           }
@@ -218,14 +235,14 @@ export const CardInfo = styled.div`
         gap: 10px;
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 900px) {
         background-color: var(--gray-500);
         position: fixed;
         align-items: center;
         justify-content: center;
         right: 12%;
         top: 37%;
-        width: 30%;
+        width: 25%;
         height: 55%;
         p {
           width: 90%;
@@ -252,7 +269,7 @@ export const FooterBtn = styled.div`
       border-radius: 3px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       position: fixed;
       right: 12%;
       bottom: 8px;
@@ -321,7 +338,7 @@ export const HomeButton = styled.button`
 
 export const EditPhoto = styled.img`
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     margin: auto;
     margin-top: 20px;
     width: 250px;

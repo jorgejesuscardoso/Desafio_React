@@ -77,7 +77,7 @@ function Profile () {
                 Deletar Perfil
               </DeletPerfilBtn>
             </CardInfo>
-
+                <h1>Em construção!</h1>
           </ProfileCardContainer>
          <FooterBtn>
           <button
