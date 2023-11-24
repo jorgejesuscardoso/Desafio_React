@@ -23,11 +23,12 @@ function Mark (id: FavoriteType) {
   }
   return (
     <div>
-      <button onClick={ handleMark }>
+      <button onClick={ handleMark } data-testid='mark'>
           <img
             src={ isMarked ? markIcon : unMarkIcon }
             alt="mark"
             className="favorite-mark-and-share"
+            data-testid="mark-icon"
           />
         </button>
     </div>

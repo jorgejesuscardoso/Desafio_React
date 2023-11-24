@@ -12,7 +12,7 @@ function Content({ items, error, page }: ContentProps) {
             Procurando por notícias... Isso pode levar um tempo. Procurando na página: {page}.  
           </p>
           <p>Se preferir, recarregue a página.</p>
-          <button onClick={() => window.location.reload()} data-testId="reload-home">
+          <button onClick={() => window.location.reload()} data-testid="reload-home">
             Recarregar
           </button>
         </ErrMsg>

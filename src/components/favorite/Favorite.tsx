@@ -35,11 +35,13 @@ function Favorite (favoriteId: FavoriteType) {
     <Container>
       <button
         onClick={ handleFavorite }
+        data-testid="favorite"
       >
         <img
           src={ isFavorited ? liked : unliked }
           alt="favorite"
           className="favorite-mark-and-share"
+          data-testid="favorite-icon"
         />
       </button>
       <p>{ favoriteCount }</p>

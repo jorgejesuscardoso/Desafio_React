@@ -23,14 +23,14 @@ function Share(id: FavoriteType) {
   }
   return(
     <Container>
-      <button onClick={ handleShare }>
+      <button onClick={ handleShare } data-testid='share'>
         <img
           src={ shareIcon }
           alt="share"
           className="favorite-mark-and-share"
         />
       </button>
-      <p>{ shareCount }</p>
+      <p data-testid='count-share'>{ shareCount }</p>
     </Container>
   );
 }

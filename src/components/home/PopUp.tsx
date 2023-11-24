@@ -9,7 +9,7 @@ function PopUp ({ popUp, setPopUp }: PopUpProps) {
         <p>{ popUp }</p>
         <button 
           onClick={() => setPopUp('')}
-          data-testid='close-popup'
+          data-testId='close-popup'
         >
           X
         </button>

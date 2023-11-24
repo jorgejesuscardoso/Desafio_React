@@ -6,23 +6,22 @@ import { screen } from '@testing-library/react';
 import renderWithRouter from './helper/renderWithRouter';
 import App from '../App';
 
-// Testa a função que retorna os dados da API
-describe('Teste da função que retorna os dados da API', () => {
-  it('Retorna os dados da API', async () => {
-    const fetchResolved = {
-      json: async () => mockData,
-    } as Response;
+it('Testa se a API é chamada', async () => {
+  const fetchResolved = {
+    json: async () => mockData,
+  } as Response;
 
-    const mockeFetch = vi.spyOn(global, 'fetch')
-      .mockResolvedValue(fetchResolved);
-      renderWithRouter(<Provider store={store}><App /></Provider>);
-      
-    const header = screen.getByRole('banner');
-    expect(header).toBeInTheDocument();
-    const logo = screen.getByAltText('Logo');
-    expect(logo).toBeInTheDocument();
+  const mockeFetch = vi.spyOn(global, 'fetch')
+    .mockResolvedValue(fetchResolved);
+    renderWithRouter(<Provider store={store}><App /></Provider>);
+    
+  const header = screen.getByRole('banner');
+  expect(header).toBeInTheDocument();
+  const logo = screen.getByAltText('Logo');
+  expect(logo).toBeInTheDocument();
 
-    expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
-    screen.debug();
-  });
+  const h3 = await screen.findByRole('heading', { level: 3, name: /Ler mais/i });
+  expect(h3).toBeInTheDocument();
+  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
+  screen.debug();
 });
