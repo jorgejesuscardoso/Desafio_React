@@ -201,7 +201,7 @@ return (
     </form>
     <MsgHaveAccount>
       <h4>Já possui conta?</h4>
-      <button onClick={() => navigate('/')}>Login</button>
+      <button onClick={() => navigate('/login')}>Login</button>
     </MsgHaveAccount>
     { handlePopUp() }
     <MsgErrDiv>
