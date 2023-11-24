@@ -23,6 +23,7 @@ function FormLogin ({ email, setEmail, password, setPassword, setError, handleOn
             placeholder='Email'
             id="login"
             required
+            data-testid="email-input"
           />
           <label htmlFor="password">Password:</label>
           <input
@@ -34,6 +35,7 @@ function FormLogin ({ email, setEmail, password, setPassword, setError, handleOn
             placeholder='Password'
             id="password"
             minLength={6}
+            data-testid="password-input"
             required
           />
           <LoginBtn />

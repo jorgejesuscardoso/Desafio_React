@@ -9,6 +9,7 @@ import { CardContainer, CardImg, FooterCard, FullNewsLink, IntroNews, PostDate }
 function NewsCard (item: ItemProps) {
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
   
+  
   // Obtem o JSON com as imagens da API, e converte para objeto
   const imageData = imagens;
   const imageObj = JSON.parse(imageData);
