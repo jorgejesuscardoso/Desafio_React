@@ -9,6 +9,7 @@ function NotFound() {
           }}
           style={ { position: 'fixed', top: '30%', left: '30%', width: 120, height: 30 } }
           className="loginBtn"
+          data-testid="home-btn"
         >
           Voltar ao inicio
         </button>

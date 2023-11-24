@@ -17,7 +17,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
     }
   };
   return (
-    <MenuHeader>
+    <MenuHeader data-testid='menu-header'>
     <ul>
       <li>
         <button
@@ -25,7 +25,8 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
             e.preventDefault();
             userConectado ? handleLogout() : handleLoginClick();
           }}
-          className={ userConectado ? 'logoutBtn' : 'loginBtn'}           
+          className={ userConectado ? 'logoutBtn' : 'loginBtn'} 
+          data-testid='login-btn-header'          
         >
         { userConectado ? 'Sair' : 'Entrar' }
         </button>
@@ -34,6 +35,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
         <button
           onClick={() => navigate('/register')}
           style={{ display: userConectado ? 'none' : 'block' }}
+          data-testid='register-btn-header'
         >
           Registrar-se
         </button>
@@ -41,6 +43,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
       <li>
         <button
           onClick={() => navigate('/about')}
+          data-testid='about-btn-header'
         >
           About
         </button>
@@ -48,6 +51,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
     <li>
       <button
           onClick={() => navigate('/contact')}
+          data-testid='contact-btn-header'
         >
           Contact
         </button>
@@ -55,6 +59,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
     <li>
       <button
         onClick={ () => setShowMenu(false) }
+        data-testid='close-btn-header'
       >
         ❌
       </button>

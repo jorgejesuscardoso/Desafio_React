@@ -18,9 +18,11 @@ function SearchContent ({ showSearch, setShowSearch, search, setSearch }: Search
           placeholder="Pesquisar"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          data-testid='search-input'
         />
         <button
           type="submit"   
+          data-testid='search-btn'
         >
           Buscar
         </button>
@@ -31,6 +33,7 @@ function SearchContent ({ showSearch, setShowSearch, search, setSearch }: Search
             setSearch('');
           } }
           style={{ backgroundColor: '#fff', width: 25, height: 25 }}
+          data-testid='close-search-btn'
         >
           ❌
         </button>

@@ -52,6 +52,7 @@ function FormLogin ({ email, setEmail, password, setPassword, setError, handleOn
           </div>
           <button
             onClick={() => navigate('/')}
+            data-testid="home-btn"
           >
             Voltar ao início
           </button>

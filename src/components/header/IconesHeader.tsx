@@ -11,6 +11,7 @@ function IconesHeader ({ showSearch, setShowSearch, setSearch, showMenu, setShow
     <>
       <button
         onClick={() => navigate('/profile')}
+        data-testid='profile-btn-icon'
       >
         <Ico
           src={ profileIcon }
@@ -22,6 +23,7 @@ function IconesHeader ({ showSearch, setShowSearch, setSearch, showMenu, setShow
           setShowSearch(!showSearch);
             setSearch('');
         } }
+        data-testid='search-btn-icon'
       >
         <Ico
           src={ searchIcon }
@@ -31,6 +33,7 @@ function IconesHeader ({ showSearch, setShowSearch, setSearch, showMenu, setShow
       <button
         type="button"
         onClick={ () => setShowMenu(!showMenu) }
+        data-testid='menu-btn-icon'
       >
         <Ico
           src={ menuPontoIcon }

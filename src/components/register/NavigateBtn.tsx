@@ -31,6 +31,7 @@ function NavigateBtns ({ page, setPage, disable, setError, setErrorMsg }: Naviga
           <button
             type='button'
             onClick={ () => navigate('/') }
+            data-testid='home-btn'
           >
             Home
           </button>

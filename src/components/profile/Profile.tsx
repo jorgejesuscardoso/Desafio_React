@@ -108,6 +108,7 @@ function Profile () {
             </MsgErro>
             <HomeButton 
               onClick={() => navigate('/')} 
+              data-testid='home-btn'
             >
               Inicio
             </HomeButton>

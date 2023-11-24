@@ -45,6 +45,7 @@ function Header () {
   <HeaderContainer>
     <button
       onClick={ () => window.location.reload() }
+      data-testid="btn-logo"
     >
       <Logo
         src={ logoIcon }
@@ -52,7 +53,7 @@ function Header () {
         />
     </button>
     <Icones>
-      <Link to='/profile'>
+      <Link to='/profile' data-testid='profile-btn'>
         <UserNameHeader>
           <img src={ user.thumb || SemFoto } alt="" />
           <UserNameConnected>
