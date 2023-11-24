@@ -11,6 +11,7 @@ export function NextBtn ({ page, totalPages }: PagesProps) {
       onClick={ () => dispatch(nextPagesAction()) }
       disabled={page === totalPages}
       className='page-btn'
+      data-testid='next-btn'
     >
       {'>>>'}
     </PrevNextPageBtn>

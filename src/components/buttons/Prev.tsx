@@ -10,6 +10,8 @@ export function PrevBtn ({ page }: PagesProps) {
       <PrevNextPageBtn
       onClick={ () => dispatch(prevPagesAction()) }
       disabled={page === 1}
+      className='prev-btn'
+      data-testid='prev-btn'
     >
       {'<<<'}
     </PrevNextPageBtn>

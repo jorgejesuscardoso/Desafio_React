@@ -5,10 +5,11 @@ import { PopUpAlert } from "./Style";
 function PopUp ({ popUp, setPopUp }: PopUpProps) {
   return (
     <>
-      <PopUpAlert>
+      <PopUpAlert data-testId='popup'>
         <p>{ popUp }</p>
         <button 
           onClick={() => setPopUp('')}
+          data-testid='close-popup'
         >
           X
         </button>

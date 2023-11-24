@@ -20,6 +20,7 @@ function TopFilter () {
       <FilterBtnTop
         className={ !filterNewsAndRelease ? "filtred-btn-top" : "" }
         onClick={ () => handleButtonClick(filterAllAction('')) }
+        data-testid='filter-todos'
       >
         Todos
       </FilterBtnTop>
@@ -27,6 +28,7 @@ function TopFilter () {
       <FilterBtnTop
         className={ !filterFavorite ? "filter-btn" : "filter-btn filtred-btn-top"}
         onClick={ () => handleButtonClick(filterFavoriteAction())}
+        data-testid='filter-favoritos'
       >
         Favoritos
       </FilterBtnTop>
@@ -34,6 +36,7 @@ function TopFilter () {
       <FilterBtnTop
         className={ !filterMarked ? "filter-btn" : "filter-btn filtred-btn-top"}
         onClick={ () => handleButtonClick(filterMarkedAction())}
+        data-testid='filter-marcados'
       >
         Marcados
       </FilterBtnTop>
@@ -41,6 +44,7 @@ function TopFilter () {
       <FilterBtnTop 
         className={ filterNewsAndRelease === 'noticia' ? "filter-btn filtred-btn-top" : "filter-btn" }
         onClick={ () => handleButtonClick(filterAllAction('noticia'))}
+        data-testid='filter-noticias'
       >
         Notícias
       </FilterBtnTop>
@@ -48,6 +52,7 @@ function TopFilter () {
       <FilterBtnTop
         className={ filterNewsAndRelease === 'release' ? "filter-btn filtred-btn-top" : "filter-btn" }
         onClick={ () => handleButtonClick(filterAllAction('release'))}
+        data-testid='filter-releases'
       >
         Releases
       </FilterBtnTop>
