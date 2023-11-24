@@ -55,6 +55,7 @@ function Contact() {
       onClick={() => navigate('/')}
       style={{ marginTop: 150, margin: 'auto'}}
       className="home-btn"
+      data-testid="home-btn"
     >
       Inicio
     </button>

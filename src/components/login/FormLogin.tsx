@@ -45,6 +45,7 @@ function FormLogin ({ email, setEmail, password, setPassword, setError, handleOn
           <div>
             <button
               onClick={() => navigate('/register')}
+              data-testid="register-btn"
             >
               Criar conta
             </button>

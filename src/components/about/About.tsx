@@ -12,6 +12,7 @@ return (
         onClick={() => navigate('/')}
         className="home-btn"
         style={{ position: 'fixed', bottom: 5, right: 5, width: 80 }}
+        data-testid="home-btn"
     >
         Inicio
     </button>
@@ -19,6 +20,7 @@ return (
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       className="home-btn"
       style={{ position: 'fixed', bottom: 5, left: 5, width: 80, backgroundColor: '#444' }}
+      data-testid="top-btn"
     >
       Top
     </button>

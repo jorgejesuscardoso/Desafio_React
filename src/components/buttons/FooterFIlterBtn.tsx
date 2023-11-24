@@ -9,6 +9,7 @@ function FooterFIlterBtn () {
   return (
     <FilterFooterMenu
       onClick={ () => dispatch(footerMenuDisplayAction())  }
+      data-testid="footer-filter-btn"
     >
       <img src={ menuFilterIcon } alt="menu-filter" />
     </FilterFooterMenu>

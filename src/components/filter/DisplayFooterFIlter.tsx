@@ -17,7 +17,7 @@ function DisplayFooterFIlter() {
   }
 
   return (
-    <ContainerFooterMenu>
+    <ContainerFooterMenu data-testId="footer-home-menu">
       <TitleFooterMenu>
         <h3>Filtros</h3>
       </TitleFooterMenu>

@@ -145,7 +145,8 @@ return (
   <Main>
     {page === 3 && <Logo src={ logoIcon } alt="logo" /> }
     <form
-      onSubmit={handleOnSubmit}      
+      onSubmit={handleOnSubmit}
+      data-testid="form-register"  
     >
       { page === 0 ?  
         <Page0Form
