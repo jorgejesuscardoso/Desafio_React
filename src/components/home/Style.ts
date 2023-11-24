@@ -23,7 +23,7 @@ export const CardContainer = styled.section`
   margin-top: 60px;
   gap: 5px;
   overflow-y: scroll;
-  margin-bottom: 9vh;
+  margin-bottom: 15vh;
 `;
 export const Card = styled.article`
 `;
