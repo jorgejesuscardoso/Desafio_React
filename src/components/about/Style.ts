@@ -9,6 +9,19 @@ export const Container = styled.main`
   align-items: center;
   width: 80%;
   gap: 30px;
+
+    h2, h3 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h1 {
+      font-size: 32px;    
+    }
+    img {
+      margin: auto;    
+    }
 `;
 export const Sumary = styled.div`
   width: 100%;

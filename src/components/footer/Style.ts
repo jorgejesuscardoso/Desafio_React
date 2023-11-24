@@ -7,17 +7,12 @@ export const FooterContainer = styled.footer`
   width: 100%;
   height: 50vh;
   gap: 10px;
-  bottom: 0;
-
+  
+  @media (max-width: 768px){
+    display: none;
+  }
   @media (min-width: 768px) {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 100%;
     height: 30vh;
-    gap: 10px;
-    top: 100vh;
-    bottom: 0;
   }
 `;
 export const FooterContent = styled.div`
@@ -37,6 +32,20 @@ export const FooterContent = styled.div`
       display: inline-block;
       margin-top: 20px;
       font-size: 16px;
+    }
+
+
+    @media (min-width: 768px) {
+      height: 100%;
+      a {
+        font-size: 20px;
+      }
+      span {
+        font-size: 20px;
+      }
+      p {
+        font-size: 20px;
+      }
     }
 `;
 

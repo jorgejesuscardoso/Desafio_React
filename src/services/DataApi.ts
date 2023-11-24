@@ -6,7 +6,7 @@ async function FetchApi(
   date: string,
   subject: string
   ) {
-  const handleEndPoint = type ? `tipo=${type}&qtd=15&page=${page}` : `page=${page}&qtd=10`
+  const handleEndPoint = type ? `tipo=${type}&qtd=15&page=${page}` : `page=${page}&qtd=15`
   const handleDate = date ? `&${date}` : '';
   const handleSubject = subject ? `busca=${subject}` : '';
   const url = `${handleSubject}${handleEndPoint}${handleDate}`

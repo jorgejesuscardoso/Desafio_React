@@ -7,6 +7,12 @@ export const Container = styled.main`
   max-height: 100vh;
   margin-top: 25px;
   width: 99%;
+
+    @media (min-width: 768px) {
+      margin-top: 80px;
+      position: relative;
+      max-height: 100%;
+    }
 `;
 export const FooterHome = styled.footer`
   position: fixed;
@@ -15,6 +21,10 @@ export const FooterHome = styled.footer`
   margin: auto;
   height: 5vh;
   width: 100%;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
 `;
 export const CardContainer = styled.section`
   display: flex;
@@ -24,11 +34,12 @@ export const CardContainer = styled.section`
   overflow-y: scroll;
   margin-bottom: 15vh;
 
-    @media (min-width: 901px) {
+    @media (min-width: 768px) {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-evenly;
       align-items: center;
+      overflow: none;
     }
 
 `;
@@ -36,8 +47,11 @@ export const Card = styled.article`
   @media (min-width: 901px) and (max-width: 1024px)  {
     width: 50%;
   }
-  @media (min-width: 1025px) {
-    width: 30%;
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    width: 45%;
+  }
+  @media (min-width: 1201px) {
+    width: 20%;
   }
 `;
 export const ErrMsg = styled.div`

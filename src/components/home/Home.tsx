@@ -22,6 +22,7 @@ import {
   FooterHome } from "./Style";
 import PopUp from "./PopUp";
 import Content from "./HomeContent";
+import Footer from "../footer/Footer";
 
 
 function Home() {
@@ -115,6 +116,7 @@ function Home() {
         <FooterFIlterBtn />
         <NextBtn page={page} totalPages={totalPages} />
       </FooterHome>
+      <Footer />
     </>
   );
 }

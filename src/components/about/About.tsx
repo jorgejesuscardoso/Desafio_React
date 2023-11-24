@@ -88,7 +88,7 @@ return (
       </Sumary>
     </section>
     <section>
-      <h2 style={{ textAlign: 'center' }}>Desafio React</h2>
+      <h2>Desafio React</h2>
         <article>
           <h3 id='about'>Descrição</h3>
           <span id='description'>
@@ -120,7 +120,7 @@ return (
         </article>
 
         <article>
-        <h2 style={{ textAlign: 'center' }} id='dev'>Desencolvimento</h2 >
+        <h2 id='dev'>Desencolvimento</h2 >
         <br/>
         <h3 id='tools'>Ferramentas</h3>
         <span>
@@ -292,10 +292,8 @@ return (
       </article>
     </section>
     <section>
-      <article
-        style={{ textAlign: 'justify', fontSize: '16px', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80%' }}
-      >
-      <h2 id='local' style={{ textAlign: 'center' }}>Para montar localmente</h2>
+      <article>
+      <h2 id='local'>Para montar localmente</h2>
       <br/>
       <br/>
       <h3>Dependências</h3>

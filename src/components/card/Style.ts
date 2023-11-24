@@ -13,15 +13,31 @@ export const CardContainer = styled.div`
   border-radius: 7px;
   gap: 10px;
 
-  @media (min-width: 901px) and (max-width: 1024px) {
+    //hover
+    &:hover {
+      box-shadow: 1px 1px 15px 1px var(--green-900-05);
+      width: 95%;
+      transition: 0.3s;
+    }
+
+  @media (min-width: 901px){
     width: 85%;
-    max-height: 560px;
+    max-height: 560px; 
+      h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 10px;
+     }
   }
+ 
 
 `;
 export const IntroNews = styled.div`
   text-align: justify;
   padding: 10px;
+  height: 100px;
+  max-height: 100px;
+  overflow: hidden;
 `;
 export const PostDate = styled.div`
   display: flex;
@@ -72,5 +88,10 @@ export const CardImg = styled.img`
   }
   @media (min-width: 901px) and (max-width: 1024px)  {
     height: 200px;
+  }
+  @media (min-width: 1025px) {
+    height: 250px;
+    max-height: 250px;
+    overflow: hidden;
   }
 `;
