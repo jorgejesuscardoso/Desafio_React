@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Search } from "./Style";
+import { CloseSearch, Search, SearchButton } from "./Style";
 import { searchNewsAction } from "../redux/action/actions";
 import { SearchContentProps } from "../../type";
 
@@ -20,23 +20,22 @@ function SearchContent ({ showSearch, setShowSearch, search, setSearch }: Search
           onChange={(e) => setSearch(e.target.value)}
           data-testid='search-input'
         />
-        <button
+        <SearchButton
           type="submit"   
           data-testid='search-btn'
         >
           Buscar
-        </button>
-        <button 
+        </SearchButton>
+        <CloseSearch 
           type="button"
           onClick={ () => {
             setShowSearch(!showSearch);
             setSearch('');
-          } }
-          style={{ backgroundColor: '#fff', width: 25, height: 25 }}
+          } }          
           data-testid='close-search-btn'
         >
           ❌
-        </button>
+        </CloseSearch>
       </form>
     </Search>
   )

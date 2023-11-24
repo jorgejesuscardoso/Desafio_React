@@ -19,7 +19,8 @@ import { handleApiData, scrolTop } from "../utils/Utils";
 import { 
   CardContainer,
   Container,
-  FooterHome } from "./Style";
+  FooterHome, 
+  TopTopBtn} from "./Style";
 import PopUp from "./PopUp";
 import Content from "./HomeContent";
 import Footer from "../footer/Footer";
@@ -117,6 +118,12 @@ function Home() {
         <NextBtn page={page} totalPages={totalPages} />
       </FooterHome>
       <Footer />
+      <TopTopBtn
+        onClick={ () => window.scrollTo(0,0) }
+        data-testid='toTop-btn'
+      >
+        Topo
+      </TopTopBtn>
     </>
   );
 }

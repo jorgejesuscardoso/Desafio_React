@@ -1,11 +1,12 @@
 import { ChangeFotoProps } from "../../type";
 import { SemFoto } from "../icons/Imports";
+import { EditPhoto } from "./Style";
 
 
 function ChangePhoto ({ userInfo, newUserInfo, setNewUserInfo }: ChangeFotoProps) {
   return (
     <>
-      <img src={ userInfo[0].foto || SemFoto } alt={ userInfo[0].nome } />   
+      <EditPhoto src={ userInfo[0].foto || SemFoto } alt={ userInfo[0].nome } />   
       <div>
         <label htmlFor="foto">URL da nova foto:</label>
         <input

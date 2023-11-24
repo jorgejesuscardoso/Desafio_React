@@ -48,9 +48,12 @@ export const Card = styled.article`
     width: 50%;
   }
   @media (min-width: 1025px) and (max-width: 1200px) {
-    width: 45%;
+    width: 33%;
   }
   @media (min-width: 1201px) {
+    width: 25%;
+  }
+  @media (min-width: 2100px) {
     width: 20%;
   }
 `;
@@ -95,5 +98,23 @@ export const PopUpAlert = styled.div`
       height: 3vh;
       color: var(--white);
       font-size: 20px;
+    }
+`;
+export const TopTopBtn = styled.button`
+  display: none;
+  position: fixed;
+  bottom: 4%;
+  left: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--gray-300);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 99;
+    
+    @media (min-width: 768px) {
+      display: initial;
     }
 `;

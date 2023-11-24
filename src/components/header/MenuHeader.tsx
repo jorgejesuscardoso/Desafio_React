@@ -28,7 +28,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
           className={ userConectado ? 'logoutBtn' : 'loginBtn'} 
           data-testid='login-btn-header'          
         >
-        { userConectado ? 'Sair' : 'Entrar' }
+        <h2>{ userConectado ? 'Sair' : 'Entrar' }</h2>
         </button>
       </li>
       <li>

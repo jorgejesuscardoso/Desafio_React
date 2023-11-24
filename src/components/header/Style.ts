@@ -10,11 +10,24 @@ export const HeaderContainer = styled.header`
   max-height: 50px;
   z-index: 99;
   overflow: hidden;
+
+    @media (min-width: 768px) {
+      background-color: var(--white );
+      height: 100px;
+      max-height: 120px;
+      top: 0;
+      align-items: center;
+    }
 `;
 export const Icones = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+
+    @media (min-width: 768px) {
+      height: 100px;
+      align-items: center;
+    }
 `;
 export const UserNameHeader = styled.div`
   display: flex;
@@ -23,8 +36,9 @@ export const UserNameHeader = styled.div`
   color: rgb(0, 110, 0);
   font-weight: 600;
   width: 22vh;
-    p {
-      font-size: 16px;
+    
+    h2 {
+      font-size: 1.5rem;
     }
     img {      
       margin-left: 0;
@@ -33,12 +47,34 @@ export const UserNameHeader = styled.div`
       border: none;
       border-radius: 20px;
     }
+
+    @media (min-width: 768px) {
+      height: 95px;
+      align-items: center;
+
+      h2 {
+        font-size: 2rem;      
+      }
+      img {
+        margin-left: 20px;
+        width: 8vh;
+        height: 7vh;
+      }
+    }
 `;
 export const Logo = styled.img`
   width: 70px;
+
+    @media (min-width: 768px) {
+      width: 100px;
+    }
 `;
 export const Ico = styled.img`
-  width: 20px
+  width: 20px;
+   
+    @media (min-width: 768px) {
+      width: 30px;
+    }
 `;
 export const Search = styled.div`
   background-color: #ccc;
@@ -58,19 +94,54 @@ export const Search = styled.div`
       border-radius: 5px;
       padding-left: 10px;
     }
-    button {
-      width: 20%;
-      height: 30px;
-      border-radius: 5px;
-      background-color: rgb(0, 150, 50);
-      color: white;
-    }
+    
      form {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
       width: 80%;
       height: 100%; 
+    }
+
+    @media (min-width: 768px) {
+      height: 100px;
+      max-height: 120px;
+      top: 0;
+      align-items: center;
+
+      input {
+        width: 50%;
+        height: 50px;
+      }
+      form {
+        width: 70%;
+        height: 100%; 
+      }
+    }
+`;
+export const SearchButton = styled.button` 
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(0, 150, 50);
+  color: white;
+    
+    @media (min-width: 768px) {
+      height: 50px;
+    }
+
+`;
+export const CloseSearch = styled.button`
+  width: 20%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
+
+    @media (min-width: 768px) {
+      position: fixed;
+      height: 50px;
+      width: 15%;
+      right: 10px;
     }
 `;
 export const MenuHeader = styled.div`
@@ -106,6 +177,18 @@ export const MenuHeader = styled.div`
   li {
     text-align: center;
   }
+
+  @media (min-width: 768px) {
+    top: 100px;
+    width: 20%;
+    button {
+      height: 5vh;
+      font-size: 22px;
+    }
+    h2 {
+      font-size: 22px;
+    }
+  }
 `;
 export const TopFilterContainer = styled.div`
   background-color: white;
@@ -121,6 +204,11 @@ export const TopFilterContainer = styled.div`
     button {
       width: 19%;
       height: 3.5vh;
+    }
+
+    @media (min-width: 768px) {
+      height: 5vh;
+      top: 100px;
     }
 `;
 export const UserNameConnected = styled.div`

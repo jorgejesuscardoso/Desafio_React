@@ -12,7 +12,7 @@ export const FooterContainer = styled.footer`
     display: none;
   }
   @media (min-width: 768px) {
-    height: 30vh;
+    height: 40vh;
   }
 `;
 export const FooterContent = styled.div`

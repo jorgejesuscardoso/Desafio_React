@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   width: 100%;
-  height: 100vh;
 `;
 export const Container = styled.div`
   width: 90%;
@@ -38,6 +37,18 @@ export const Container = styled.div`
         margin-bottom: 10px;
       }
     }
+    @media (min-width: 768px) {
+      h3 {
+        text-align: center;
+        font-size: 20px;
+      }
+      
+      form {
+        width: 40%;
+        margin: auto;
+      }
+    }
+
 `;
 export const EditButtonFooter = styled.div`
   display: flex;
@@ -103,14 +114,25 @@ export const ProfileContainer = styled.div`
       margin-top: 20px;
       font-size: 20px;
     }
+
+    @media (min-width: 768px) {
+      height: 100vh;
+      h1 {
+        display: inline-block;
+        position: fixed;
+        font-size: 30px;
+        right: 24%;
+      }
+    }
 `;
 
 export const ProfileCardContainer = styled.div`
+  background-color: var(--gray-400-02);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   gap: 10px;
     h4 {
@@ -125,6 +147,24 @@ export const ProfileCardContainer = styled.div`
       box-shadow: 1px 1px 5px 1px #0000004d;
       width: 90%;
       border-radius: 5px;
+    }
+
+    @media (min-width: 500px) {
+      img {
+        width: 250px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      position: fixed;
+      right: 5%;
+      flex-direction: row;
+      width: 45%;
+      img {
+        position: fixed;
+        right: 20%;
+        top: 10%;
+      }
     }
 `;
 export const CardName = styled.div`
@@ -145,10 +185,24 @@ export const CardName = styled.div`
         font-weight: 600;
         border-radius: 5px;
       }
+
+      @media (min-width: 768px) {
+            position: fixed;
+            right: 26%;
+            top: 30%;
+            width: 10%;            
+          button {
+            position: fixed;
+            right: 20%;
+            top: 30%;
+            width: 5%;
+          }
+
+          
+      }
 `;
 
 export const CardInfo = styled.div`
-  background-color: var(--gray-400-02);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -162,6 +216,20 @@ export const CardInfo = styled.div`
         background-color: #ccc;
         height: 4vh;
         gap: 10px;
+      }
+
+      @media (min-width: 768px) {
+        background-color: var(--gray-500);
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        right: 12%;
+        top: 37%;
+        width: 30%;
+        height: 55%;
+        p {
+          width: 90%;
+        }
       }
 `;
 export const FooterBtn = styled.div`
@@ -183,6 +251,14 @@ export const FooterBtn = styled.div`
       font-weight: 600;
       border-radius: 3px;
     }
+
+    @media (min-width: 768px) {
+      position: fixed;
+      right: 12%;
+      bottom: 8px;
+      width: 30%;
+      height: 5vh;
+    }
       
 `;
 export const DeletPerfilBtn = styled.button`
@@ -203,6 +279,7 @@ export const MsgErroNotLogged = styled.div`
   text-align: center;
   display: flex;
   width: 100%;
+    margin: auto;
   height: 100vh;
   color: red;
   font-size: 14px;
@@ -240,4 +317,13 @@ export const HomeButton = styled.button`
   color: white;
   font-weight: 600;
   border-radius: 3px;
+`;
+
+export const EditPhoto = styled.img`
+
+  @media (min-width: 768px) {
+    margin: auto;
+    margin-top: 20px;
+    width: 250px;
+  }
 `;
