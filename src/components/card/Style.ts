@@ -12,6 +12,12 @@ export const CardContainer = styled.div`
   width: 94%;
   border-radius: 7px;
   gap: 10px;
+
+  @media (min-width: 901px) and (max-width: 1024px) {
+    width: 85%;
+    max-height: 560px;
+  }
+
 `;
 export const IntroNews = styled.div`
   text-align: justify;
@@ -51,4 +57,20 @@ export const CardImg = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
+
+  @media (min-width: 368px) {
+    height: 250px;
+  }
+  @media (min-width: 480px) {
+    height: 300px;
+  }
+  @media (min-width: 600px) {
+    height: 350px;
+  }
+  @media (min-width: 800px)  and (max-width: 900px)  {
+    height: 400px;
+  }
+  @media (min-width: 901px) and (max-width: 1024px)  {
+    height: 200px;
+  }
 `;

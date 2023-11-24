@@ -23,8 +23,22 @@ export const CardContainer = styled.section`
   margin-top: 60px;
   overflow-y: scroll;
   margin-bottom: 15vh;
+
+    @media (min-width: 901px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
 `;
 export const Card = styled.article`
+  @media (min-width: 901px) and (max-width: 1024px)  {
+    width: 50%;
+  }
+  @media (min-width: 1025px) {
+    width: 30%;
+  }
 `;
 export const ErrMsg = styled.div`
   text-align: center;
