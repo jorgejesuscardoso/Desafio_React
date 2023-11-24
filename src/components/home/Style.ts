@@ -21,7 +21,6 @@ export const CardContainer = styled.section`
   flex-direction: column;
   width: 100%;
   margin-top: 60px;
-  gap: 5px;
   overflow-y: scroll;
   margin-bottom: 15vh;
 `;
