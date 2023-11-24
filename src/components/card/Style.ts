@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
   justify-content: center;
   margin: auto;
   margin-top: 15px;
-  margin-bottom: 100px ;
+  margin-bottom: 10px ;
   box-shadow: 1px 1px 5px 1px #0000004d;
   width: 94%;
   border-radius: 7px;
