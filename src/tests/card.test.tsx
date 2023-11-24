@@ -4,9 +4,11 @@ import renderWithRouter from "./helper/renderWithRouter";
 import { Provider } from "react-redux";
 import store from "../components/redux/store";
 import App from "../App";
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { vi } from "vitest";
 import mockData from "./mock/mockData";
+import NewsCard from "../components/card/Card";
+import { MemoryRouter } from "react-router-dom";
 
 test('Testa o componente Card', async () => {
   const fetchResolved = {
@@ -54,4 +56,32 @@ test('Testa o componente Card', async () => {
   expect(cardimg).toBeInTheDocument();
 
   expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
+});
+
+test('Testa o componente Card', async () => {
+
+  const item = {
+    id: 1,
+    titulo: 'Título da notícia',
+    link: 'http://www.exemple.com',
+    imagens: '{"image_intro":"images/agenciadenoticias/ibge/2023_11/caravaMA_THUMB.jpg"}',
+    introducao: 'Introdução da notícia',
+    data_publicacao: '2023-11-20T12:00:00Z'
+  };
+
+  render(
+    <MemoryRouter>
+      <NewsCard {...item} />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText('Título da notícia')).toBeInTheDocument();
+  expect(screen.getByText('Introdução da notícia')).toBeInTheDocument();
+  expect(screen.getByTestId('ler-mais')).toBeInTheDocument();
+  expect(screen.getByTestId('card-img')).toHaveAttribute(
+    'src',
+    'https://www.exemple.com/images/agenciadenoticias/ibge/2023_11/caravaMA_THUMB.jpg"'
+  );
+
+  screen.debug();
 });

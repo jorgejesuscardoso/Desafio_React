@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "../components/redux/store";
 import Home from "../components/home/Home";
 import renderWithRouter from "./helper/renderWithRouter";
+import mockData from "./mock/mockData";
+import { vi } from "vitest";
 
 test('Testa o componente Home', () => {
   renderWithRouter(<Provider store={store}><Home /></Provider> );
@@ -33,7 +35,13 @@ test('Testa o componente Home', () => {
 // Testa o componente TopFilterBtn
 
 test('Testa o componente TopFilterBtn', async () => {
-  renderWithRouter(<Provider store={store}><Home /></Provider> );
+  const fetchResolved = {
+    json: async () => mockData,
+  } as Response;
+
+  const mockeFetch = vi.spyOn(global, 'fetch')
+    .mockResolvedValue(fetchResolved);
+    renderWithRouter(<Provider store={store}><Home /></Provider>);
 
   const filterBtn = screen.getByTestId('filter-todos');
   const filterFavoritos = screen.getByTestId('filter-favoritos');
@@ -58,4 +66,16 @@ test('Testa o componente TopFilterBtn', async () => {
   fireEvent.click(reloadHome);
 
   fireEvent.click(filterFavoritos);
+  const popup = await screen.findByTestId('popup');
+  expect(popup).toBeInTheDocument();
+
+  const closePopup = await screen.findByTestId('close-popup');
+
+  fireEvent.click(closePopup);
+  expect(closePopup).not.toBeInTheDocument();
+
+
+
+
+  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
 });
