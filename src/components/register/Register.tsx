@@ -16,9 +16,10 @@ import Page2Form from "./Page2Form";
 import Page3Form from "./Page3Form";
 import NavigateBtns from "./NavigateBtn";
 import PopUp from "./PopUp";
+import { useNavigate } from "react-router-dom";
 
 function Register () {
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
@@ -46,7 +47,8 @@ function Register () {
   }
   // Esse any não é o ideal, mas não consegui resolver o problema de tipagem
   const handleNewUser = (newUser: Address, usersArray: any) => {
-    const existeUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
+
+      const existeUser = usersArray.find((user: AnyAction) => user.email === newUser.email);
 
     if (existeUser) {
       setError(true);
@@ -199,7 +201,7 @@ return (
     </form>
     <MsgHaveAccount>
       <h4>Já possui conta?</h4>
-      <button onClick={() => window.location.href = '/login'}>Login</button>
+      <button onClick={() => navigate('/')}>Login</button>
     </MsgHaveAccount>
     { handlePopUp() }
     <MsgErrDiv>
