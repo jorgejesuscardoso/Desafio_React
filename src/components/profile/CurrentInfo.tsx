@@ -15,6 +15,7 @@ function CurrentInfo ({ userInfo, showPass, handleShowPass }: CurrentInfoProps) 
           <ShowPassBTn
             type="button"
             onClick={ handleShowPass }
+            data-testid='show-pass'
           >
             { showPass ? 'Esconder' : 'Mostrar'}
           </ShowPassBTn>

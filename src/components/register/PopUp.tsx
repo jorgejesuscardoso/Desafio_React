@@ -8,7 +8,7 @@ function PopUp () {
       <DivUserRegistered>
         <p>Registrado com sucesso!</p>
         <p>Faça login para acessar sua conta.</p>
-        <button onClick={ () => navigate('/login') }>Login</button>
+        <button onClick={ () => navigate('/login') } data-testid='loginBtn' >Login</button>
       </DivUserRegistered> 
     </>
   )

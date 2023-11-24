@@ -52,6 +52,7 @@ function Profile () {
               </div>
               <button
                 onClick={() => navigate('/profile/edit-profile')}
+                data-testid='edit-profile-btn'
               >
                 Editar
               </button>
@@ -71,6 +72,7 @@ function Profile () {
                   removeUserConnectedToLocalStorage('connected'),
                   navigate('/')
                 } }
+                data-testid='delete-profile-btn'
               >
                 Deletar Perfil
               </DeletPerfilBtn>
@@ -81,11 +83,13 @@ function Profile () {
           <button
               onClick={ handleLogout }
               className="logoutBtn"
+              data-testid='logout-btn'
             > 
               Logout
             </button>
             <button
               onClick={() => navigate('/')}
+              className="homeBtn"
             >
               Inicio
             </button>
@@ -97,11 +101,13 @@ function Profile () {
             <MsgErro>
               <button
                 onClick={() => navigate('/login')}
+                data-testid='login-btn'
               >
                   Login
               </button>
               <button
                 onClick={() => navigate('/register')}
+                data-testid='register-btn'
               >
                 Criar
               </button>    

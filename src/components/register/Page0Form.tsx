@@ -23,6 +23,7 @@ function Page0Form ({ email, setEmail, password, setPassword, confirmPassword, s
             placeholder='email'
             id="login"
             required
+            data-testid='email'
           />
         </PagesContent>
         <PagesContent>
@@ -39,6 +40,7 @@ function Page0Form ({ email, setEmail, password, setPassword, confirmPassword, s
             id="password"
             minLength={6}
             required
+            data-testid='password'
           />
         </PagesContent>
         <PagesContent>
@@ -55,6 +57,7 @@ function Page0Form ({ email, setEmail, password, setPassword, confirmPassword, s
               setIsRegister(false);
               }}
             required
+            data-testid='confirm-password'
           />
         </PagesContent>
       <ErrMsgPage0>

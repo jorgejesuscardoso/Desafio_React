@@ -16,6 +16,7 @@ function NavigateBtns ({ page, setPage, disable, setError, setErrorMsg }: Naviga
             setErrorMsg('')
           }}
           disabled={page === 0}
+          data-testid='back-btn'
         >
             Anterior
         </PageNavigateBtn>
@@ -24,6 +25,7 @@ function NavigateBtns ({ page, setPage, disable, setError, setErrorMsg }: Naviga
           onClick={() => setPage(page + 1)}
           disabled={page === 3 || disable === true}
           className={ disable ? 'inativeBtn' : ''}
+          data-testid='next-btn'
         >
           Próximo
         </PageNavigateBtn>

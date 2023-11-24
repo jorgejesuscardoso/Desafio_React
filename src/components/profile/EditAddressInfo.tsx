@@ -12,6 +12,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="rua"
         value={ newUserInfo.endereco.rua }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, rua: e.target.value } }) }
+        data-testid="rua"
       />
       <label htmlFor="numero" style={{ marginLeft: 10 }}>Número:</label>
       <input
@@ -20,6 +21,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="numero"
         value={ newUserInfo.endereco.numero }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, numero: String (e.target.value) } }) }
+        data-testid="numero"
       /> 
       <label htmlFor="bairro" style={{ marginLeft: 10 }}>Bairro:</label>
       <input
@@ -28,6 +30,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="bairro"
         value={ newUserInfo.endereco.bairro }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, bairro: e.target.value } }) }
+        data-testid="bairro"
       />
       <label htmlFor="cidade" style={{ marginLeft: 10 }}>Cidade:</label>
       <input
@@ -36,6 +39,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="cidade"
         value={ newUserInfo.endereco.cidade }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, cidade: e.target.value } }) }
+        data-testid="cidade"
       />
       <label htmlFor="estado" style={{ marginLeft: 10 }}>Estado:</label>
       <input
@@ -44,6 +48,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="estado"
         value={ newUserInfo.endereco.estado }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, estado: e.target.value } }) }
+        data-testid="estado"
       />
       <label htmlFor="pais" style={{ marginLeft: 10 }}>País:</label>
       <input
@@ -52,6 +57,7 @@ function EditAddressInfo ({ newUserInfo, setNewUserInfo }: AddressInfoProps) {
         id="pais"
         value={ newUserInfo.endereco.pais }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, endereco: { ...newUserInfo.endereco, pais: e.target.value } }) }
+        data-testid="pais"
       />
     </>
   )

@@ -24,6 +24,7 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
           placeholder='Rua'
           id="street"
           required
+          data-testid='street'
         />
         </PagesContent>
         <PagesContent>
@@ -39,6 +40,7 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
             placeholder='Bairro'
             id="district"
             required
+            data-testid='district'
           />
         </PagesContent>
         <PagesContent>
@@ -54,6 +56,7 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
           placeholder='Número'
           id="number"
           required
+          data-testid='number'
         />
         </PagesContent>
         <PagesContent>
@@ -69,6 +72,7 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
           placeholder='Cidade'
           id="city"
           required
+          data-testid='city'
         />
         </PagesContent>
         <PagesContent>
@@ -84,6 +88,7 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
           placeholder='Estado'
           id="state"
           required
+          data-testid='state'
         />
         </PagesContent>
         <PagesContent>        
@@ -98,6 +103,8 @@ function Page2Form ({ address, setAddress, setError, setIsRegister }: Page2FormP
           type='text'
           placeholder='País'
           id="country"
+          required
+          data-testid='country'
         />
         </PagesContent>
       </Page2>

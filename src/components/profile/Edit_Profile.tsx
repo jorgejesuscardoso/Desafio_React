@@ -98,6 +98,7 @@ function EditProfile () {
     // Atualiza os dados do usuário no localStorage com os novos valores
     localStorage.setItem('users', JSON.stringify(newUsers));
   }
+  
   const handleShowPass = () => {
     setShowPass(!showPass);
   }
@@ -141,10 +142,16 @@ function EditProfile () {
               </div>
             </div>
           <EditButtonFooter>
-            <button type="submit">Salvar</button>
+            <button
+              type="submit"
+              data-testid='save-btn'
+            >
+              Salvar
+            </button>
             <button
               onClick={() => navigate('/profile')}
               className="logoutBtn"
+              data-testid='cancel-btn'
             >
               Cancelar
             </button>

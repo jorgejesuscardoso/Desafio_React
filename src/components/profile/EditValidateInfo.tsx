@@ -14,6 +14,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
         id="nome"
         value={ newUserInfo.nome }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, nome: e.target.value }) }
+        data-testid='name'
       />
       <label htmlFor="sobrenome" style={{ marginLeft: 10 }}>Sobrenome:</label>
       <input
@@ -22,6 +23,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
         id="sobrenome"
         value={ newUserInfo.sobrenome }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, sobrenome: e.target.value }) }
+        data-testid='lastname'
       />
       <label htmlFor="idade" style={{ marginLeft: 10 }}>Idade:</label>
       <input
@@ -30,6 +32,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
         id="idade"
         value={ newUserInfo.idade }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, idade: String(e.target.value) }) }
+        data-testid='age'
       />
       <label htmlFor="email" style={{ marginLeft: 10 }}>Email:</label>
       <input
@@ -38,6 +41,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
         id="email"
         value={ newUserInfo.email }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, email: e.target.value }) }
+        data-testid='email'
       />
       <label htmlFor="senha" style={{ marginLeft: 10 }}>Senha:</label>
       <input
@@ -47,6 +51,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
         value={ newUserInfo.senha }
         onChange={ (e) => setNewUserInfo({ ...newUserInfo, senha: e.target.value }) }
         minLength={ 6 }
+        data-testid='password'
       />
       <label htmlFor="confirma" style={{ marginLeft: 10 }}>Confirme a senha</label>
       <ConfirmPass>
@@ -58,7 +63,7 @@ function ChangeValidateInfo ({ newUserInfo, setNewUserInfo, confirmNewPass, setC
           onChange={ (e) => setConfirmNewPass({ ...confirmNewPass, senha: e.target.value }) }
           minLength={ 6 }
           style={{ marginLeft: 10 }}
-
+          data-testid='confirm-password'
         />
         { !msgConfirmaSenha ? <p>As senhas não coincidem</p> : '✅' }
       </ConfirmPass>

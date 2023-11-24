@@ -21,6 +21,7 @@ function Page1Fom ({ name, setName, lastname, setLastname, age, setAge, setError
             placeholder='Nome'
             id="name"
             required
+            data-testid='name'
           />
         </PagesContent>
         <PagesContent>
@@ -36,6 +37,7 @@ function Page1Fom ({ name, setName, lastname, setLastname, age, setAge, setError
             placeholder='Sobrenome'
             id="lastname"
             required
+            data-testid='lastname'
           />
         </PagesContent>
         <PagesContent>
@@ -51,6 +53,7 @@ function Page1Fom ({ name, setName, lastname, setLastname, age, setAge, setError
             placeholder='Idade'
             id="age"
             required
+            data-testid='age'
           />
         </PagesContent>
       </Page0and1>

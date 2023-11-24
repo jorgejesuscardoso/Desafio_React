@@ -21,12 +21,14 @@ function Page3Form ({ thumb, setThumb, setError, setIsRegister, disable }: Page3
             type='text'
             placeholder='Url da foto'
             id="thumb"
+            data-testid='thumb'
           />
         </div>
         <BtnRegister
           type='submit'
           className="btn-form-register"
           disabled={ disable === true}
+          data-testid='btn-register'
         >
           Registrar
         </BtnRegister>
