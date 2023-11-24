@@ -45,12 +45,14 @@ function FilterDate () {
     <div>
       <Form
        onSubmit={ handleSearch }
+        data-testid="form-date"
       >
         <CloseBtn
           type="button"
           className="close"
           onClick={ () => 
-            dispatch(filterDateAction()) }
+          dispatch(filterDateAction()) }
+          data-testid="close-btn"
         >                
           <p>✖️</p>
         </CloseBtn>
@@ -62,6 +64,7 @@ function FilterDate () {
             placeholder="MM-DD-AA"
             value={ initialDate }
             onChange={ (e) => setInitialDate(e.target.value) }
+            data-testid="search-initial-date"
           />
         </DivDate>
         <DivDate>
@@ -72,10 +75,12 @@ function FilterDate () {
             placeholder="MM-DD-AA"
             value={ finalDate }
             onChange={ (e) => setFinalDate(e.target.value) }
+            data-testid="search-final-date"
           />
         </DivDate>
         <SearchBtn
           type="submit"
+          data-testid="search-btn"
         >
           Buscar
         </SearchBtn>

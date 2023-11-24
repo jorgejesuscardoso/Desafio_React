@@ -7,7 +7,7 @@ import mockData from "./mock/mockData";
 import renderWithRouter from "./helper/renderWithRouter";
 import App from "../App";
 import moment from "moment";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import DateTimeDisplay from "../components/dateTime/DateTImeDIsplay";
 
 test('testa display de data', () => {
@@ -40,6 +40,37 @@ test('testa display de data', () => {
   expect(getByText('publicado agora')).toBeInTheDocument();
   expect(getByText(/Publicado há: 1 horas? atrás/)).toBeInTheDocument();
   expect(getByText(/Publicado há: 1 dias? atrás/)).toBeInTheDocument();
+
+  expect(mockeFetch).toHaveBeenCalled();
+});
+
+test('testa input de pesquisa', async () => {
+  const fetchResolved = {
+    json: async () => mockData,
+  } as Response;
+
+  const mockeFetch = vi.spyOn(global, 'fetch')
+    .mockResolvedValue(fetchResolved);
+    renderWithRouter(<Provider store={store}><App /></Provider>);
+
+  const filterFooter = await screen.findByTestId('footer-filter-btn');
+  fireEvent.click(filterFooter);
+
+  const dateFilter = await screen.findByTestId('date-btn');
+  fireEvent.click(dateFilter);
+
+  const initialDate = await screen.findByTestId('search-initial-date');
+  const finalDate = await screen.findByTestId('search-final-date');
+
+  fireEvent.change(initialDate, { target: { value: '21-09-2022' } });
+  fireEvent.change(finalDate, { target: { value: '20-08-2022' } });
+  
+  const searchBtn = await screen.findByTestId('search-btn');
+  fireEvent.click(searchBtn);
+
+  expect(mockeFetch).toHaveBeenCalled();
+  expect(initialDate && finalDate).not.toBeInTheDocument();
+
 
   expect(mockeFetch).toHaveBeenCalled();
 });

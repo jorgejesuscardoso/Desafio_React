@@ -14,7 +14,7 @@ import { NextBtn } from "../buttons/Next";
 import { useSelector } from "react-redux";
 import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
 import DisplayFooterFIlter from "../filter/DisplayFooterFIlter";
-import FilterDate from "../filter/FilterDate";
+import FilterDate from "../filter/DisplayDateFilter";
 import { handleApiData, scrolTop } from "../utils/Utils";
 import { 
   CardContainer,
