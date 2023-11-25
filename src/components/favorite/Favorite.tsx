@@ -39,7 +39,7 @@ function Favorite (favoriteId: FavoriteType) {
       >
         <img
           src={ isFavorited ? liked : unliked }
-          alt="favorite"
+          alt="favoritar"
           className="favorite-mark-and-share"
           data-testid="favorite-icon"
         />

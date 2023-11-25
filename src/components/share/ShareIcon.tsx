@@ -26,7 +26,7 @@ function Share(id: FavoriteType) {
       <button onClick={ handleShare } data-testid='share'>
         <img
           src={ shareIcon }
-          alt="share"
+          alt="compartilhar"
           className="favorite-mark-and-share"
         />
       </button>

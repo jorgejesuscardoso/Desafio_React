@@ -64,6 +64,7 @@ export const FilterFooterMenu = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid #000c005b;
+  cursor: pointer;
 
     img {
       width: 20px;

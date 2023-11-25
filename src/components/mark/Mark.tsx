@@ -26,7 +26,7 @@ function Mark (id: FavoriteType) {
       <button onClick={ handleMark } data-testid='mark'>
           <img
             src={ isMarked ? markIcon : unMarkIcon }
-            alt="mark"
+            alt="marcar"
             className="favorite-mark-and-share"
             data-testid="mark-icon"
           />

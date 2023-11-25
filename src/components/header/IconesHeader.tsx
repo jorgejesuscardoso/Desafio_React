@@ -27,7 +27,7 @@ function IconesHeader ({ showSearch, setShowSearch, setSearch, showMenu, setShow
       >
         <Ico
           src={ searchIcon }
-          alt="lupa"
+          alt="pesquisar"
         />
       </button>
       <button
