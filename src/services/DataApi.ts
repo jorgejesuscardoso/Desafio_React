@@ -12,7 +12,6 @@ async function FetchApi(
   try {
     const response = await fetch(`https://servicodados.ibge.gov.br/api/v3/noticias/?${url}`);
     const data = await response.json();
-    console.log('data', data);
     return data;
   } catch (error) {
     console.log('erro', error);
