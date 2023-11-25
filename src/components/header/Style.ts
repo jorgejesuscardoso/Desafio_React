@@ -159,7 +159,7 @@ export const MenuHeader = styled.div`
     
     button {
     background-color: var(--white);
-    width: 100%;
+    width: 70%;
     height: 2vh;
     font-size: 14px;
     color: var(--gray-300);
@@ -181,7 +181,7 @@ export const MenuHeader = styled.div`
     top: 100px;
     width: 7%;
     button {
-      height: 3vh;
+      height: 2.5vh;
       font-size: 16px;
     }
     h2 {
