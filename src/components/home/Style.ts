@@ -44,17 +44,20 @@ export const CardContainer = styled.section`
 
 `;
 export const Card = styled.article`
-  @media (min-width: 901px) and (max-width: 1024px)  {
-    width: 50%;
+ @media (min-width: 768px) and (max-width: 900px)  {
+    width: 40%;
   }
-  @media (min-width: 1025px) and (max-width: 1200px) {
+  @media (min-width: 901px) and (max-width: 1024px)  {
     width: 33%;
   }
-  @media (min-width: 1201px) {
+  @media (min-width: 1025px) and (max-width: 1200px) {
     width: 25%;
   }
-  @media (min-width: 2100px) {
+  @media (min-width: 1201px) {
     width: 20%;
+  }
+  @media (min-width: 2100px) {
+    width: 15%;
   }
 `;
 export const ErrMsg = styled.div`

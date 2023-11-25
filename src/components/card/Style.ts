@@ -13,7 +13,7 @@ export const CardContainer = styled.div`
   border-radius: 7px;
   gap: 10px;
 
-    //hover
+   
     &:hover {
       box-shadow: 1px 1px 15px 5px var(--green-900-05);
       transition: 0.3s;
@@ -86,12 +86,7 @@ export const CardImg = styled.img`
     height: 400px;
   }
   @media (min-width: 901px) and (max-width: 1024px)  {
-    height: 200px;
-  }
-  @media (min-width: 1025px) {
     height: 250px;
-    max-height: 250px;
-    overflow: hidden;
   }
 `;
 export const DarkModeButton = styled.button`

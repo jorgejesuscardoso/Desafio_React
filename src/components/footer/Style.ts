@@ -31,7 +31,6 @@ export const FooterContent = styled.div`
     span {
       color: var(--white);
       display: inline-block;
-      margin-top: 20px;
       font-size: 16px;
     }
     p {
@@ -39,19 +38,6 @@ export const FooterContent = styled.div`
       font-size: 16px;
     }
 
-
-    @media (min-width: 768px) {
-      height: 100%;
-      a {
-        font-size: 20px;
-      }
-      span {
-        font-size: 20px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
 `;
 
 

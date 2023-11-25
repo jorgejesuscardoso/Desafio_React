@@ -212,23 +212,25 @@ export const TopFilterContainer = styled.div`
       width: 19%;
       height: 3.5vh;
       font-weight: 600;
+      color: var(--gray-300);
     }
 
     @media (min-width: 768px) {
       height: 5vh;
       top: 100px;
-    }
-    @media (min-width: 1024px) {
-      height: 5vh;
-      top: 100px;
       background-color: var(--gray-200);
-      gap: 7px;
       button {
         font-size: 16px;
         border-radius: 0;
         background-color: var(--white);
         box-shadow: 0px 0px 0px 0px;
       }
+    }
+    @media (min-width: 1024px) {
+      height: 5vh;
+      top: 100px;
+      background-color: var(--gray-200);
+      gap: 7px;
     }
 `;
 export const UserNameConnected = styled.div`
