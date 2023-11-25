@@ -3,11 +3,10 @@ import { ApiDataType, FavoriteType, ItemProps, UserTypes } from "../../type";
 
 // Rolagem para o topo da página
 export function scrolTop () {
-  const cardContainer = document.querySelector('.card-container')
-  
-  if (cardContainer) {
-    cardContainer.scrollTop = 0
-    }
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
 
 // Obtem local storage dinamicamente e verifica se o item já está salvo, necessário passar, key e id
