@@ -38,7 +38,7 @@ export const ContainerFooterMenu = styled.div`
     @media (min-width: 768px) {
       top: 100px;
       left: 80px;
-      width: 110px;
+      width: 150px;
       height: 31vh;
     }
 `;
