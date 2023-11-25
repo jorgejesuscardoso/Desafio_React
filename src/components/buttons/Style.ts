@@ -73,4 +73,10 @@ export const FilterBtnTop = styled.button`
   color: rgb(100, 100, 100);
   border-radius: 5px;
   box-shadow: 0px 0px 2px 0px rgb(0, 100, 0);
+
+    &:hover {
+      background-color: #cccccc4f ;
+      color: rgb(0, 100, 0);
+      border: 1px solid rgb(0, 100, 0);
+    }
 `;

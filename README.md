@@ -10,6 +10,8 @@ O desenvolvimento do aplicativo é realizado com React, seguindo as boas prátic
 
 Embora os testes unitários e o deploy sejam opcionais, serão considerados como diferenciais. A cobertura de testes esperada é de, no mínimo, 50%.
 
+O app foi hospedado nesse link: <a>https://desafioreact.netlify.app/</a>
+
 ### Desenvolvimento
 
 #### Ferramentas Utilizadas
