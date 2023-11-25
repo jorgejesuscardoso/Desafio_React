@@ -55,7 +55,7 @@ test('Testa o componente Card', async () => {
 
   expect(cardimg).toBeInTheDocument();
 
-  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
+  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=50');
 });
 
 test('Testa o componente Card', async () => {
@@ -70,9 +70,11 @@ test('Testa o componente Card', async () => {
   };
 
   render(
+    <Provider store={store}>
     <MemoryRouter>
       <NewsCard {...item} />
     </MemoryRouter>
+    </Provider>
   );
 
   expect(screen.getByText('Título da notícia')).toBeInTheDocument();

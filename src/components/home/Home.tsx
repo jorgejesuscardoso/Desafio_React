@@ -60,6 +60,7 @@ function Home() {
   const [typeNews, setTypeNews] = useState(''); 
   const [popUp, setPopUp] = useState('');
   const [isDarkMode, setIsDarkMode] = useState(false); 
+  const [visibleCards, setVisibleCards] = useState(12);
 
   
   useEffect(() => {
@@ -108,6 +109,9 @@ function Home() {
     setIsDarkMode(!isDarkMode);
     dispatch(darkModeAction());
   }
+  const handleShowMoreCards = () => {
+    setVisibleCards(prevVisibleCards => prevVisibleCards + 9); // Aumenta o número de cards a serem exibidos
+  };
   return (
     <>
       <Header />
@@ -120,11 +124,14 @@ function Home() {
             items={ items }
             error={ error }
             page={ page }
-          />
+          />       
         </CardContainer>
         { renderDisplayFooterFilter() }
         { renderFilterDate() }
         { renderPopUp() }
+        {visibleCards >= 12 &&  (
+        <button onClick={handleShowMoreCards}>Mostrar Mais</button>
+      )}
       </Container>      
       <FooterHome>
         <PrevBtn page={page} totalPages={totalPages} />

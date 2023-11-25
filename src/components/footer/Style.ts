@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-  background-color: #ccc;
+  background-color: var(--gray-300);
   display: flex;
   justify-content: center;
   width: 100%;
@@ -29,8 +29,13 @@ export const FooterContent = styled.div`
       margin-top: 10px;
     }
     span {
+      color: var(--white);
       display: inline-block;
       margin-top: 20px;
+      font-size: 16px;
+    }
+    p {
+      color: var(--white);
       font-size: 16px;
     }
 

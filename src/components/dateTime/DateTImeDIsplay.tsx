@@ -1,7 +1,17 @@
 import moment from 'moment';
 import { DataHour } from '../../type';
+import { DarkModeType } from '../home/Home';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const DateTimeDisplay = ({ dateTime }: DataHour) => {
+  const darkMode = useSelector((state: DarkModeType) => state.darkMode);
+  const [isDarkMode, setIsDarkMode] = useState(darkMode);
+
+  useEffect(() => {
+    setIsDarkMode(darkMode);
+  }, [darkMode]);
+
   const dataPublicacaoMoment = moment(dateTime, 'DD/MM/YYYY HH:mm:ss'); // Converte a data para o formato do moment
 
   const diferencaHoras = moment().diff(dataPublicacaoMoment, 'hours'); 
@@ -38,7 +48,7 @@ const DateTimeDisplay = ({ dateTime }: DataHour) => {
 
   return (
     <div className='date-time'>
-      <span>
+      <span style={{ color: isDarkMode ? 'white' : 'rgb(100,100,100)' }}>
        {descricao}
       </span>
     </div>

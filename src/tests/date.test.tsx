@@ -27,14 +27,16 @@ test('testa display de data', () => {
   const oneYearAgo = moment().subtract(1, 'years').format('DD/MM/YYYY HH:mm:ss');
 
   const { getByText } = render(
-    <div>
-      <DateTimeDisplay dateTime={today} />
-      <DateTimeDisplay dateTime={oneHourAgo} />
-      <DateTimeDisplay dateTime={oneDayAgo} />
-      <DateTimeDisplay dateTime={oneWeekAgo} />
-      <DateTimeDisplay dateTime={oneMonthAgo} />
-      <DateTimeDisplay dateTime={oneYearAgo} />
-    </div>
+      <Provider store={store}>
+        <div>
+            <DateTimeDisplay dateTime={today} />
+            <DateTimeDisplay dateTime={oneHourAgo} />
+            <DateTimeDisplay dateTime={oneDayAgo} />
+            <DateTimeDisplay dateTime={oneWeekAgo} />
+            <DateTimeDisplay dateTime={oneMonthAgo} />
+            <DateTimeDisplay dateTime={oneYearAgo} />
+        </div>
+      </Provider>
   );
 
   expect(getByText('publicado agora')).toBeInTheDocument();

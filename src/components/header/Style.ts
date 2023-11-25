@@ -218,6 +218,18 @@ export const TopFilterContainer = styled.div`
       height: 5vh;
       top: 100px;
     }
+    @media (min-width: 1024px) {
+      height: 5vh;
+      top: 100px;
+      background-color: var(--gray-200);
+      gap: 7px;
+      button {
+        font-size: 16px;
+        border-radius: 0;
+        background-color: var(--white);
+        box-shadow: 0px 0px 0px 0px;
+      }
+    }
 `;
 export const UserNameConnected = styled.div`
   display: flex;

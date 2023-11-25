@@ -22,6 +22,6 @@ it('Testa se a API é chamada', async () => {
 
   const h3 = await screen.findByRole('heading', { level: 3, name: /Ler mais/i });
   expect(h3).toBeInTheDocument();
-  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=10');
+  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=50');
   screen.debug();
 });
