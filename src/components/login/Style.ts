@@ -53,6 +53,12 @@ export const Container = styled.main`
     height: 40vh;
     gap: 5px;
     }
+
+    @media (min-width: 768px) {
+      form {
+        width: 20%;
+      }
+    }
 `;
 export const FooterFormLogin = styled.footer`
   display: flex;
