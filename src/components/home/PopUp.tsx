@@ -11,7 +11,7 @@ function PopUp ({ popUp, setPopUp }: PopUpProps) {
           onClick={() => setPopUp('')}
           data-testId='close-popup'
         >
-          X
+          ❌
         </button>
       </PopUpAlert>
     </>

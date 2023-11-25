@@ -51,7 +51,7 @@ function Header () {
   }
   ,[userConectado]);
   return (
-  <HeaderContainer className={ isDarkMode ? 'dark-mode' : '' }>
+  <HeaderContainer className={ isDarkMode ? 'dark-mode-header' : '' }>
     <button
       onClick={ () => window.location.reload() }
       data-testid="btn-logo"

@@ -11,7 +11,6 @@ export const CardContainer = styled.div`
   box-shadow: 1px 1px 5px 1px #0000004d;
   width: 94%;
   border-radius: 7px;
-  gap: 10px;
 
    
     &:hover {
@@ -47,12 +46,12 @@ export const PostDate = styled.div`
 `;
 export const FooterCard = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin: auto;
-  height: 40px ;
-  max-height: 50px;
-  width: 60%;
+  height: 50px ;
+  width: 100%;
+  border-radius: 0 0 7px 7px;
 `;
 export const FullNewsLink = styled.div`
   display: flex;
@@ -61,6 +60,7 @@ export const FullNewsLink = styled.div`
   background-color: var(--green-600);
   font-size: 16px;
   font-weight: 600;
+  margin: 15px;
   height: 40px;
   width: 200px;
 

@@ -66,7 +66,7 @@ useEffect(() => {
         </div>
       </PostDate>
 
-      <FooterCard>
+      <FooterCard className={ isDarkMode ? 'dark-mode-header' : '' }>
         <Favorite id={ id } />
         <Share id={ id } />
         <Mark id={ id }/>

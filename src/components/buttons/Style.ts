@@ -63,7 +63,6 @@ export const FilterFooterMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #000c005b;
   cursor: pointer;
 
     img {
@@ -72,11 +71,11 @@ export const FilterFooterMenu = styled.div`
     }
 
     @media (min-width: 768px) {
-      background-color: var(--gray-200);
+      background-color: transparent;
       position: fixed;
       top: 35px;
       left: 110px;
-      width: 5%;
+      width: 2%;
       z-index: 99;
     }
 `;
@@ -93,7 +92,7 @@ export const FilterBtnTop = styled.button`
 
     &:hover {
       background-color: #cccccc4f ;
-      color: rgb(0, 100, 0);
+      color: var(--blue-400);
       border: 1px solid rgb(0, 100, 0);
     }
 `;

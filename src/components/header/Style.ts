@@ -26,13 +26,14 @@ export const Icones = styled.div`
 
     @media (min-width: 768px) {
       width: 30%;
+      height: 80%;
     }
 `;
 export const UserNameHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: rgb(0, 110, 0);
+  color: var(--blue-400);
   font-weight: 600;
   width: 22vh;
     
@@ -48,17 +49,7 @@ export const UserNameHeader = styled.div`
     }
 
     @media (min-width: 768px) {
-      height: 95px;
-      align-items: center;
-
-      h2 {
-        font-size: 2rem;      
-      }
-      img {
-        margin-left: 20px;
-        width: 8vh;
-        height: 7vh;
-      }
+      display:none
     }
 `;
 export const Logo = styled.img`
@@ -142,7 +133,7 @@ export const CloseSearch = styled.button`
   width: 20%;
   height: 30px;
   border-radius: 5px;
-  background-color: white;
+  background-color: transparent;
 
     @media (min-width: 768px) {
       position: fixed;
@@ -241,6 +232,7 @@ export const TopFilterContainer = styled.div`
   gap: 2px;
 
     button {
+      background-color: transparent;
       width: 19%;
       height: 3.5vh;
       font-weight: 600;
@@ -254,7 +246,6 @@ export const TopFilterContainer = styled.div`
       button {
         font-size: 16px;
         border-radius: 0;
-        background-color: var(--white);
         box-shadow: 0px 0px 0px 0px;
       }
     }

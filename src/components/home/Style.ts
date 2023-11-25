@@ -112,6 +112,13 @@ export const PopUpAlert = styled.div`
       color: var(--white);
       font-size: 20px;
     }
+    @media (min-width: 768px) {
+      width: 20%;
+      height: 10vh;
+      top: 40%;
+      right: 35%;
+      font-size: 20px;
+    }
 `;
 export const TopTopBtn = styled.button`
   display: none;
