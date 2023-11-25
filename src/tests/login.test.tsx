@@ -15,7 +15,7 @@ test('Teste pagina de login', async () => {
   fireEvent.change(email, { target: { value: 'teste@mail.com' } });
   fireEvent.change(password, { target: { value: '123456' } });
   fireEvent.click(button);
-  const erroLogin = await screen.findByText('Usuário não cadastrado!');
+  const erroLogin = await screen.findByText('Usuário não encontrado!');
 
   
   expect(erroLogin).toBeInTheDocument();

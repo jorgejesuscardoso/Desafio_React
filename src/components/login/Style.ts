@@ -39,7 +39,7 @@ export const ErrUserConnectedContainer = styled.div`
   }
 `
 export const Container = styled.main`
-  background-image: url('src/assets/bnLogo.png');
+  background-image: url('bnLogo.png');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,7 +103,7 @@ export const LoginError = styled.div`
   font-size: 16px;
   top: 71%;
   height: 9vh;
-  width: 150px;
+  width: 15%;
   gap: 10px;
 `;
 export const LoginButton = styled.button` 

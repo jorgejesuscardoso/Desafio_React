@@ -6,7 +6,6 @@ import {
   Main,
   MsgErrDiv,
   ErrToRegister, 
-  Logo,
   MsgHaveAccount } from "./Style";
 import { getUserLocalStorage, setNewUserToLocalStorage } from "../utils/Utils";
 import Page0Form from "./Page0Form";
@@ -16,7 +15,6 @@ import Page3Form from "./Page3Form";
 import NavigateBtns from "./NavigateBtn";
 import PopUp from "./PopUp";
 import { useNavigate } from "react-router-dom";
-import { logoIcon } from "../icons/Imports";
 
 function Register () {
   const navigate = useNavigate();
@@ -145,7 +143,6 @@ function Register () {
 return (
 
   <Main>
-    {page === 3 && <Logo src={ logoIcon } alt="logo" /> }
     <form
       onSubmit={handleOnSubmit}
       data-testid="form-register"  

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  background-image: URL('src/assets/bnLogo.png');
+  background-image: URL('public/bnLogo.png');
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -186,10 +186,34 @@ gap: 5px;
     }
 `;
 export const Foto = styled.img`
+  position: fixed;
   width: 150px;
-  margin: auto;
-  margin-top: -300px;
-  margin-bottom: 20%;
+  top: 12%;
+  left: 29%;
+
+    @media (min-width: 280px) and (max-width: 399px) {
+      width: 100px;
+      top: 15%;
+      left: 31%;
+    }
+    @media (min-width: 400px) and (max-width: 550px) {
+      width: 150px;
+      top: 10%;
+      left: 32%;
+    }
+    @media (min-width: 550px) and (max-width: 768px) {
+      width: 150px;
+      left: 37%;
+    }
+
+    @media (min-width: 768px) {
+      width: 150px;
+      left: 41%;
+    }
+    @media (min-width: 1100px) {
+      width: 150px;
+      left: 45.2%;
+    }
   
 `;
 export const ContainerFoto = styled.div`
@@ -247,31 +271,6 @@ export const HomeNavigateBtnDiv = styled.div`
       border: 1px solid blue;
     }
 `;
-export const Logo = styled.img`
-  position: fixed;
-  top: 8%;
-  right:6%;
-  width: 25%;
-  height: 10%;
-
-    @media (min-width: 400px) {
-      right: 15%;
-    }
-    @media (min-width: 550px) {
-      right: 20%;
-    }
-    @media (min-width: 1000px) {
-      top: 5%;
-      right: 35%;
-      width: 15%;
-    }
-    @media (min-width: 1200px) {
-      top: 5%;
-      right: 40%;
-      width: 10%;
-    }
-
-`;
 export const BtnRegister = styled.button`
   position: fixed;
   background-color: var(--blue-400);
@@ -298,7 +297,7 @@ export const BtnRegister = styled.button`
     }
     @media (min-width: 1000px) {
       width: 15%;
-      right: 43%;
+      right: 42%;
     }
 `;
 export const MsgHaveAccount = styled.div`

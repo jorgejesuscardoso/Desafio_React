@@ -196,6 +196,38 @@ export const MenuHeader = styled.div`
       font-size: 16px;
     }
   }
+  @media (min-width: 500px) {
+    top: 100px;
+    width: 12%;
+    height: 15vh;
+    button {
+      height: 2.5vh;
+    }
+  }
+  @media (min-width: 1024px) {
+    top: 100px;
+    width: 13%;
+    height: 17vh;
+    button {
+      height: 2.7vh;
+      font-size: 16px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+  }
+  @media (min-width: 1200px) {
+    top: 100px;
+    width: 7%;
+    height: 17vh;
+    button {
+      height: 2.7vh;
+      font-size: 16px;
+    }
+    h2 {
+      font-size: 16px;
+    }
+  }
 `;
 export const TopFilterContainer = styled.div`
   background-color: white;
@@ -231,6 +263,7 @@ export const TopFilterContainer = styled.div`
       top: 100px;
       background-color: var(--gray-200);
       gap: 7px;
+     
     }
 `;
 export const UserNameConnected = styled.div`

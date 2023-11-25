@@ -31,7 +31,7 @@ test('Testa o componente Card', async () => {
   const favoriteIcon = await screen.findByTestId('favorite-icon');
 
   fireEvent.click(favorite);
-  expect(favoriteIcon).toHaveAttribute('src', 'src/assets/liked.png');
+  expect(favoriteIcon).toHaveAttribute('src', '/liked.png');
 
   const mark = await screen.findByTestId('mark');
   expect(mark).toBeInTheDocument();
@@ -39,7 +39,7 @@ test('Testa o componente Card', async () => {
   const markIcon = await screen.findByTestId('mark-icon');
   
   fireEvent.click(mark);
-  expect(markIcon).toHaveAttribute('src', 'src/assets/marked.png');
+  expect(markIcon).toHaveAttribute('src', '/marked.png');
 
   const share = await screen.findByTestId('share');
   expect(share).toBeInTheDocument();

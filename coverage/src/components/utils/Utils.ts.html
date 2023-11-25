@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.81% </span>
+                <span class="strong">82.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>106/128</span>
+                <span class='fraction'>105/127</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.28% </span>
+                <span class="strong">62.96% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>18/28</span>
+                <span class='fraction'>17/27</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.81% </span>
+                <span class="strong">82.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>106/128</span>
+                <span class='fraction'>105/127</span>
             </div>
         
             
@@ -190,8 +190,7 @@
 <a name='L125'></a><a href='#L125'>125</a>
 <a name='L126'></a><a href='#L126'>126</a>
 <a name='L127'></a><a href='#L127'>127</a>
-<a name='L128'></a><a href='#L128'>128</a>
-<a name='L129'></a><a href='#L129'>129</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L128'></a><a href='#L128'>128</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -199,8 +198,7 @@
 <span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-yes">45x</span>
-<span class="cline-any cline-yes">38x</span>
-<span class="cline-any cline-yes">38x</span>
+<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -232,10 +230,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -252,6 +246,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -324,11 +322,10 @@ import { ApiDataType, FavoriteType, ItemProps, UserTypes } from "../../type";
 &nbsp;
 // Rolagem para o topo da página
 export function scrolTop () {
-  const cardContainer = document.querySelector('.card-container')
-  
-  if (cardContainer) {
-    cardContainer.scrollTop = 0
-    }
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
 &nbsp;
 // Obtem local storage dinamicamente e verifica se o item já está salvo, necessário passar, key e id
@@ -341,7 +338,7 @@ export function getFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteT
 }
 &nbsp;
 &nbsp;
-export function setLocalStorage (key: string, id: FavoriteType, array: number[]) {
+export function setFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteType, array: number[]) {
   array.push(id.id);
   localStorage.setItem(`${key}`, JSON.stringify(array));
 }
@@ -353,17 +350,13 @@ export <span class="fstat-no" title="function not covered" >function removeFavor
 <span class="cstat-no" title="statement not covered" >  localStorage.setItem(`${key}`, JSON.stringify(array));</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-// Verifica se existe usuário cadastrado
+&nbsp;
 export const users = JSON.parse(localStorage.getItem('users') || '[]');
 &nbsp;
 // Verifica user logado
 export const userConnected = JSON.parse(localStorage.getItem('connected') || '{}');
 &nbsp;
 &nbsp;
-export function getUserLocalStorage (user: string) {
-  const isUser = localStorage.getItem(<span class="branch-0 cbranch-no" title="branch not covered" >user) ? JSON.parse(localStorage.getItem(user)!) : [</span>];
-  return isUser;
-}
 &nbsp;
 &nbsp;
 export <span class="fstat-no" title="function not covered" >function setUserConnectedToLocalStorage (key: string, userConnected: object) {</span>
@@ -376,10 +369,14 @@ export function removeUserConnectedToLocalStorage (key: string) {
 }
 &nbsp;
 &nbsp;
+&nbsp;
 export function setNewUserToLocalStorage (user: string) {
   localStorage.setItem('users', JSON.stringify(user));
 }
-&nbsp;
+export function getUserLocalStorage (user: string) {
+  const isUser = localStorage.getItem(<span class="branch-0 cbranch-no" title="branch not covered" >user) ? JSON.parse(localStorage.getItem(user)!) : [</span>];
+  return isUser;
+}
 &nbsp;
 export function removeUserLocalStorage(id: number) {
   const users = JSON.parse(localStorage.getItem(<span class="branch-0 cbranch-no" title="branch not covered" >'users') || '[]') as { id: number }[];</span>
@@ -454,7 +451,7 @@ export const handleApiData = ({ apiData, setNumberPage, setData, AllFilters, set
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-25T02:05:47.724Z
+                at 2023-11-25T21:58:44.269Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

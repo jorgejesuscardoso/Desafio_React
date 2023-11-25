@@ -65,7 +65,7 @@ function Login() {
 
     if (!existeUser) {
       setError(true);
-      setErrorMsg('Usuário não cadastrado!');
+      setErrorMsg('Usuário não encontrado!');
       return;
     }
     setLocalStorage(existeUser);
