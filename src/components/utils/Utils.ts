@@ -19,7 +19,7 @@ export function getFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteT
 }
 
 
-export function setLocalStorage (key: string, id: FavoriteType, array: number[]) {
+export function setFavoriteAndMarkedFromLocalStorage (key: string, id: FavoriteType, array: number[]) {
   array.push(id.id);
   localStorage.setItem(`${key}`, JSON.stringify(array));
 }
@@ -31,17 +31,13 @@ export function removeFavoriteAndMarkedFromLocalStorage (key: string, id: Favori
   localStorage.setItem(`${key}`, JSON.stringify(array));
 }
 
-// Verifica se existe usuário cadastrado
+
 export const users = JSON.parse(localStorage.getItem('users') || '[]');
 
 // Verifica user logado
 export const userConnected = JSON.parse(localStorage.getItem('connected') || '{}');
 
 
-export function getUserLocalStorage (user: string) {
-  const isUser = localStorage.getItem(user) ? JSON.parse(localStorage.getItem(user)!) : [];
-  return isUser;
-}
 
 
 export function setUserConnectedToLocalStorage (key: string, userConnected: object) {
@@ -54,10 +50,14 @@ export function removeUserConnectedToLocalStorage (key: string) {
 }
 
 
+
 export function setNewUserToLocalStorage (user: string) {
   localStorage.setItem('users', JSON.stringify(user));
 }
-
+export function getUserLocalStorage (user: string) {
+  const isUser = localStorage.getItem(user) ? JSON.parse(localStorage.getItem(user)!) : [];
+  return isUser;
+}
 
 export function removeUserLocalStorage(id: number) {
   const users = JSON.parse(localStorage.getItem('users') || '[]') as { id: number }[];

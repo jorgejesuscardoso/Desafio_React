@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FavoriteType } from "../../type";
-import { getFavoriteAndMarkedFromLocalStorage, removeFavoriteAndMarkedFromLocalStorage, setLocalStorage } from "../utils/Utils";
+import { getFavoriteAndMarkedFromLocalStorage, removeFavoriteAndMarkedFromLocalStorage, setFavoriteAndMarkedFromLocalStorage } from "../utils/Utils";
 import { liked, unliked } from "../icons/Imports";
 import { Container } from "./Style";
 
@@ -25,7 +25,7 @@ function Favorite (favoriteId: FavoriteType) {
       setFavorited(false);
       setFavoriteCount(favoriteCount - 1);
     } else {
-      setLocalStorage('favorite',favoriteId, storedItems);
+      setFavoriteAndMarkedFromLocalStorage('favorite',favoriteId, storedItems);
       setFavorited(true);
       setFavoriteCount(favoriteCount + 1);
     }

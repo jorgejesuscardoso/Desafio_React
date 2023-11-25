@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { markIcon, unMarkIcon } from "../icons/Imports";
 import { FavoriteType } from "../../type";
-import { getFavoriteAndMarkedFromLocalStorage, removeFavoriteAndMarkedFromLocalStorage, setLocalStorage } from "../utils/Utils";
+import { getFavoriteAndMarkedFromLocalStorage, removeFavoriteAndMarkedFromLocalStorage, setFavoriteAndMarkedFromLocalStorage } from "../utils/Utils";
 
 function Mark (id: FavoriteType) {
   const [isMarked, setMarked] = useState(false);
@@ -17,7 +17,7 @@ function Mark (id: FavoriteType) {
       removeFavoriteAndMarkedFromLocalStorage('marked',id, storedItems)
       setMarked(false)
     } else {
-      setLocalStorage('marked',id, storedItems)
+      setFavoriteAndMarkedFromLocalStorage('marked',id, storedItems)
       setMarked(true)
     }
   }
