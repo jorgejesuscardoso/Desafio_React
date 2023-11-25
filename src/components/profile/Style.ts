@@ -303,6 +303,12 @@ export const MsgErroNotLogged = styled.div`
     span {
       color: var(--green-600);
     }
+
+    @media (min-width: 900px) {
+      button {
+        width: 10%;
+      }
+    }
 `;
 export const MsgErro = styled.div`
   display: flex;
@@ -323,6 +329,12 @@ export const MsgErro = styled.div`
       color: white;
       font-weight: 600;
       border-radius: 3px;
+    }
+
+    @media (min-width: 900px) {
+      button {
+        width: 15%;
+      }
     }
 `;
 export const HomeButton = styled.button`

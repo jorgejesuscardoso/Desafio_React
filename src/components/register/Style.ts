@@ -23,7 +23,34 @@ export const Main = styled.main`
       margin-top: 50px;
       height: 70%;
       gap: 5px;
+
+        
     }
+    @media (min-width: 400px) and (max-width: 550px) {
+      width: 80%;
+      input {
+          width: 280px
+        }
+    }
+    @media (min-width: 551px) and (max-width: 768px) {
+      width: 70%;
+    }
+    @media (min-width: 768px) and (max-width: 1000px) {
+      form {
+        width: 65%;
+      }
+    }
+    @media (min-width: 1001px) and (max-width: 1200px) {
+      form {
+        width: 30%;
+      }
+    }
+    @media (min-width: 1201px) {
+      form {
+        width: 25%;
+      }
+    }
+
 `;
 export const Page0and1 = styled.div`
   display: flex;
@@ -31,15 +58,14 @@ export const Page0and1 = styled.div`
   gap: 8px;
 `;
 export const ErrMsgPage0 = styled.div`
-  position: fixed;
-  top: 67%;
-  left: 15%;
   width: 100%;
   color: var(--red);
 
     p {
       font-size: 14px;
     }
+
+
 `;
 export const PagesContent = styled.div`
   display: flex;
@@ -61,8 +87,40 @@ export const Page2 = styled.div`
       left: 29%;
       width: 150px;
     }
+
+    @media (min-width: 400px) and (max-width: 550px) {
+      width: 60%;
+        img {
+          top: 9%;
+          left: 35%;
+        }
+    }
+    @media (min-width: 550px) and (max-width: 768px) {
+      width: 40%;
+        img {
+          left: 37%;
+        }
+    }
+
+    @media (min-width: 768px) {
+      width: 25%;
+      top: 32%;
+        img {
+          top: 9%;
+          left: 41%;
+        }
+    }
+    @media (min-width: 1200px) {
+      width: 20%;
+      top: 30%;
+        img {
+          left: 44.5%;
+        }
+    
+    }
 `;
 export const Page3 = styled.div`
+  text-align: center;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -71,6 +129,10 @@ export const Page3 = styled.div`
   width: 70%;
   top: 45%;
   gap: 10px;
+
+    @media (min-width: 768px) {
+      
+    }
 `;
 export const MsgErrDiv = styled.div`
   position: fixed;
@@ -116,12 +178,22 @@ gap: 5px;
       font-weight: 600;
       border-radius: 5px;
     }
+
+    @media (min-width: 768px) {
+      button {
+        width: 15%;
+      }
+    }
 `;
 export const Foto = styled.img`
-  position: fixed;
   width: 150px;
-  top: 20%;
-  left: 30%;
+  margin: auto;
+  margin-top: -300px;
+  margin-bottom: 20%;
+  
+`;
+export const ContainerFoto = styled.div`
+  margin: auto;
 `;
 export const NavigateBtn = styled.div`
   position: fixed;
@@ -131,6 +203,11 @@ export const NavigateBtn = styled.div`
   width: 64%;
   height: 7vh;
   gap: 5px;
+
+  @media (min-width: 768px) {
+    width: 40%;
+  }
+
 `;
 export const PageNavigateBtn = styled.button`
   margin: auto;
@@ -143,6 +220,13 @@ export const PageNavigateBtn = styled.button`
   font-weight: 600;
   border-radius: 5px;
   bottom: 0;
+    
+    @media (min-width: 768px) {
+      width: 40%;
+    }
+    @media (min-width: 1000px) {
+      width: 30%;
+    }
 `;
 export const HomeNavigateBtnDiv = styled.div`
   background-color: var(--white);
@@ -169,6 +253,24 @@ export const Logo = styled.img`
   right:6%;
   width: 25%;
   height: 10%;
+
+    @media (min-width: 400px) {
+      right: 15%;
+    }
+    @media (min-width: 550px) {
+      right: 20%;
+    }
+    @media (min-width: 1000px) {
+      top: 5%;
+      right: 35%;
+      width: 15%;
+    }
+    @media (min-width: 1200px) {
+      top: 5%;
+      right: 40%;
+      width: 10%;
+    }
+
 `;
 export const BtnRegister = styled.button`
   position: fixed;
@@ -185,6 +287,19 @@ export const BtnRegister = styled.button`
   width: 50%;
   height: 4vh;
   gap: 5px;
+
+    @media (min-width: 500px) {
+      width: 30%;
+      right: 35%;
+    }
+    @media (min-width: 768px) {
+      width: 20%;
+      right: 40%;
+    }
+    @media (min-width: 1000px) {
+      width: 15%;
+      right: 43%;
+    }
 `;
 export const MsgHaveAccount = styled.div`
   background-color: rgb(179, 179, 179);
@@ -192,10 +307,10 @@ export const MsgHaveAccount = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 10px;
   width: 100%;
   height: 7vh;
   bottom: 0;
+  left: 0;
   font-size: 17px;
 
       button  {
@@ -207,4 +322,23 @@ export const MsgHaveAccount = styled.div`
         font-weight: 600;
         border-radius: 5px;
       }
+    @media (min-width: 550px) and (max-width: 768px) {
+      font-size: 15px;
+      button {
+        width: 20%;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1200px) {
+      font-size: 18px;
+      button {
+        width: 15%;
+      }
+    }
+
+    @media (min-width: 1201px) {
+      font-size: 18px;
+      button {
+        width: 10%;
+      }
+    }
 `;

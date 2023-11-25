@@ -31,6 +31,12 @@ export const ErrUserConnectedContainer = styled.div`
     margin: auto;
     height: 4vh;
   }
+
+  @media (min-width: 768px) {
+    button {
+      width: 20%;
+    }
+  }
 `
 export const Container = styled.main`
   background-image: url('src/assets/bnLogo.png');

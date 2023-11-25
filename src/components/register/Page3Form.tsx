@@ -1,6 +1,6 @@
 import { Page3FormProps } from "../../type";
 import { SemFoto } from "../icons/Imports";
-import { BtnRegister, Foto, Page3 } from "./Style";
+import { BtnRegister, ContainerFoto, Foto, Page3 } from "./Style";
 
 
 function Page3Form ({ thumb, setThumb, setError, setIsRegister, disable }: Page3FormProps) {
@@ -9,8 +9,8 @@ function Page3Form ({ thumb, setThumb, setError, setIsRegister, disable }: Page3
       <Page3>
         <Foto src={ SemFoto } alt="sem-foto" />
           <p>Gostaria de adicionar uma foto ao seu perfil ?</p>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <label htmlFor="thumb">Foto:</label>
+        <ContainerFoto style={{ display: 'flex', flexDirection: 'column' }}>
+          <label htmlFor="thumb">Insira a url da foto:</label>
           <input
             value={thumb}
             onChange={(e) => {
@@ -23,7 +23,7 @@ function Page3Form ({ thumb, setThumb, setError, setIsRegister, disable }: Page3
             id="thumb"
             data-testid='thumb'
           />
-        </div>
+        </ContainerFoto>
         <BtnRegister
           type='submit'
           className="btn-form-register"

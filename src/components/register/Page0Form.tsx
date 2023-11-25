@@ -59,11 +59,11 @@ function Page0Form ({ email, setEmail, password, setPassword, confirmPassword, s
             required
             data-testid='confirm-password'
           />
+          <ErrMsgPage0>
+            { email !== '' && <p>{error3}</p>}
+            { password !== confirmPassword && <p>As senhas não coincidem!</p>}
+          </ErrMsgPage0>
         </PagesContent>
-      <ErrMsgPage0>
-        { email !== '' && <p>{error3}</p>}
-        { password !== confirmPassword && <p>As senhas não coincidem!</p>}
-      </ErrMsgPage0>
       </Page0and1>
     </>
   )

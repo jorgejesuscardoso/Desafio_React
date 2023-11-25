@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react"
 import { AnyAction } from "redux"
-import { logoIcon } from "../icons/Imports"
 import { 
   Main,
   MsgErrDiv,
@@ -17,6 +16,7 @@ import Page3Form from "./Page3Form";
 import NavigateBtns from "./NavigateBtn";
 import PopUp from "./PopUp";
 import { useNavigate } from "react-router-dom";
+import { logoIcon } from "../icons/Imports";
 
 function Register () {
   const navigate = useNavigate();
@@ -199,10 +199,7 @@ return (
       />
 
     </form>
-    <MsgHaveAccount>
-      <h4>Já possui conta?</h4>
-      <button onClick={() => navigate('/login')}>Login</button>
-    </MsgHaveAccount>
+    
     { handlePopUp() }
     <MsgErrDiv>
       { error && 
@@ -212,6 +209,10 @@ return (
         </ErrToRegister>
       }
     </MsgErrDiv>
+    <MsgHaveAccount>
+      <h4>Já possui conta?</h4>
+      <button onClick={() => navigate('/login')}>Login</button>
+    </MsgHaveAccount>
   </Main>
   )
 }
