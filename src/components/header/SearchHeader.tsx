@@ -3,7 +3,7 @@ import { CloseSearch, Search, SearchButton } from "./Style";
 import { searchNewsAction } from "../redux/action/actions";
 import { SearchContentProps } from "../../type";
 
-function SearchContent ({ showSearch, setShowSearch, search, setSearch }: SearchContentProps) {
+function SearchContent ({ isdarkmode, showSearch, setShowSearch, search, setSearch }: SearchContentProps) {
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +12,9 @@ function SearchContent ({ showSearch, setShowSearch, search, setSearch }: Search
         e.preventDefault();
         dispatch(searchNewsAction(search));
         setSearch('');
-      } }>
+           }}
+        className={ isdarkmode ? 'dark-mode' : '' }
+       >
         <input
           type="text"
           placeholder="Pesquisar"
@@ -33,6 +35,7 @@ function SearchContent ({ showSearch, setShowSearch, search, setSearch }: Search
             setSearch('');
           } }          
           data-testid='close-search-btn'
+          className={ isdarkmode ? 'dark-mode' : '' }
         >
           ❌
         </CloseSearch>

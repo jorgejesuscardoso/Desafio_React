@@ -15,9 +15,12 @@ import MenuHeaderContent from "./MenuHeader";
 import SearchContent from "./SearchHeader";
 import IconesHeader from "./IconesHeader";
 import { UserTypes } from "../../type";
+import { useSelector } from "react-redux";
+import { DarkModeType } from "../home/Home";
 
 function Header () {
-  
+  const darkmode = useSelector((state: DarkModeType) => state.darkMode);
+    
   const [showSearch, setShowSearch] = useState(false); 
 
   const [search, setSearch] = useState('');
@@ -27,6 +30,17 @@ function Header () {
   const [userConectado, setUserConectado] = useState<boolean>(false); 
 
   const [user, setUser] = useState({ name: '', thumb: ''});
+  const [isDarkMode, setIsDarkMode] = useState(darkmode);
+
+  useEffect(() => {
+    setIsDarkMode(darkmode);
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+  , [darkmode]);
 
   useEffect(() => {
     const user = localStorage.getItem('connected');
@@ -42,7 +56,7 @@ function Header () {
   }
   ,[userConectado]);
   return (
-  <HeaderContainer>
+  <HeaderContainer className={ isDarkMode ? 'dark-mode' : '' }>
     <button
       onClick={ () => window.location.reload() }
       data-testid="btn-logo"
@@ -74,6 +88,7 @@ function Header () {
           setShowSearch={ setShowSearch }
           search={ search }
           setSearch={ setSearch }
+          isdarkmode={ isDarkMode }
         />
           ) : (   <></>
           )}
@@ -82,6 +97,7 @@ function Header () {
           userConectado={ userConectado }
           setUserConectado={ setUserConectado }
           setShowMenu={ setShowMenu }
+          isdarkmode={ isDarkMode }
         />
       ) : ( <></> )}
     </Icones>

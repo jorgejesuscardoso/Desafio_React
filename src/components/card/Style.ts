@@ -95,3 +95,11 @@ export const CardImg = styled.img`
     overflow: hidden;
   }
 `;
+export const DarkModeButton = styled.button`
+  position: fixed;
+  bottom: 15%;
+  left: 2%;
+  width: 50px;
+  border: 1px solid ;
+  z-index: 10000;
+`;

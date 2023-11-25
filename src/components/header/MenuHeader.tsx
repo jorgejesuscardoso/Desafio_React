@@ -3,7 +3,7 @@ import { MenuHeader } from "./Style";
 import { MenuHeaderContentProps } from "../../type";
 
 
-function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: MenuHeaderContentProps) {
+function MenuHeaderContent ({ isdarkmode, userConectado, setUserConectado, setShowMenu }: MenuHeaderContentProps) {
   const navigate = useNavigate();
   
   const handleLogout = () => {
@@ -17,7 +17,7 @@ function MenuHeaderContent ({ userConectado, setUserConectado, setShowMenu }: Me
     }
   };
   return (
-    <MenuHeader data-testid='menu-header'>
+    <MenuHeader data-testid='menu-header' className={ isdarkmode ? 'dark-mode' : '' }>
     <ul>
       <li>
         <button

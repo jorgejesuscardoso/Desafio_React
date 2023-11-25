@@ -143,5 +143,12 @@ export const searchNewsReducer = (state = INITIAL_SEARCH, action: AnyAction) => 
       return state;
   }
 }
-
+export const darkModeReducer = (state = false, action: AnyAction) => {
+  switch (action.type) {
+    case 'DARKE_MODE':
+      return !state;
+    default:
+      return state;
+  }
+}
 export default reducer;

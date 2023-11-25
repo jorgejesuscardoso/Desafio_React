@@ -13,12 +13,14 @@ export interface MenuHeaderContentProps {
   userConectado: boolean;
   setUserConectado: React.Dispatch<React.SetStateAction<boolean>>;
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  isdarkmode: boolean;
 }
 export interface SearchContentProps {
   showSearch: boolean;
   setShowSearch: (value: boolean) => void;
   search: string;
   setSearch: (value: string) => void;
+  isdarkmode: boolean;
 }
 export interface IconesHeaderProps {
   showSearch: boolean;

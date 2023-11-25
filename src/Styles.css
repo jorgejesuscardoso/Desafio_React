@@ -84,9 +84,15 @@ h3 {
   background-color: var(--gray-300) !important;
 }
 
+.dark-mode {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+}
+
 :root {
   --white: #fff;
   --black-opacity-05: rgba(0, 0, 0, 0.5);
+  --black: #1f1f1f;
   --gray-300:rgb(100, 100, 100);
   --gray-400-02: rgba(124, 124, 124, 0.2);
   --brown-200: rgba(117, 81, 63, 0.5);

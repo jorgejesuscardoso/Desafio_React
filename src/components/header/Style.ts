@@ -151,17 +151,16 @@ export const MenuHeader = styled.div`
   justify-content: space-evenly;
   align-items: center;
   position: fixed;
-  width: 27%;
+  width: 17%;
   top: 49px;
   right: 1%;
-  height: 23vh;
-  border-radius: 4px;
+  height: 15vh;
   z-index: 99;
     
     button {
     background-color: var(--white);
     width: 100%;
-    height: 3.5vh;
+    height: 2vh;
     font-size: 14px;
     color: var(--gray-300);
     font-weight: 600;
@@ -172,7 +171,7 @@ export const MenuHeader = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 90%;
+    width: 100%;
   }
   li {
     text-align: center;
@@ -180,13 +179,13 @@ export const MenuHeader = styled.div`
 
   @media (min-width: 768px) {
     top: 100px;
-    width: 20%;
+    width: 7%;
     button {
-      height: 5vh;
-      font-size: 22px;
+      height: 3vh;
+      font-size: 16px;
     }
     h2 {
-      font-size: 22px;
+      font-size: 16px;
     }
   }
 `;

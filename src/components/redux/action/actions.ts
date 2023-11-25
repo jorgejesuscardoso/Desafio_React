@@ -9,6 +9,7 @@ export const FILTER_ECONOMY = 'FILTER_ECONOMY';
 export const FILTER_MARKED = 'FILTER_MARKED';
 export const FILTER_FAVORITE = 'FILTER_FAVORITE';
 export const SHEARCH_NEWS = 'SHEARCH_NEWS';
+export const DARKE_MODE = 'DARKE_MODE';
 
 export const nextPagesAction = () => {
     return {
@@ -77,5 +78,10 @@ export const searchNewsAction = (search: string) => {
   return {
       type: SHEARCH_NEWS,
       payload: search,
+  };
+}
+export const darkModeAction = () => {
+  return {
+      type: DARKE_MODE,
   };
 }

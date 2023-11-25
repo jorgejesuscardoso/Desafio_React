@@ -11,7 +11,7 @@ import { DateProp,
   SearchNewsType } from "../../type";
 import { PrevBtn } from "../buttons/Prev";
 import { NextBtn } from "../buttons/Next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FooterFIlterBtn from "../buttons/FooterFIlterBtn";
 import DisplayFooterFIlter from "../filter/DisplayFooterFIlter";
 import FilterDate from "../filter/DisplayDateFilter";
@@ -24,10 +24,15 @@ import {
 import PopUp from "./PopUp";
 import Content from "./HomeContent";
 import Footer from "../footer/Footer";
-
+import { DarkModeButton } from "../card/Style";
+import { darkModeAction } from "../redux/action/actions";
+export type DarkModeType = {
+  darkMode: boolean;
+}
 
 function Home() {
 
+  const dispatch = useDispatch();
   const handlePage = useSelector((state: PagesState) => state.pageReducer); 
   const nextOrPrevPage = handlePage.page // Armazena o estado do redux. Botoes next e prev
 
@@ -53,7 +58,8 @@ function Home() {
   const [error, setError] = useState(false); 
   const [numberPage, setNumberPage] = useState(1);
   const [typeNews, setTypeNews] = useState(''); 
-  const [popUp, setPopUp] = useState(''); 
+  const [popUp, setPopUp] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(false); 
 
   
   useEffect(() => {
@@ -97,9 +103,17 @@ function Home() {
   const renderPopUp = () => {
     return popUp ? <PopUp popUp={popUp} setPopUp={setPopUp} /> : null;
   };
+  const renderDarkMode = () => {
+    localStorage.setItem('darkMode', JSON.stringify(!isDarkMode));
+    setIsDarkMode(!isDarkMode);
+    dispatch(darkModeAction());
+  }
   return (
     <>
       <Header />
+        <DarkModeButton onClick={ renderDarkMode }>
+          { isDarkMode ? '🌞' : '🌒' }
+        </DarkModeButton>
       <Container>
         <CardContainer className="card-container">
           <Content

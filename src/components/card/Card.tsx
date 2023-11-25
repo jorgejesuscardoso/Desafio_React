@@ -5,10 +5,26 @@ import Favorite from "../favorite/Favorite";
 import Share from "../share/ShareIcon";
 import Mark from "../mark/Mark";
 import { CardContainer, CardImg, FooterCard, FullNewsLink, IntroNews, PostDate } from "./Style";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { DarkModeType } from "../home/Home";
 
 function NewsCard (item: any) {
+
+  const darkMode = useSelector((state: DarkModeType) => state.darkMode);
+  console.log(darkMode);
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
-  
+  const [isDarkMode, setIsDarkMode] = useState(darkMode);
+
+useEffect(() => {
+  setIsDarkMode(darkMode);
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+}
+, [darkMode]);
   
   // Obtem o JSON com as imagens da API, e converte para objeto
   const startPosImageIntro = imagens && imagens.indexOf('"image_intro":"') + '"image_intro":"'.length;
@@ -23,7 +39,10 @@ function NewsCard (item: any) {
   const domain = url &&  url.hostname;
  
   return (
-    <CardContainer key={id}>      
+    <CardContainer
+      key={id}
+      className={ isDarkMode ? 'dark-mode' : '' }
+      >      
       <CardImg
         src={ `https://${domain}/${imageIntroUrl}` }
         alt="Imagem da notícia"
@@ -52,7 +71,6 @@ function NewsCard (item: any) {
         <Share id={ id } />
         <Mark id={ id }/>
       </FooterCard>
-
    </CardContainer>
   );
 }
