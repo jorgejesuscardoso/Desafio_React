@@ -15,8 +15,7 @@ export const CardContainer = styled.div`
 
     //hover
     &:hover {
-      box-shadow: 1px 1px 15px 1px var(--green-900-05);
-      width: 95%;
+      box-shadow: 1px 1px 15px 5px var(--green-900-05);
       transition: 0.3s;
     }
 
