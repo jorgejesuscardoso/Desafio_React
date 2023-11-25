@@ -1,14 +1,11 @@
 
-const larguraDaTela = window.innerWidth; // obtém a largura da tela
-
-const valor = larguraDaTela < 1024 ? 15 : 50;
 async function FetchApi(
   type: string,
   page: number,
   date: string,
   subject: string
   ) {
-  const handleEndPoint = type ? `tipo=${type}&qtd=15&page=${page}` : `page=${page}&qtd=${valor}`
+  const handleEndPoint = type ? `tipo=${type}&qtd=15&page=${page}` : `page=${page}&qtd=12`
   const handleDate = date ? `&${date}` : '';
   const handleSubject = subject ? `busca=${subject}` : '';
   const url = `${handleSubject}${handleEndPoint}${handleDate}`

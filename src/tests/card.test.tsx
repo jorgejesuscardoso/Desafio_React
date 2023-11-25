@@ -55,7 +55,7 @@ test('Testa o componente Card', async () => {
 
   expect(cardimg).toBeInTheDocument();
 
-  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=50');
+  expect(mockeFetch).toHaveBeenCalledWith('https://servicodados.ibge.gov.br/api/v3/noticias/?page=1&qtd=12');
 });
 
 test('Testa o componente Card', async () => {

@@ -34,6 +34,13 @@ export const ContainerFooterMenu = styled.div`
       margin: auto;
       border-radius: 5px;
     }
+
+    @media (min-width: 768px) {
+      top: 100px;
+      left: 8%;
+      width: 110px;
+      height: 31vh;
+    }
 `;
 export const TitleFooterMenu = styled.div`
   display: flex;
@@ -61,6 +68,15 @@ export const FilterFooterMenu = styled.div`
     img {
       width: 20px;
       height: 25px;
+    }
+
+    @media (min-width: 768px) {
+      background-color: var(--gray-200);
+      position: fixed;
+      top: 35px;
+      left: 110px;
+      width: 5%;
+      z-index: 99;
     }
 `;
 

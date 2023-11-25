@@ -23,8 +23,18 @@ export const FooterHome = styled.footer`
   width: 100%;
 
     @media (min-width: 768px) {
-      display: none;
+      display: flex;
+      justify-content: space-evenly;
+      position: relative;
+      width: 100%;
+      height: 10vh;
+      button {
+        width: 30%;
+        height: 5vh;
+        margin-bottom: 10px;
+      }
     }
+
 `;
 export const CardContainer = styled.section`
   display: flex;
