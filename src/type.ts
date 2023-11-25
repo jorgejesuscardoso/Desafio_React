@@ -28,6 +28,7 @@ export interface IconesHeaderProps {
   setSearch: (value: string) => void;
   showMenu: boolean;
   setShowMenu: (value: boolean) => void;
+  isdarkmode: boolean;
 }
 export interface PopUpProps {
   popUp: string;

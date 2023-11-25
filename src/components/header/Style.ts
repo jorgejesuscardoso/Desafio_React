@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
+  background-color: var(--white );
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +13,6 @@ export const HeaderContainer = styled.header`
   overflow: hidden;
 
     @media (min-width: 768px) {
-      background-color: var(--white );
       height: 100px;
       max-height: 120px;
       top: 0;
@@ -25,8 +25,7 @@ export const Icones = styled.div`
   width: 100%;
 
     @media (min-width: 768px) {
-      height: 100px;
-      align-items: center;
+      width: 30%;
     }
 `;
 export const UserNameHeader = styled.div`
@@ -74,6 +73,7 @@ export const Ico = styled.img`
    
     @media (min-width: 768px) {
       width: 30px;
+      height: 40%;
     }
 `;
 export const Search = styled.div`
@@ -81,15 +81,17 @@ export const Search = styled.div`
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   width: 100%;
   top: 0;
+  left: 10%;
   max-height: 50px;
-  gap: 100px;
+  gap: 10px;
   z-index: 99;
 
     input {
-      width: 55%;
+      width: 35%;
       height: 30px;
       border-radius: 5px;
       padding-left: 10px;
@@ -99,28 +101,33 @@ export const Search = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      width: 80%;
+      width: 100%;
       height: 100%; 
     }
 
     @media (min-width: 768px) {
       height: 100px;
-      max-height: 120px;
+      max-height: 100px;
       top: 0;
       align-items: center;
+      justify-content: space-evenly;
 
       input {
-        width: 50%;
+        width: 40%;
         height: 50px;
       }
       form {
-        width: 70%;
+        width: 100%;
         height: 100%; 
+      }
+      button {
+        width: 5%;
+        height: 50px;
+      
       }
     }
 `;
 export const SearchButton = styled.button` 
-  width: 20%;
   height: 30px;
   border-radius: 5px;
   background-color: rgb(0, 150, 50);
@@ -151,16 +158,16 @@ export const MenuHeader = styled.div`
   justify-content: space-evenly;
   align-items: center;
   position: fixed;
-  width: 17%;
+  width: 27%;
   top: 49px;
   right: 1%;
-  height: 15vh;
+  height: 23vh;
   z-index: 99;
     
     button {
     background-color: var(--white);
-    width: 70%;
-    height: 2vh;
+    width: 100%;
+    height: 3.5vh;
     font-size: 14px;
     color: var(--gray-300);
     font-weight: 600;
@@ -171,7 +178,7 @@ export const MenuHeader = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
-    width: 100%;
+    width: 90%;
   }
   li {
     text-align: center;
@@ -179,7 +186,8 @@ export const MenuHeader = styled.div`
 
   @media (min-width: 768px) {
     top: 100px;
-    width: 7%;
+    width: 8%;
+    height: 15vh;
     button {
       height: 2.5vh;
       font-size: 16px;
@@ -203,6 +211,7 @@ export const TopFilterContainer = styled.div`
     button {
       width: 19%;
       height: 3.5vh;
+      font-weight: 600;
     }
 
     @media (min-width: 768px) {

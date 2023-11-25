@@ -10,7 +10,7 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: transparent;
+  background-color: white;
 }
 input {
   outline: none;

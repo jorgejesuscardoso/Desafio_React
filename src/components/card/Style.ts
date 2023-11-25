@@ -96,10 +96,12 @@ export const CardImg = styled.img`
   }
 `;
 export const DarkModeButton = styled.button`
+  background-color: var(--gray-300);
   position: fixed;
-  bottom: 15%;
+  bottom: 11%;
   left: 2%;
   width: 50px;
-  border: 1px solid ;
+  height: 50px;
+  border-radius: 50%;
   z-index: 10000;
 `;

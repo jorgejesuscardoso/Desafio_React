@@ -12,13 +12,13 @@ import { DarkModeType } from "../home/Home";
 function NewsCard (item: any) {
 
   const darkMode = useSelector((state: DarkModeType) => state.darkMode);
-  console.log(darkMode);
+  
   const { id, titulo, link, imagens, introducao, data_publicacao } = item;
   const [isDarkMode, setIsDarkMode] = useState(darkMode);
 
 useEffect(() => {
   setIsDarkMode(darkMode);
-  if (localStorage.getItem('darkMode') === 'true') {
+  if (darkMode) {
     document.body.classList.add('dark-mode');
   } else {
     document.body.classList.remove('dark-mode');

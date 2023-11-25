@@ -30,15 +30,10 @@ function Header () {
   const [userConectado, setUserConectado] = useState<boolean>(false); 
 
   const [user, setUser] = useState({ name: '', thumb: ''});
-  const [isDarkMode, setIsDarkMode] = useState(darkmode);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     setIsDarkMode(darkmode);
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-    } else {
-      document.body.classList.remove('dark-mode');
-    }
   }
   , [darkmode]);
 
@@ -81,6 +76,7 @@ function Header () {
         setSearch={ setSearch }
         showMenu={ showMenu }
         setShowMenu={ setShowMenu }
+        isdarkmode={ isDarkMode }
       />
       { showSearch ? (
         <SearchContent
@@ -101,7 +97,7 @@ function Header () {
         />
       ) : ( <></> )}
     </Icones>
-    <TopFilterContainer className="top-filter">
+    <TopFilterContainer className={ isDarkMode ? "top-filter dark-mode" : "top-filter" }>
       <TopFilter />
     </TopFilterContainer>
   </HeaderContainer>
