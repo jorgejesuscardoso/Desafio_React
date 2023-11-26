@@ -22,7 +22,7 @@ export const HeaderContainer = styled.header`
 export const Icones = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 50%;
 
     @media (min-width: 768px) {
       width: 30%;
