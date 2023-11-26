@@ -13,49 +13,66 @@ function Contact() {
         <br/>
           <ul>
             <li>
-              <a 
-                href="https://www.linkedin.com/in/jorgejesuscardoso/" 
-                target="_blank"
-                rel="noreferrer"
-              >
-                <h3>Linkedin</h3>
-              </a>
+             <h3>Linkedin: {' '}
+                <a 
+                  href="https://www.linkedin.com/in/jorgejesuscardoso/" 
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{color: 'blue'}}
+                >
+                  https://www.linkedin.com/in/jorgejesuscardoso/
+                </a>
+              </h3>
             </li>
             <li>
-              <a 
-                href="https://github.com/jorgejesuscardoso"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <h3>Github</h3>
-              </a>
+              <h3>Github: {' '}
+                
+                <a 
+                  href="https://github.com/jorgejesuscardoso"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{color: 'blue'}}
+                > 
+                   https://github.com/jorgejesuscardoso
+                </a>
+              </h3>
             </li>
             <li>
-              <a 
-                href="https://www.facebook.com/tst.jorgecardoso/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <h3>Facebook</h3>
-              </a>
+              <h3>Facebook: {' '}
+                <a 
+                  href="https://www.facebook.com/tst.jorgecardoso/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{color: 'blue'}}
+                >
+                  https://www.facebook.com/tst.jorgecardoso/
+                </a>
+              </h3>
             </li>
             <li>
-              <a 
-                href="https://www.instagram.com/jorge.bushido/"
-                target="_blank"
-              >
-                <h3>Instagram</h3>
-              </a>  
+              <h3>Instagram: {' '}
+                <a 
+                  href="https://www.instagram.com/jorge.bushido/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{color: 'blue'}}
+                >
+                  https://www.instagram.com/jorge.bushido/
+                </a>
+              </h3>
             </li>
           </ul>
-        <h3>Ou mande um email para:</h3>
+        <h3 style={{ textAlign: 'center' }} >Ou mande um email para:</h3>
+        <br />
         <p style={{textAlign: 'center'}}>tst.jorgecardoso@gmail.com</p>
+        <br />
+        <br />
       </section>
     <button
       onClick={() => navigate('/')}
-      style={{ marginTop: 150, margin: 'auto'}}
       className="home-btn"
       data-testid="home-btn"
+      style={{ marginTop: 50, margin: 'auto', width: '100px', height: '40px' }}
     >
       Inicio
     </button>
