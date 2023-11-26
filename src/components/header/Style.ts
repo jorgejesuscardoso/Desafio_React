@@ -217,7 +217,7 @@ export const TopFilterContainer = styled.div`
 
     @media (min-width: 768px) {
       height: 5vh;
-      top: 100px;
+      top: 50px;
       background-color: var(--gray-200);
       button {
         font-size: 16px;
