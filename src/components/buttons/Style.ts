@@ -36,7 +36,7 @@ export const ContainerFooterMenu = styled.div`
     }
 
     @media (min-width: 768px) {
-      top: 100px;
+      top: 50px;
       left: 80px;
       width: 150px;
       height: 31vh;
@@ -73,7 +73,7 @@ export const FilterFooterMenu = styled.div`
     @media (min-width: 768px) {
       background-color: transparent;
       position: fixed;
-      top: 35px;
+      top: 10px;
       left: 110px;
       width: 2%;
       z-index: 99;

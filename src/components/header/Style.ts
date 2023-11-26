@@ -8,12 +8,12 @@ export const HeaderContainer = styled.header`
   position: fixed;
   border-bottom: 1px solid #000c005b;
   width: 100%;
-  max-height: 50px;
+  height: 50px;
   z-index: 99;
   overflow: hidden;
 
     @media (min-width: 768px) {
-      height: 100px;
+      height: 50px;
       max-height: 120px;
       top: 0;
       align-items: center;
@@ -25,33 +25,12 @@ export const Icones = styled.div`
   width: 50%;
 
     @media (min-width: 768px) {
-      width: 30%;
-      height: 80%;
-    }
-`;
-export const UserNameHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--blue-400);
-  font-weight: 600;
-  width: 22vh;
-    
-    h2 {
-      font-size: 1.5rem;
-    }
-    img {      
-      margin-left: 0;
-      width: 5vh;
-      height: 4.5vh;
-      border: none;
-      border-radius: 20px;
-    }
+      width: 20%;
+      height: 100%;
 
-    @media (min-width: 768px) {
-      display:none
     }
 `;
+
 export const Logo = styled.img`
   width: 70px;
 
@@ -77,7 +56,7 @@ export const Search = styled.div`
   width: 100%;
   top: 0;
   left: 10%;
-  max-height: 50px;
+  max-height: 40px;
   gap: 10px;
   z-index: 99;
 
@@ -97,25 +76,21 @@ export const Search = styled.div`
     }
 
     @media (min-width: 768px) {
-      height: 100px;
-      max-height: 100px;
+      height: 50px;
+      max-height: 50px;
       top: 0;
       align-items: center;
       justify-content: space-evenly;
 
       input {
-        width: 40%;
-        height: 50px;
+        width: 60%;
+        height: 40px;
       }
       form {
-        width: 100%;
+        width: 40%;
         height: 100%; 
       }
-      button {
-        width: 5%;
-        height: 50px;
       
-      }
     }
 `;
 export const SearchButton = styled.button` 
@@ -125,7 +100,8 @@ export const SearchButton = styled.button`
   color: white;
     
     @media (min-width: 768px) {
-      height: 50px;
+      width: 9%;
+      height: 40px;
     }
 
 `;
@@ -139,7 +115,7 @@ export const CloseSearch = styled.button`
       position: fixed;
       height: 50px;
       width: 15%;
-      right: 10px;
+      right: 0;
     }
 `;
 export const MenuHeader = styled.div`
@@ -151,7 +127,7 @@ export const MenuHeader = styled.div`
   position: fixed;
   width: 27%;
   top: 49px;
-  right: 1%;
+  right: 0;
   height: 23vh;
   z-index: 99;
     
@@ -176,7 +152,7 @@ export const MenuHeader = styled.div`
   }
 
   @media (min-width: 768px) {
-    top: 100px;
+    top: 50px;
     width: 8%;
     height: 15vh;
     button {
@@ -188,7 +164,7 @@ export const MenuHeader = styled.div`
     }
   }
   @media (min-width: 500px) {
-    top: 100px;
+    top: 50px;
     width: 12%;
     height: 15vh;
     button {
@@ -196,7 +172,7 @@ export const MenuHeader = styled.div`
     }
   }
   @media (min-width: 1024px) {
-    top: 100px;
+    top: 50px;
     width: 13%;
     height: 17vh;
     button {
@@ -208,7 +184,7 @@ export const MenuHeader = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    top: 100px;
+    top: 50px;
     width: 7%;
     height: 17vh;
     button {
@@ -251,15 +227,9 @@ export const TopFilterContainer = styled.div`
     }
     @media (min-width: 1024px) {
       height: 5vh;
-      top: 100px;
+      top: 50px;
       background-color: var(--gray-200);
       gap: 7px;
      
     }
-`;
-export const UserNameConnected = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 `;
