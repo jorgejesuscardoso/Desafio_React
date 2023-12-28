@@ -148,15 +148,15 @@ Apos executar o comando, será exibido no terminarl os resultados dos testes.
 Para executar os testes com cobertura, basta rodar o comando `npm run test` ou `yarn test`. Para cobertura, `npm run coverage` ou `yarn run coverage`. Apos executar o comando, será exibido no terminarl os resultados dos testes e/ou cobertura dos respectivos arquivos e suas funções, linhas e branches.
 
 Exemplo `npm run test`: <br/>Teste bem sucedido
-<img src="testSucess.png"/>
+<img src="public/testSucess.png"/>
 
 Exemplo `npm run test`: <br/>
 Houve um teste com falha
-<img src="testFail.png">
+<img src="public/testFail.png">
 
 Exemplo `npm run coverage`: <br/>
 Teste de cobertura
-<div><img src="testCoverage.png" />
+<div><img src="public/testCoverage.png" />
 
 #### Build
 Para fazer o build do projeto, basta rodar o comando `npm run build` ou `yarn build`.
